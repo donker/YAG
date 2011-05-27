@@ -1,0 +1,10 @@
+﻿<hr />
+<h3>Template Description</h3>
+<p>
+Slimbox 2 is a 4 KB visual clone of the popular Lightbox 2 script by Lokesh Dhakar, written using the jQuery javascript library. It was designed to be very small, efficient, standards-friendly, fully customizable, more convenient and 100% compatible with the original Lightbox 2. <a href="http://www.digitalia.be/software/slimbox2" target="_new">Read more ...</a>
+</p>
+<h4>License</h4>
+<p>
+ “Slimbox is free software released under MIT License. If you like it, talk about it and promote it by linking to <a href="http://www.digitalia.be/software/slimbox2" target="_new">this page.</a>”
+</p>
+<hr />

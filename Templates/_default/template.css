@@ -1,0 +1,19 @@
+﻿*
+{
+ margin: 0;
+ padding: 0;
+}
+ul li
+{
+ display: inline;
+}
+.fleft
+{
+ float: left;
+ margin: 0 20px 0 0;
+}
+.cboth
+{
+ clear: both;
+}
+

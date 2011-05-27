@@ -1,0 +1,307 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="padding.Help" xml:space="preserve">
+    <value>Space between FancyBox wrapper and content (default 10)</value>
+  </data>
+  <data name="padding.Text" xml:space="preserve">
+    <value>Padding</value>
+  </data>
+  <data name="margin.Help" xml:space="preserve">
+    <value>Space between viewport and FancyBox wrapper (default 20)</value>
+  </data>
+  <data name="margin.Text" xml:space="preserve">
+    <value>Margin</value>
+  </data>
+  <data name="opacity.Help" xml:space="preserve">
+    <value>When true, transparency of content is changed for elastic transitions (default false)</value>
+  </data>
+  <data name="opacity.Text" xml:space="preserve">
+    <value>Opacity</value>
+  </data>
+  <data name="modal.Help" xml:space="preserve">
+    <value>When true, 'overlayShow' is set to 'true' and 'hideOnOverlayClick', 'hideOnContentClick', 'enableEscapeButton', 'showCloseButton' are set to 'false' (default false)</value>
+  </data>
+  <data name="modal.Text" xml:space="preserve">
+    <value>Modal</value>
+  </data>
+  <data name="cyclic.Help" xml:space="preserve">
+    <value>When true, galleries will be cyclic, allowing you to keep pressing next/back. (default false)</value>
+  </data>
+  <data name="cyclic.Text" xml:space="preserve">
+    <value>Cyclic</value>
+  </data>
+  <data name="scrolling.Help" xml:space="preserve">
+    <value>Set the overflow CSS property to create or hide scrollbars. Can be set to 'auto', 'yes', or 'no' (default 'auto')</value>
+  </data>
+  <data name="scrolling.Text" xml:space="preserve">
+    <value>Scrolling</value>
+  </data>
+  <data name="width.Help" xml:space="preserve">
+    <value>Width for content types 'iframe' and 'swf'. Also set for inline content if 'autoDimensions' is set to 'false' (default 560)</value>
+  </data>
+  <data name="width.Text" xml:space="preserve">
+    <value>Width</value>
+  </data>
+  <data name="height.Help" xml:space="preserve">
+    <value>Height for content types 'iframe' and 'swf'. Also set for inline content if 'autoDimensions' is set to 'false' (default 340)</value>
+  </data>
+  <data name="height.Text" xml:space="preserve">
+    <value>Height</value>
+  </data>
+  <data name="autoScale.Help" xml:space="preserve">
+    <value>If true, FancyBox is scaled to fit in viewport (default true)</value>
+  </data>
+  <data name="autoScale.Text" xml:space="preserve">
+    <value>Auto Scale</value>
+  </data>
+  <data name="autoDimensions.Help" xml:space="preserve">
+    <value>For inline and ajax views, resizes the view to the element recieves. Make sure it has dimensions otherwise this will give unexpected results (default true)</value>
+  </data>
+  <data name="autoDimensions.Text" xml:space="preserve">
+    <value>Auto Dimensions</value>
+  </data>
+  <data name="centerOnScroll.Help" xml:space="preserve">
+    <value>When true, FancyBox is centered while scrolling page
+Note: 'error' and 'success' will be overwritten by FancyBox (default false)</value>
+  </data>
+  <data name="centerOnScroll.Text" xml:space="preserve">
+    <value>Center On Scroll</value>
+  </data>
+  <data name="swf.Help" xml:space="preserve">
+    <value>Params to put on the swf object (default {wmode: 'transparent'})</value>
+  </data>
+  <data name="swf.Text" xml:space="preserve">
+    <value>swf</value>
+  </data>
+  <data name="hideOnOverlayClick.Help" xml:space="preserve">
+    <value>Toggle if clicking the overlay should close FancyBox (default true)</value>
+  </data>
+  <data name="hideOnOverlayClick.Text" xml:space="preserve">
+    <value>Hide On Overlay Click</value>
+  </data>
+  <data name="hideOnContentClick.Help" xml:space="preserve">
+    <value>Toggle if clicking the content should close FancyBox (default false)</value>
+  </data>
+  <data name="hideOnContentClick.Text" xml:space="preserve">
+    <value>Hide On Content Click</value>
+  </data>
+  <data name="overlayShow.Help" xml:space="preserve">
+    <value>Toggle overlay (default true)</value>
+  </data>
+  <data name="overlayShow.Text" xml:space="preserve">
+    <value>Overlay Show</value>
+  </data>
+  <data name="overlayOpacity.Help" xml:space="preserve">
+    <value>Opacity of the overlay (from 0 to 1; default - 0.3) (default 0.3)</value>
+  </data>
+  <data name="overlayOpacity.Text" xml:space="preserve">
+    <value>Overlay Opacity</value>
+  </data>
+  <data name="overlayColor.Help" xml:space="preserve">
+    <value>Color of the overlay (default '#666')</value>
+  </data>
+  <data name="overlayColor.Text" xml:space="preserve">
+    <value>Overlay Color</value>
+  </data>
+  <data name="titleShow.Help" xml:space="preserve">
+    <value>Toggle title (default true)</value>
+  </data>
+  <data name="titleShow.Text" xml:space="preserve">
+    <value>Title Show</value>
+  </data>
+  <data name="titlePosition.Help" xml:space="preserve">
+    <value>The position of title. Can be set to 'outside', 'inside' or 'over' (default 'outside')</value>
+  </data>
+  <data name="titlePosition.Text" xml:space="preserve">
+    <value>Title Position</value>
+  </data>
+  <data name="titleFormat.Help" xml:space="preserve">
+    <value>Callback to customize title area. You can set any html - custom image counter or even custom navigation (default null)</value>
+  </data>
+  <data name="titleFormat.Text" xml:space="preserve">
+    <value>Title Format</value>
+  </data>
+  <data name="transitionIn.Help" xml:space="preserve">
+    <value>The transition type. Can be set to 'elastic', 'fade' or 'none' (default 'fade')</value>
+  </data>
+  <data name="transitionIn.Text" xml:space="preserve">
+    <value>Transition In</value>
+  </data>
+  <data name="transitionOut.Help" xml:space="preserve">
+    <value>The transition type. Can be set to 'elastic', 'fade' or 'none' (default 'fade')</value>
+  </data>
+  <data name="transitionOut.Text" xml:space="preserve">
+    <value>Transition Out</value>
+  </data>
+  <data name="speedIn.Help" xml:space="preserve">
+    <value>Speed of the fade and elastic transitions, in milliseconds (default 300)</value>
+  </data>
+  <data name="speedIn.Text" xml:space="preserve">
+    <value>Speed In</value>
+  </data>
+  <data name="speedOut.Help" xml:space="preserve">
+    <value>Speed of the fade and elastic transitions, in milliseconds (default 300)</value>
+  </data>
+  <data name="speedOut.Text" xml:space="preserve">
+    <value>Speed Out</value>
+  </data>
+  <data name="changeSpeed.Help" xml:space="preserve">
+    <value>Speed of resizing when changing gallery items, in milliseconds (default 300)</value>
+  </data>
+  <data name="changeSpeed.Text" xml:space="preserve">
+    <value>Change Speed</value>
+  </data>
+  <data name="changeFade.Help" xml:space="preserve">
+    <value>Speed of the content fading while changing gallery items (default 'fast')</value>
+  </data>
+  <data name="changeFade.Text" xml:space="preserve">
+    <value>Change Fade</value>
+  </data>
+  <data name="easingIn.Help" xml:space="preserve">
+    <value>Easing used for elastic animations (default 'swing')</value>
+  </data>
+  <data name="easingIn.Text" xml:space="preserve">
+    <value>Easing In</value>
+  </data>
+  <data name="easingOut.Help" xml:space="preserve">
+    <value>Easing used for elastic animations (default 'swing')</value>
+  </data>
+  <data name="easingOut.Text" xml:space="preserve">
+    <value>Easing Out</value>
+  </data>
+  <data name="showCloseButton.Help" xml:space="preserve">
+    <value>Toggle close button (default true)</value>
+  </data>
+  <data name="showCloseButton.Text" xml:space="preserve">
+    <value>Show Close Button</value>
+  </data>
+  <data name="showNavArrows.Help" xml:space="preserve">
+    <value>Toggle navigation arrows (default true)</value>
+  </data>
+  <data name="showNavArrows.Text" xml:space="preserve">
+    <value>Show Nav Arrows</value>
+  </data>
+  <data name="enableEscapeButton.Help" xml:space="preserve">
+    <value>Toggle if pressing Esc button closes FancyBox (default true)</value>
+  </data>
+  <data name="enableEscapeButton.Text" xml:space="preserve">
+    <value>Enable Escape Button</value>
+  </data>
+</root>

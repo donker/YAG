@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="transition.Text" xml:space="preserve">
+    <value>Transition</value>
+  </data>
+  <data name="transition.Help" xml:space="preserve">
+    <value>The transition type. Can be set to "elastic", "fade", or "none".</value>
+  </data>
+  <data name="speed.Text" xml:space="preserve">
+    <value>Speed</value>
+  </data>
+  <data name="speed.Help" xml:space="preserve">
+    <value>Sets the speed of the fade and elastic transitions, in milliseconds.</value>
+  </data>
+  <data name="width.Text" xml:space="preserve">
+    <value>Width</value>
+  </data>
+  <data name="width.Help" xml:space="preserve">
+    <value>Set a fixed total width. This includes borders and buttons. Example: "100%", "500px", or 500</value>
+  </data>
+  <data name="height.Text" xml:space="preserve">
+    <value>Height</value>
+  </data>
+  <data name="height.Help" xml:space="preserve">
+    <value>Set a fixed total height. This includes borders and buttons. Example: "100%", "500px", or 500</value>
+  </data>
+  <data name="innerWidth.Text" xml:space="preserve">
+    <value>Inner Width</value>
+  </data>
+  <data name="innerWidth.Help" xml:space="preserve">
+    <value>This is an alternative to 'width' used to set a fixed inner width. This excludes borders and buttons. Example: "50%", "500px", or 500</value>
+  </data>
+  <data name="innerHeight.Text" xml:space="preserve">
+    <value>Inner Height</value>
+  </data>
+  <data name="innerHeight.Help" xml:space="preserve">
+    <value>This is an alternative to 'height' used to set a fixed inner height. This excludes borders and buttons. Example: "50%", "500px", or 500</value>
+  </data>
+  <data name="initialWidth.Text" xml:space="preserve">
+    <value>Initial Width</value>
+  </data>
+  <data name="initialWidth.Help" xml:space="preserve">
+    <value>Set the initial width, prior to any content being loaded.</value>
+  </data>
+  <data name="initialHeight.Text" xml:space="preserve">
+    <value>Initial Height</value>
+  </data>
+  <data name="initialHeight.Help" xml:space="preserve">
+    <value>Set the initial height, prior to any content being loaded.</value>
+  </data>
+  <data name="maxWidth.Text" xml:space="preserve">
+    <value>Max Width</value>
+  </data>
+  <data name="maxWidth.Help" xml:space="preserve">
+    <value>Set a maximum width for loaded content. Example: "100%", 500, "500px"</value>
+  </data>
+  <data name="maxHeight.Text" xml:space="preserve">
+    <value>Max Height</value>
+  </data>
+  <data name="maxHeight.Help" xml:space="preserve">
+    <value>Set a maximum height for loaded content. Example: "100%", 500, "500px"</value>
+  </data>
+  <data name="scalePhotos.Text" xml:space="preserve">
+    <value>Scale Photos</value>
+  </data>
+  <data name="scalePhotos.Help" xml:space="preserve">
+    <value>If 'true' and if maxWidth, maxHeight, innerWidth, innerHeight, width, or height have been defined, ColorBox will scale photos to fit within the those values.</value>
+  </data>
+  <data name="scrolling.Text" xml:space="preserve">
+    <value>Scrolling</value>
+  </data>
+  <data name="scrolling.Help" xml:space="preserve">
+    <value>If 'false' ColorBox will hide scrollbars for overflowing content. This could be used on conjunction with the resize method (see below) for a smoother transition if you are appending content to an already open instance of ColorBox.</value>
+  </data>
+  <data name="photo.Text" xml:space="preserve">
+    <value>Photo</value>
+  </data>
+  <data name="photo.Help" xml:space="preserve">
+    <value>If true, this setting forces ColorBox to display a link as a photo. Use this when automatic photo detection fails (such as using a url like 'photo.php' instead of 'photo.jpg', 'photo.jpg#1', or 'photo.jpg?pic=1')</value>
+  </data>
+  <data name="opacity.Text" xml:space="preserve">
+    <value>Opacity</value>
+  </data>
+  <data name="opacity.Help" xml:space="preserve">
+    <value>The overlay opacity level. Range: 0 to 1.</value>
+  </data>
+  <data name="open.Text" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="open.Help" xml:space="preserve">
+    <value>If true, the lightbox will automatically open with no input from the visitor.</value>
+  </data>
+  <data name="returnFocus.Text" xml:space="preserve">
+    <value>Return Focus</value>
+  </data>
+  <data name="returnFocus.Help" xml:space="preserve">
+    <value>If true, focus will be returned when ColorBox exits to the element it was launched from.</value>
+  </data>
+  <data name="preloading.Text" xml:space="preserve">
+    <value>Preloading</value>
+  </data>
+  <data name="preloading.Help" xml:space="preserve">
+    <value>Allows for preloading of 'Next' and 'Previous' content in a shared relation group (same values for the 'rel' attribute), after the current content has finished loading. Set to 'false' to disable.</value>
+  </data>
+  <data name="overlayClose.Text" xml:space="preserve">
+    <value>Overlay Close</value>
+  </data>
+  <data name="overlayClose.Help" xml:space="preserve">
+    <value>If false, disables closing ColorBox by clicking on the background overlay.</value>
+  </data>
+  <data name="escKey.Text" xml:space="preserve">
+    <value>Esc Key</value>
+  </data>
+  <data name="escKey.Help" xml:space="preserve">
+    <value>If false, will disable closing colorbox on esc key press.</value>
+  </data>
+  <data name="arrowKey.Text" xml:space="preserve">
+    <value>Arrow Key</value>
+  </data>
+  <data name="arrowKey.Help" xml:space="preserve">
+    <value>If false, will disable the left and right arrow keys from navigating between the items in a group.</value>
+  </data>
+  <data name="loop.Text" xml:space="preserve">
+    <value>Loop</value>
+  </data>
+  <data name="loop.Help" xml:space="preserve">
+    <value>If false, will disable the ability to loop back to the beginning of the group when on the last element.</value>
+  </data>
+  <data name="slideshow.Text" xml:space="preserve">
+    <value>Slideshow</value>
+  </data>
+  <data name="slideshow.Help" xml:space="preserve">
+    <value>If true, adds an automatic slideshow to a content group / gallery.</value>
+  </data>
+  <data name="slideshowSpeed.Text" xml:space="preserve">
+    <value>Slideshow Speed</value>
+  </data>
+  <data name="slideshowSpeed.Help" xml:space="preserve">
+    <value>Sets the speed of the slideshow, in milliseconds.</value>
+  </data>
+  <data name="slideshowAuto.Text" xml:space="preserve">
+    <value>Slideshow Auto</value>
+  </data>
+  <data name="slideshowAuto.Help" xml:space="preserve">
+    <value>If true, the slideshow will automatically start to play.</value>
+  </data>
+  <data name="slideshowStart.Text" xml:space="preserve">
+    <value>start slideshow</value>
+  </data>
+  <data name="slideshowStop.Text" xml:space="preserve">
+    <value>stop slideshow</value>
+  </data>
+  <data name="current.Text" xml:space="preserve">
+    <value>image {current} of {total}</value>
+  </data>
+  <data name="previous.Text" xml:space="preserve">
+    <value>previous</value>
+  </data>
+  <data name="next.Text" xml:space="preserve">
+    <value>next</value>
+  </data>
+  <data name="close.Text" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="close.Help" xml:space="preserve">
+    <value>Text for the close button. The 'Esc' key will also close ColorBox.</value>
+  </data>
+</root>

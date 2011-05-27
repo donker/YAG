@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 sp2 (http://www.altova.com) by Peter Donker (Bring2mind) -->
+<templateSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="..\Settings.xsd">
+ <templateSetting>
+  <key>loop</key>
+  <valueType>truefalse</valueType>
+  <defaultValue>false</defaultValue>
+ </templateSetting>
+ <templateSetting>
+  <key>overlayOpacity</key>
+  <valueType>number</valueType>
+  <defaultValue>0.8</defaultValue>
+ </templateSetting>
+ <templateSetting>
+  <key>overlayFadeDuration</key>
+  <valueType>integer</valueType>
+  <defaultValue>400</defaultValue>
+ </templateSetting>
+ <templateSetting>
+  <key>resizeDuration</key>
+  <valueType>integer</valueType>
+  <defaultValue>400</defaultValue>
+ </templateSetting>
+ <templateSetting>
+  <key>resizeEasing</key>
+  <valueType>dropdown</valueType>
+  <defaultValue>swing</defaultValue>
+  <values>
+   <value>swing</value>
+   <value>linear</value>
+  </values>
+ </templateSetting>
+ <templateSetting>
+  <key>initialWidth</key>
+  <valueType>integer</valueType>
+  <defaultValue>250</defaultValue>
+ </templateSetting>
+ <templateSetting>
+  <key>initialHeight</key>
+  <valueType>integer</valueType>
+  <defaultValue>250</defaultValue>
+ </templateSetting>
+ <templateSetting>
+  <key>imageFadeDuration</key>
+  <valueType>integer</valueType>
+  <defaultValue>400</defaultValue>
+ </templateSetting>
+ <templateSetting>
+  <key>captionAnimationDuration</key>
+  <valueType>integer</valueType>
+  <defaultValue>400</defaultValue>
+ </templateSetting>
+</templateSettings>

@@ -22,7 +22,7 @@
       <foldername>Bring2mind\YAG</foldername>
       <moduleDefinitions>
        <moduleDefinition>
-        <friendlyName>Simple Gallery</friendlyName>
+        <friendlyName>Yet Another Gallery</friendlyName>
         <defaultCacheTime>0</defaultCacheTime>
         <moduleControls>
          <moduleControl>

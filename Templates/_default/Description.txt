@@ -1,0 +1,10 @@
+﻿<hr />
+<h3>Template Description</h3>
+<p>
+ The default template is based on <a href="http://www.no-margin-for-errors.com/projects/prettyphoto-jquery-lightbox-clone/" target="_new">prettyPhoto</a>, a lightbox jQuery component.
+</p>
+<h4>License</h4>
+<p>
+ “prettyPhoto is totally free to use, it is licensed under Creative Commons Attribution 2.5. So you can use it in all you projects even commercial ones. Please note that if you plan to make money using prettyPhoto, donations are more than welcome.”
+</p>
+<hr />

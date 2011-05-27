@@ -1,0 +1,28 @@
+div.nflightbox
+{
+ background-color: #444;
+ padding: 10px;
+ width: 520px;
+}
+div.nflightbox ul
+{
+ list-style: none;
+}
+div.nflightbox ul li
+{
+ display: inline;
+}
+div.nflightbox ul img
+{
+ border: 5px solid #3e3e3e;
+ border-width: 5px 5px 20px;
+}
+div.nflightbox ul a:hover img
+{
+ border: 5px solid #fff;
+ border-width: 5px 5px 20px;
+ color: #fff;
+}
+div.nflightbox ul a:hover
+{
+}

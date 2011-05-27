@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="blindX.Text" xml:space="preserve">
+    <value>Blinds X</value>
+  </data>
+  <data name="blindY.Text" xml:space="preserve">
+    <value>Blinds Y</value>
+  </data>
+  <data name="blindZ.Text" xml:space="preserve">
+    <value>Blinds Z</value>
+  </data>
+  <data name="cover.Text" xml:space="preserve">
+    <value>cover</value>
+  </data>
+  <data name="curtainX.Text" xml:space="preserve">
+    <value>Curtain X</value>
+  </data>
+  <data name="curtainY.Text" xml:space="preserve">
+    <value>Curtain Y</value>
+  </data>
+  <data name="fade.Text" xml:space="preserve">
+    <value>Fade</value>
+  </data>
+  <data name="fadeZoom.Text" xml:space="preserve">
+    <value>Fade and Zoom</value>
+  </data>
+  <data name="growX.Text" xml:space="preserve">
+    <value>Grow X</value>
+  </data>
+  <data name="growY.Text" xml:space="preserve">
+    <value>Grow Y</value>
+  </data>
+  <data name="none.Text" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="optCarousel.Text" xml:space="preserve">
+    <value>Carousel</value>
+  </data>
+  <data name="optCrop.Text" xml:space="preserve">
+    <value>Crop</value>
+  </data>
+  <data name="optGallery.Text" xml:space="preserve">
+    <value>Gallery</value>
+  </data>
+  <data name="optShrink.Text" xml:space="preserve">
+    <value>Shrink</value>
+  </data>
+  <data name="optStretch.Text" xml:space="preserve">
+    <value>Stretch</value>
+  </data>
+  <data name="plDisplayTime.Help" xml:space="preserve">
+    <value>Time in milliseconds before next transition (if applicable)</value>
+  </data>
+  <data name="plDisplayTime.Text" xml:space="preserve">
+    <value>Display Time</value>
+  </data>
+  <data name="plDisplayType.Help" xml:space="preserve">
+    <value>Select how to display the images</value>
+  </data>
+  <data name="plDisplayType.Text" xml:space="preserve">
+    <value>Display Type</value>
+  </data>
+  <data name="plEffect.Help" xml:space="preserve">
+    <value>Select transition effect</value>
+  </data>
+  <data name="plEffect.Text" xml:space="preserve">
+    <value>Effect</value>
+  </data>
+  <data name="plFitType.Help" xml:space="preserve">
+    <value>How should the module resize a new image presuming the original is larger than the image we want? Crop will cut off excess image after scaling down. Shrink will mean the image may actually be smaller than anticipated and borders may appear. Strech will attempt to fill the box with the picture either stretching it in X or Y directions.</value>
+  </data>
+  <data name="plFitType.Text" xml:space="preserve">
+    <value>Image Fit</value>
+  </data>
+  <data name="plGalleryColumns.Help" xml:space="preserve">
+    <value>Nr of images across for a gallery display</value>
+  </data>
+  <data name="plGalleryColumns.Text" xml:space="preserve">
+    <value>Gallery Columns</value>
+  </data>
+  <data name="plGalleryRows.Help" xml:space="preserve">
+    <value>Nr of image rows in gallery display. 0 or less means indefinite.</value>
+  </data>
+  <data name="plGalleryRows.Text" xml:space="preserve">
+    <value>Gallery Rows</value>
+  </data>
+  <data name="plHeight.Help" xml:space="preserve">
+    <value>Height of the image as displayed on the page</value>
+  </data>
+  <data name="plHeight.Text" xml:space="preserve">
+    <value>Height</value>
+  </data>
+  <data name="plRandomize.Help" xml:space="preserve">
+    <value>If selected images will be displayed in random order</value>
+  </data>
+  <data name="plRandomize.Text" xml:space="preserve">
+    <value>Randomize</value>
+  </data>
+  <data name="plTransitionSpeed.Help" xml:space="preserve">
+    <value>Delay in milliseconds for any transition effect</value>
+  </data>
+  <data name="plTransitionSpeed.Text" xml:space="preserve">
+    <value>Transition Speed</value>
+  </data>
+  <data name="plWidth.Help" xml:space="preserve">
+    <value>Width of the image as displayed on the page</value>
+  </data>
+  <data name="plWidth.Text" xml:space="preserve">
+    <value>Width</value>
+  </data>
+  <data name="plZoomHeight.Help" xml:space="preserve">
+    <value>Zoomed height of image if applicable</value>
+  </data>
+  <data name="plZoomHeight.Text" xml:space="preserve">
+    <value>Zoomed Height</value>
+  </data>
+  <data name="plZoomWidth.Help" xml:space="preserve">
+    <value>Zoomed width of image if applicable</value>
+  </data>
+  <data name="plZoomWidth.Text" xml:space="preserve">
+    <value>Zoomed Width</value>
+  </data>
+  <data name="Required.Error" xml:space="preserve">
+    <value>Required!</value>
+  </data>
+  <data name="scollVert.Text" xml:space="preserve">
+    <value>Scroll Vertical</value>
+  </data>
+  <data name="scrollDown.Text" xml:space="preserve">
+    <value>Scroll Down</value>
+  </data>
+  <data name="scrollHorz.Text" xml:space="preserve">
+    <value>Scroll Horizontal</value>
+  </data>
+  <data name="scrollLeft.Text" xml:space="preserve">
+    <value>Scroll Left</value>
+  </data>
+  <data name="scrollRight.Text" xml:space="preserve">
+    <value>Scroll Right</value>
+  </data>
+  <data name="scrollUp.Text" xml:space="preserve">
+    <value>Scroll Up</value>
+  </data>
+  <data name="shuffle.Text" xml:space="preserve">
+    <value>Shuffle</value>
+  </data>
+  <data name="slideX.Text" xml:space="preserve">
+    <value>Slide X</value>
+  </data>
+  <data name="slideY.Text" xml:space="preserve">
+    <value>Slide Y</value>
+  </data>
+  <data name="toss.Text" xml:space="preserve">
+    <value>Toss</value>
+  </data>
+  <data name="turnDown.Text" xml:space="preserve">
+    <value>Turn Down</value>
+  </data>
+  <data name="turnLeft.Text" xml:space="preserve">
+    <value>Turn Left</value>
+  </data>
+  <data name="turnRight.Text" xml:space="preserve">
+    <value>Turn Right</value>
+  </data>
+  <data name="turnUp.Text" xml:space="preserve">
+    <value>Turn Up</value>
+  </data>
+  <data name="uncover.Text" xml:space="preserve">
+    <value>Uncover</value>
+  </data>
+  <data name="WholeNr.Error" xml:space="preserve">
+    <value>Not a valid whole number!</value>
+  </data>
+  <data name="wipe.Text" xml:space="preserve">
+    <value>Wipe</value>
+  </data>
+  <data name="zoom.Text" xml:space="preserve">
+    <value>Zoom</value>
+  </data>
+  <data name="ControlTitle_settings.Text" xml:space="preserve">
+    <value>Simple Gallery Settings</value>
+  </data>
+  <data name="plTemplate.Help" xml:space="preserve">
+    <value>Select template to use for rendering</value>
+  </data>
+  <data name="plTemplate.Text" xml:space="preserve">
+    <value>Template</value>
+  </data>
+  <data name="cmdRegenerate.Text" xml:space="preserve">
+    <value>Regenerate</value>
+  </data>
+  <data name="plRegenerate.Help" xml:space="preserve">
+    <value>Click to delete all thumbnails and regenerate with the new parameters.</value>
+  </data>
+  <data name="plRegenerate.Text" xml:space="preserve">
+    <value>Regenerate Thumbnails</value>
+  </data>
+</root>

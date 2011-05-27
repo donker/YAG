@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dotnetnuke xmlns:fo="http://www.w3.org/1999/XSL/Format" type="Package" version="5.0">
+ <packages>
+  <package type="Module" name="Bring2mind_YAG" version="01.00.00">
+   <friendlyName>Yet Another Gallery</friendlyName>
+   <description>Use Bring2mind's Yet Another Gallery module to display a set of pictures on your page.</description>
+   <owner>
+    <name>Peter Donker</name>
+    <organization>Bring2mind</organization>
+    <url>http://www.bring2mind.net</url>
+    <email>info@bring2mind.net</email>
+   </owner>
+   <license src="License.txt"/>
+   <releaseNotes src="ReleaseNotes.txt"/>
+   <dependencies>
+    <dependency type="CoreVersion">05.06.02</dependency>
+   </dependencies>
+   <components>
+    <component type="Module">
+     <desktopModule>
+      <moduleName>Bring2mind_YAG</moduleName>
+      <foldername>Bring2mind\YAG</foldername>
+      <moduleDefinitions>
+       <moduleDefinition>
+        <friendlyName>Simple Gallery</friendlyName>
+        <defaultCacheTime>0</defaultCacheTime>
+        <moduleControls>
+         <moduleControl>
+          <controlKey/>
+          <controlSrc>DesktopModules/Bring2mind/YAG/Gallery.ascx</controlSrc>
+          <controlTitle>Gallery</controlTitle>
+          <controlType>View</controlType>
+         </moduleControl>
+         <moduleControl>
+          <controlKey>Edit</controlKey>
+          <controlSrc>DesktopModules/Bring2mind/YAG/EditGallery.ascx</controlSrc>
+          <supportsPartialRendering/>
+          <controlTitle>Edit Gallery</controlTitle>
+          <controlType>Edit</controlType>
+         </moduleControl>
+         <moduleControl>
+          <controlKey>TemplateSettings</controlKey>
+          <controlSrc>DesktopModules/Bring2mind/YAG/TemplateSettings.ascx</controlSrc>
+          <supportsPartialRendering/>
+          <controlTitle>Edit Template Settings</controlTitle>
+          <controlType>Edit</controlType>
+         </moduleControl>
+         <moduleControl>
+          <controlKey>Settings</controlKey>
+          <controlSrc>DesktopModules/Bring2mind/YAG/Settings.ascx</controlSrc>
+          <supportsPartialRendering/>
+          <controlTitle>Simple Gallery Settings</controlTitle>
+          <controlType>Edit</controlType>
+         </moduleControl>
+        </moduleControls>
+        <permissions/>
+       </moduleDefinition>
+      </moduleDefinitions>
+     </desktopModule>
+    </component>
+   </components>
+  </package>
+ </packages>
+</dotnetnuke>

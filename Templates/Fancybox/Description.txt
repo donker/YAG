@@ -1,0 +1,10 @@
+﻿<hr />
+<h3>Template Description</h3>
+<p>
+ FancyBox is a tool for displaying images, html content and multi-media in a Mac-style "lightbox" that floats overtop of web page. <a href="http://fancybox.net/" target="_new">Read more ...</a>
+</p>
+<h4>License</h4>
+<p>
+ Licensed under both MIT and GPL licenses
+</p>
+<hr />

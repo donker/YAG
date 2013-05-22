@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<code-summaries>
+  <code-summary date="2012-07-26T14:36:38.2441406+02:00" buildname="2.0.0.0">
+    <linecount label="VB" totalLineCount="8584" emptyLineCount="802" commentLineCount="1837">
+      <file-summaries>
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Components\Templating\CustomParameters.vb" totalLineCount="71" emptyLineCount="7" commentLineCount="19" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Components\Templating\GalleryTokenReplace.vb" totalLineCount="49" emptyLineCount="9" commentLineCount="19" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Components\Templating\GenericTokenReplace.vb" totalLineCount="55" emptyLineCount="9" commentLineCount="19" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Components\Templating\Resources.vb" totalLineCount="68" emptyLineCount="7" commentLineCount="19" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Components\Templating\Template.vb" totalLineCount="138" emptyLineCount="15" commentLineCount="21" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Components\Templating\TemplateController.vb" totalLineCount="92" emptyLineCount="12" commentLineCount="19" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Components\Templating\TemplateManager.vb" totalLineCount="74" emptyLineCount="8" commentLineCount="19" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Components\Templating\TemplateRepeaterItem.vb" totalLineCount="78" emptyLineCount="7" commentLineCount="19" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Components\Templating\TemplateSetting.vb" totalLineCount="41" emptyLineCount="8" commentLineCount="19" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Components\Templating\TemplateSettings.vb" totalLineCount="48" emptyLineCount="6" commentLineCount="19" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Components\Templating\TemplateSettingValue.vb" totalLineCount="33" emptyLineCount="5" commentLineCount="19" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Components\Templating\ViewTemplate.vb" totalLineCount="118" emptyLineCount="15" commentLineCount="22" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Components\Common.vb" totalLineCount="162" emptyLineCount="17" commentLineCount="19" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Components\FilesStatus.vb" totalLineCount="18" emptyLineCount="2" commentLineCount="0" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Components\GalleryController.vb" totalLineCount="237" emptyLineCount="15" commentLineCount="3" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Components\GallerySettings.vb" totalLineCount="230" emptyLineCount="22" commentLineCount="20" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Components\Image.vb" totalLineCount="86" emptyLineCount="12" commentLineCount="19" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Components\ImageCollection.vb" totalLineCount="143" emptyLineCount="13" commentLineCount="24" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Components\ModuleBase.vb" totalLineCount="41" emptyLineCount="4" commentLineCount="19" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Components\Resizer.vb" totalLineCount="92" emptyLineCount="16" commentLineCount="22" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\js\editgallery.js" totalLineCount="68" emptyLineCount="15" commentLineCount="2" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\js\jquery.fileupload-fp.js" totalLineCount="219" emptyLineCount="11" commentLineCount="65" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\js\jquery.fileupload.js" totalLineCount="968" emptyLineCount="50" commentLineCount="232" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\js\jquery.iframe-transport.js" totalLineCount="171" emptyLineCount="6" commentLineCount="57" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\js\jquery.ui.widget.js" totalLineCount="282" emptyLineCount="34" commentLineCount="43" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\js\jquery.xdr-transport.js" totalLineCount="85" emptyLineCount="2" commentLineCount="24" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\js\upload.js" totalLineCount="161" emptyLineCount="13" commentLineCount="1" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Templates\Colorbox\js\jquery.colorbox-min.js" totalLineCount="4" emptyLineCount="0" commentLineCount="3" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Templates\Colorbox\jsblocks\block.js" totalLineCount="35" emptyLineCount="0" commentLineCount="0" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Templates\Cycle\js\jquery.cycle.all.min.js" totalLineCount="21" emptyLineCount="0" commentLineCount="19" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Templates\Cycle\js\jquery.easing.1.3.js" totalLineCount="205" emptyLineCount="3" commentLineCount="70" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Templates\Cycle\jsblocks\block.js" totalLineCount="26" emptyLineCount="0" commentLineCount="0" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Templates\Fancybox\js\jquery.easing-1.3.pack.js" totalLineCount="72" emptyLineCount="2" commentLineCount="69" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Templates\Fancybox\js\jquery.fancybox-1.3.4.pack.js" totalLineCount="46" emptyLineCount="1" commentLineCount="17" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Templates\Fancybox\js\jquery.mousewheel-3.0.4.pack.js" totalLineCount="14" emptyLineCount="1" commentLineCount="11" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Templates\Fancybox\jsblocks\block.js" totalLineCount="35" emptyLineCount="0" commentLineCount="0" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Templates\GalleryView\js\jquery.easing.1.3.js" totalLineCount="205" emptyLineCount="3" commentLineCount="70" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Templates\GalleryView\js\jquery.galleryview-3.0-dev.js" totalLineCount="1079" emptyLineCount="161" commentLineCount="67" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Templates\GalleryView\js\jquery.timers-1.2.js" totalLineCount="138" emptyLineCount="20" commentLineCount="18" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Templates\GalleryView\jsblocks\block.js" totalLineCount="34" emptyLineCount="0" commentLineCount="0" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Templates\NFLightbox\js\NFLightBox.js" totalLineCount="1297" emptyLineCount="93" commentLineCount="231" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Templates\NFLightbox\jsblocks\block.js" totalLineCount="23" emptyLineCount="0" commentLineCount="0" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Templates\NivoSlider\js\jquery.nivo.slider.pack.js" totalLineCount="10" emptyLineCount="1" commentLineCount="8" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Templates\NivoSlider\jsblocks\block.js" totalLineCount="20" emptyLineCount="0" commentLineCount="0" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Templates\Slimbox2\js\slimbox2.js" totalLineCount="15" emptyLineCount="1" commentLineCount="6" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Templates\Slimbox2\jsblocks\block.js" totalLineCount="14" emptyLineCount="0" commentLineCount="0" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Templates\_default\js\jquery.prettyPhoto.js" totalLineCount="73" emptyLineCount="2" commentLineCount="6" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Templates\_default\jsblocks\block.js" totalLineCount="3" emptyLineCount="0" commentLineCount="0" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Templates\_default\resx\SharedResources.ascx.Designer.vb" totalLineCount="283" emptyLineCount="33" commentLineCount="95" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\EditGallery.ascx" totalLineCount="35" emptyLineCount="3" commentLineCount="0" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\EditGallery.ascx.designer.vb" totalLineCount="42" emptyLineCount="6" commentLineCount="29" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\EditGallery.ascx.vb" totalLineCount="56" emptyLineCount="11" commentLineCount="19" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Gallery.ascx" totalLineCount="4" emptyLineCount="1" commentLineCount="0" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Gallery.ascx.designer.vb" totalLineCount="24" emptyLineCount="4" commentLineCount="15" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Gallery.ascx.vb" totalLineCount="111" emptyLineCount="20" commentLineCount="19" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Settings.ascx" totalLineCount="91" emptyLineCount="3" commentLineCount="0" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Settings.ascx.designer.vb" totalLineCount="240" emptyLineCount="28" commentLineCount="183" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Settings.ascx.vb" totalLineCount="174" emptyLineCount="18" commentLineCount="36" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\TemplateSettings.ascx" totalLineCount="8" emptyLineCount="2" commentLineCount="0" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\TemplateSettings.ascx.designer.vb" totalLineCount="42" emptyLineCount="6" commentLineCount="29" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\TemplateSettings.ascx.vb" totalLineCount="172" emptyLineCount="24" commentLineCount="19" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Upload.ascx" totalLineCount="51" emptyLineCount="2" commentLineCount="0" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Upload.ascx.designer.vb" totalLineCount="24" emptyLineCount="4" commentLineCount="15" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Upload.ascx.vb" totalLineCount="30" emptyLineCount="9" commentLineCount="0" />
+      </file-summaries>
+    </linecount>
+  </code-summary>
+</code-summaries>

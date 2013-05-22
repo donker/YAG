@@ -56,6 +56,18 @@
  </tr>
  <tr>
   <td class="SubHead" width="165">
+   <dnn:label id="plZoomFitType" runat="server" controlname="ddZoomFitType" suffix=":" />
+  </td>
+  <td>
+   <asp:DropDownList runat="server" ID="ddZoomFitType">
+    <asp:ListItem Value="Crop" Resourcekey="optCrop" />
+    <asp:ListItem Value="Shrink" Resourcekey="optShrink" />
+    <asp:ListItem Value="Stretch" Resourcekey="optStretch" />
+   </asp:DropDownList>
+  </td>
+ </tr>
+ <tr>
+  <td class="SubHead" width="165">
    <dnn:label id="plRegenerate" runat="server" controlname="cmdRegenerate" suffix=":" />
   </td>
   <td>

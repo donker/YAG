@@ -123,4 +123,7 @@
   <data name="TemplateSettings.Text" xml:space="preserve">
     <value>Template Settings</value>
   </data>
+  <data name="Upload.Text" xml:space="preserve">
+    <value>Upload Images</value>
+  </data>
 </root>

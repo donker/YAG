@@ -1,0 +1,111 @@
+.fileinput-button {
+  position: relative;
+  overflow: hidden;
+  float: left;
+  margin-right: 4px;
+}
+.fileinput-button input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  border: solid transparent;
+  border-width: 0 0 100px 200px;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -moz-transform: translate(-300px, 0) scale(4);
+  direction: ltr;
+  cursor: pointer;
+}
+.fileupload-buttonbar .btn,
+.fileupload-buttonbar .toggle {
+  margin-bottom: 5px;
+}
+.fileupload-loading {
+  position: absolute;
+  left: 50%;
+  width: 128px;
+  height: 128px;
+  display: none;
+}
+.fileupload-processing .fileupload-loading {
+  display: block;
+}
+
+/* Fix for IE 6: */
+*html .fileinput-button {
+  line-height: 22px;
+  margin: 1px -3px 0 0;
+}
+
+/* Fix for IE 7: */
+*+html .fileinput-button {
+  margin: 1px 0 0 0;
+}
+
+@media (max-width: 480px) {
+  .files .btn span {
+    display: none;
+  }
+  .files .preview * {
+    width: 40px;
+  }
+  .files .name * {
+    width: 80px;
+    display: inline-block;
+    word-wrap: break-word;
+  }
+  .files .progress {
+    width: 20px;
+  }
+  .files .delete {
+    width: 60px;
+  }
+}
+.files div.thumbnailcolumn img
+{
+ width: 80px;
+ height: 80px;
+ background: url(../images/spacer.gif);
+ border: 0px solid #fff;
+}
+.files div.row-fluid
+{
+ height: 110px;
+ background-color: #eee;
+ vertical-align: middle;
+ margin-top: 20px;
+  background-color: #f5f5f5;
+  *background-color: #e6e6e6;
+  background-image: -ms-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+  background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+  background-repeat: repeat-x;
+  border: 1px solid #cccccc;
+  *border: 0;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+  border-bottom-color: #b3b3b3;
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
+  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=0);
+  filter: progid:dximagetransform.microsoft.gradient(enabled=false);
+}
+.files div.row-fluid div.textcell
+{
+ margin-top: 45px;
+ padding-left: 6px;
+}
+.files div.row-fluid div.thumbnailcolumn
+{
+ margin-top: 15px;
+ padding-left: 18px;
+}
+.btn span
+{
+ padding-left: 4px;
+}

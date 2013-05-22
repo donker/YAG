@@ -1,0 +1,13 @@
+﻿<div class="pics" id="container[settings:moduleid]">
+[subtemplate|Image.html|images|pagesize=-1]
+</div>
+<script>
+(function ($, Sys) {
+ $(document).ready(function () {
+  $('#container[settings:moduleid]').masonry({
+    itemSelector : '.mas_item'
+  });
+  $('.mas_link').magnificPopup({type:'image'});
+ });
+} (jQuery, window.Sys));
+</script>

@@ -1,0 +1,16 @@
+#images { list-style-type: none; margin: 0; padding: 0; }
+#images li { 
+ margin: 3px 3px 3px 0; 
+ padding: 10px 4px 10px 4px;
+ float: left;
+ width: 160px;
+ text-align: center;
+ display: inline;
+}
+#images li .textbox{
+ width: 150px;
+ float: bottom;
+}
+#images li div.imagetn {
+ padding-bottom: 10px;
+}

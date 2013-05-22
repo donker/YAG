@@ -1,57 +1,35 @@
 ﻿<%@ Control Language="vb" AutoEventWireup="false" CodeBehind="EditGallery.ascx.vb" Inherits="Bring2mind.DNN.Modules.YAG.EditGallery" %>
 <%@ Register TagPrefix="dnn" TagName="Label" Src="~/controls/LabelControl.ascx" %>
 
-<asp:DataList ID="dlExisting" runat="server">
+<ul id="images">
+<asp:Repeater ID="rpImages" runat="server">
  <ItemTemplate>
-  <div class="imageItem">
-   <div class="imageHolder">
-    <img src="<%=Settings.ImagePath%><%#Eval("file")%>_tn<%#Eval("extension")%>" alt="<%#Eval("title")%>" />
-    <div class="title"><%#Eval("title")%></div>
-    <div class="remarks"><%#Eval("remarks")%></div>
-    <asp:ImageButton runat="server" ID="cmdDelete" ImageUrl="~/images/delete.gif" CommandName="Delete" resourcekey="cmdDelete" CommandArgument='<%#Eval("file")%>' />
-    <asp:ImageButton runat="server" ID="cmdUp" ImageUrl="~/images/up.gif" CommandName="Up" resourcekey="cmdDelete" CommandArgument='<%#Eval("file")%>' />
-    <asp:ImageButton runat="server" ID="cmdDown" ImageUrl="~/images/dn.gif" CommandName="Down" resourcekey="cmdDelete" CommandArgument='<%#Eval("file")%>' />
-   </div>
+ <li class="ui-state-default well" id="image_<%#Eval("file").Replace("-","T")%>">
+  <div class="delbutton">
+   <a class="close" id="delete<%#Eval("file")%>" href="#">&times;</a>
   </div>
+  <div class="imagetn">
+   <img src="<%=Settings.ImagePath%><%#Eval("file")%>_tn<%#Eval("extension")%>" alt="<%#Eval("title")%>" />
+  </div>
+  <input type="text" class="textbox" placeholder="Title" value="<%#Eval("title")%>" id="title-<%#Eval("file")%>" />
+  <textarea class="textbox" rows="3" id="remarks-<%#Eval("file")%>"><%#Eval("remarks")%></textarea>
+ </li>
  </ItemTemplate>
-</asp:DataList>
+</asp:Repeater>
+</ul>
 
-<asp:Panel runat="server" ID="pnlUpload" CssClass="uploadPanel">
-<table cellspacing="0" cellpadding="2" border="0">
- <tr>
-  <td class="SubHead" width="165">
-   <dnn:label id="plFile" runat="server" controlname="ctlUpload" suffix=":" />
-  </td>
-  <td>
-   <asp:FileUpload runat="server" ID="ctlUpload" />
-  </td>
- </tr>
- <tr>
-  <td class="SubHead" width="165">
-   <dnn:label id="plTitle" runat="server" controlname="txtTitle" suffix=":" />
-  </td>
-  <td>
-   <asp:TextBox runat="server" ID="txtTitle" Width="300" />
-  </td>
- </tr>
- <tr>
-  <td class="SubHead" width="165">
-   <dnn:label id="plRemarks" runat="server" controlname="txtRemarks" suffix=":" />
-  </td>
-  <td>
-   <asp:TextBox runat="server" ID="txtRemarks" Width="300" Height="100" TextMode="MultiLine" />
-  </td>
- </tr>
- <tr>
-  <td class="SubHead" width="165">
-  </td>
-  <td>
-   <asp:Button runat="server" ID="cmdUpload" resourcekey="cmdUpload" />
-  </td>
- </tr>
-</table>
-</asp:Panel>
-
-<p>
- <asp:LinkButton runat="server" ID="cmdReturn" resourcekey="cmdReturn" CssClass="CommandButton" />
+<p style="clear:both;width:100%;text-align:center;padding-top:40px;" id="exitControls">
+ <asp:LinkButton runat="server" ID="cmdReturn" resourcekey="cmdReturn" CssClass="dnnPrimaryAction" />
+ <asp:LinkButton runat="server" ID="cmdUpload" resourcekey="cmdUpload" CssClass="dnnSecondaryAction" />
 </p>
+
+<script type="text/javascript">
+ $(function () {
+  $('#images').yagEdit({
+   serviceUrl: '<%=ResolveUrl("~/DesktopModules/Bring2mind/YAG/API/")%>',
+   moduleId: '<%=ModuleId%>',
+   tabId: '<%=TabId%>',
+   localization: { deleteConfirm: '<%=Resx("Delete.Confirm")%>' }
+  });
+ });
+</script>

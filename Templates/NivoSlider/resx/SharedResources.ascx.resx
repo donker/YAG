@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+ <resheader name="resmimetype">
+  <value>text/microsoft-resx</value>
+ </resheader>
+ <resheader name="version">
+  <value>2.0</value>
+ </resheader>
+ <resheader name="reader">
+  <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+ </resheader>
+ <resheader name="writer">
+  <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+ </resheader>
+ <data name="effect.Text" xml:space="preserve">
+  <value>effect</value>
+ </data>
+ <data name="effect.Help" xml:space="preserve">
+  <value>Specify sets like: 'fold,fade,sliceDown'</value>
+ </data>
+ <data name="slices.Text" xml:space="preserve">
+  <value>slices</value>
+ </data>
+ <data name="slices.Help" xml:space="preserve">
+  <value>For slice animations</value>
+ </data>
+ <data name="boxCols.Text" xml:space="preserve">
+  <value>boxCols</value>
+ </data>
+ <data name="boxCols.Help" xml:space="preserve">
+  <value>For box animations</value>
+ </data>
+ <data name="boxRows.Text" xml:space="preserve">
+  <value>boxRows</value>
+ </data>
+ <data name="boxRows.Help" xml:space="preserve">
+  <value>For box animations</value>
+ </data>
+ <data name="animSpeed.Text" xml:space="preserve">
+  <value>animSpeed</value>
+ </data>
+ <data name="animSpeed.Help" xml:space="preserve">
+  <value>Slide transition speed</value>
+ </data>
+ <data name="pauseTime.Text" xml:space="preserve">
+  <value>pauseTime</value>
+ </data>
+ <data name="pauseTime.Help" xml:space="preserve">
+  <value>How long each slide will show</value>
+ </data>
+ <data name="startSlide.Text" xml:space="preserve">
+  <value>startSlide</value>
+ </data>
+ <data name="startSlide.Help" xml:space="preserve">
+  <value>Set starting Slide (0 index)</value>
+ </data>
+ <data name="directionNav.Text" xml:space="preserve">
+  <value>directionNav</value>
+ </data>
+ <data name="directionNav.Help" xml:space="preserve">
+  <value>Next and Prev navigation</value>
+ </data>
+ <data name="directionNavHide.Text" xml:space="preserve">
+  <value>directionNavHide</value>
+ </data>
+ <data name="directionNavHide.Help" xml:space="preserve">
+  <value>Only show on hover</value>
+ </data>
+ <data name="controlNav.Text" xml:space="preserve">
+  <value>controlNav</value>
+ </data>
+ <data name="controlNav.Help" xml:space="preserve">
+  <value>1,2,3... navigation</value>
+ </data>
+ <data name="controlNavThumbs.Text" xml:space="preserve">
+  <value>controlNavThumbs</value>
+ </data>
+ <data name="controlNavThumbs.Help" xml:space="preserve">
+  <value>Use thumbnails for Control Nav</value>
+ </data>
+ <data name="pauseOnHover.Text" xml:space="preserve">
+  <value>pauseOnHover</value>
+ </data>
+ <data name="pauseOnHover.Help" xml:space="preserve">
+  <value>Stop animation while hovering</value>
+ </data>
+ <data name="manualAdvance.Text" xml:space="preserve">
+  <value>manualAdvance</value>
+ </data>
+ <data name="manualAdvance.Help" xml:space="preserve">
+  <value>Force manual transitions</value>
+ </data>
+ <data name="prevText.Text" xml:space="preserve">
+  <value>prevText</value>
+ </data>
+ <data name="prevText.Help" xml:space="preserve">
+  <value>Prev directionNav text</value>
+ </data>
+ <data name="nextText.Text" xml:space="preserve">
+  <value>nextText</value>
+ </data>
+ <data name="nextText.Help" xml:space="preserve">
+  <value>Next directionNav text</value>
+ </data>
+ <data name="randomStart.Text" xml:space="preserve">
+  <value>randomStart</value>
+ </data>
+ <data name="randomStart.Help" xml:space="preserve">
+  <value>Start on a random slide</value>
+ </data>
+</root>

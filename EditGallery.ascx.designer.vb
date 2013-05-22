@@ -14,85 +14,13 @@ Option Explicit On
 Partial Public Class EditGallery
 
  '''<summary>
- '''dlExisting control.
+ '''rpImages control.
  '''</summary>
  '''<remarks>
  '''Auto-generated field.
  '''To modify move field declaration from designer file to code-behind file.
  '''</remarks>
- Protected WithEvents dlExisting As Global.System.Web.UI.WebControls.DataList
-
- '''<summary>
- '''pnlUpload control.
- '''</summary>
- '''<remarks>
- '''Auto-generated field.
- '''To modify move field declaration from designer file to code-behind file.
- '''</remarks>
- Protected WithEvents pnlUpload As Global.System.Web.UI.WebControls.Panel
-
- '''<summary>
- '''plFile control.
- '''</summary>
- '''<remarks>
- '''Auto-generated field.
- '''To modify move field declaration from designer file to code-behind file.
- '''</remarks>
- Protected WithEvents plFile As Global.System.Web.UI.UserControl
-
- '''<summary>
- '''ctlUpload control.
- '''</summary>
- '''<remarks>
- '''Auto-generated field.
- '''To modify move field declaration from designer file to code-behind file.
- '''</remarks>
- Protected WithEvents ctlUpload As Global.System.Web.UI.WebControls.FileUpload
-
- '''<summary>
- '''plTitle control.
- '''</summary>
- '''<remarks>
- '''Auto-generated field.
- '''To modify move field declaration from designer file to code-behind file.
- '''</remarks>
- Protected WithEvents plTitle As Global.System.Web.UI.UserControl
-
- '''<summary>
- '''txtTitle control.
- '''</summary>
- '''<remarks>
- '''Auto-generated field.
- '''To modify move field declaration from designer file to code-behind file.
- '''</remarks>
- Protected WithEvents txtTitle As Global.System.Web.UI.WebControls.TextBox
-
- '''<summary>
- '''plRemarks control.
- '''</summary>
- '''<remarks>
- '''Auto-generated field.
- '''To modify move field declaration from designer file to code-behind file.
- '''</remarks>
- Protected WithEvents plRemarks As Global.System.Web.UI.UserControl
-
- '''<summary>
- '''txtRemarks control.
- '''</summary>
- '''<remarks>
- '''Auto-generated field.
- '''To modify move field declaration from designer file to code-behind file.
- '''</remarks>
- Protected WithEvents txtRemarks As Global.System.Web.UI.WebControls.TextBox
-
- '''<summary>
- '''cmdUpload control.
- '''</summary>
- '''<remarks>
- '''Auto-generated field.
- '''To modify move field declaration from designer file to code-behind file.
- '''</remarks>
- Protected WithEvents cmdUpload As Global.System.Web.UI.WebControls.Button
+ Protected WithEvents rpImages As Global.System.Web.UI.WebControls.Repeater
 
  '''<summary>
  '''cmdReturn control.
@@ -102,4 +30,13 @@ Partial Public Class EditGallery
  '''To modify move field declaration from designer file to code-behind file.
  '''</remarks>
  Protected WithEvents cmdReturn As Global.System.Web.UI.WebControls.LinkButton
+
+ '''<summary>
+ '''cmdUpload control.
+ '''</summary>
+ '''<remarks>
+ '''Auto-generated field.
+ '''To modify move field declaration from designer file to code-behind file.
+ '''</remarks>
+ Protected WithEvents cmdUpload As Global.System.Web.UI.WebControls.LinkButton
 End Class

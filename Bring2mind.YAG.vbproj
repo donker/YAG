@@ -19,10 +19,6 @@
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <UseIISExpress>false</UseIISExpress>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,17 +39,33 @@
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DotNetNuke, Version=5.6.2.144, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="DotNetNuke, Version=6.2.0.1610, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>_References\DotNetNuke.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DotNetNuke.Web, Version=6.2.0.1610, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>_References\DotNetNuke.Web.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DotNetNuke.Web.Client, Version=6.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>_References\DotNetNuke.Web.Client.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
@@ -83,8 +95,10 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\FilesStatus.vb" />
     <Compile Include="Components\GallerySettings.vb" />
     <Compile Include="Components\Common.vb" />
+    <Compile Include="Components\GalleryController.vb" />
     <Compile Include="Components\Templating\TemplateRepeaterItem.vb" />
     <Compile Include="Components\Templating\TemplateSetting.vb" />
     <Compile Include="Components\Templating\TemplateSettings.vb" />
@@ -138,6 +152,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SharedResources.ascx.resx</DependentUpon>
     </Compile>
+    <Compile Include="Upload.ascx.designer.vb">
+      <DependentUpon>Upload.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Upload.ascx.vb">
+      <DependentUpon>Upload.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Content Include="css\bootstrap-responsive.min.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\editgallery.css" />
+    <Content Include="css\fileupload.css" />
+    <Content Include="js\editgallery.js" />
+    <Content Include="js\jquery.ui.widget.js" />
+    <Content Include="js\upload.js" />
+    <Content Include="js\jquery.fileupload-fp.js" />
+    <Content Include="js\jquery.fileupload.js" />
+    <Content Include="js\jquery.iframe-transport.js" />
+    <Content Include="js\jquery.xdr-transport.js" />
     <Content Include="TemplateSettings.ascx" />
     <Content Include="Templates\_default\css\prettyPhoto.css" />
     <Content Include="Templates\_default\Description.txt" />
@@ -151,6 +183,10 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="App_LocalResources\Gallery.ascx.resx" />
+    <Content Include="Upload.ascx" />
+    <Content Include="App_LocalResources\Upload.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
     <EmbeddedResource Include="Templates\_default\resx\SharedResources.ascx.resx">
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <Generator>ResXFileCodeGenerator</Generator>

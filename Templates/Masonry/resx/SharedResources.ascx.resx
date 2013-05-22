@@ -1,0 +1,342 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="blindX.Text" xml:space="preserve">
+    <value>Blinds X</value>
+  </data>
+  <data name="blindY.Text" xml:space="preserve">
+    <value>Blinds Y</value>
+  </data>
+  <data name="blindZ.Text" xml:space="preserve">
+    <value>Blinds Z</value>
+  </data>
+  <data name="cover.Text" xml:space="preserve">
+    <value>cover</value>
+  </data>
+  <data name="curtainX.Text" xml:space="preserve">
+    <value>Curtain X</value>
+  </data>
+  <data name="curtainY.Text" xml:space="preserve">
+    <value>Curtain Y</value>
+  </data>
+  <data name="fade.Text" xml:space="preserve">
+    <value>Fade</value>
+  </data>
+  <data name="fadeZoom.Text" xml:space="preserve">
+    <value>Fade and Zoom</value>
+  </data>
+  <data name="growX.Text" xml:space="preserve">
+    <value>Grow X</value>
+  </data>
+  <data name="growY.Text" xml:space="preserve">
+    <value>Grow Y</value>
+  </data>
+  <data name="none.Text" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="scollVert.Text" xml:space="preserve">
+    <value>Scroll Vertical</value>
+  </data>
+  <data name="scrollDown.Text" xml:space="preserve">
+    <value>Scroll Down</value>
+  </data>
+  <data name="scrollHorz.Text" xml:space="preserve">
+    <value>Scroll Horizontal</value>
+  </data>
+  <data name="scrollLeft.Text" xml:space="preserve">
+    <value>Scroll Left</value>
+  </data>
+  <data name="scrollRight.Text" xml:space="preserve">
+    <value>Scroll Right</value>
+  </data>
+  <data name="scrollUp.Text" xml:space="preserve">
+    <value>Scroll Up</value>
+  </data>
+  <data name="shuffle.Text" xml:space="preserve">
+    <value>Shuffle</value>
+  </data>
+  <data name="slideX.Text" xml:space="preserve">
+    <value>Slide X</value>
+  </data>
+  <data name="slideY.Text" xml:space="preserve">
+    <value>Slide Y</value>
+  </data>
+  <data name="toss.Text" xml:space="preserve">
+    <value>Toss</value>
+  </data>
+  <data name="turnDown.Text" xml:space="preserve">
+    <value>Turn Down</value>
+  </data>
+  <data name="turnLeft.Text" xml:space="preserve">
+    <value>Turn Left</value>
+  </data>
+  <data name="turnRight.Text" xml:space="preserve">
+    <value>Turn Right</value>
+  </data>
+  <data name="turnUp.Text" xml:space="preserve">
+    <value>Turn Up</value>
+  </data>
+  <data name="uncover.Text" xml:space="preserve">
+    <value>Uncover</value>
+  </data>
+  <data name="wipe.Text" xml:space="preserve">
+    <value>Wipe</value>
+  </data>
+  <data name="zoom.Text" xml:space="preserve">
+    <value>Zoom</value>
+  </data>
+  <data name="fx.Help" xml:space="preserve">
+    <value>Select which transition effect to use</value>
+  </data>
+  <data name="fx.Text" xml:space="preserve">
+    <value>Transition Effect</value>
+  </data>
+  <data name="autostop.Help" xml:space="preserve">
+    <value>true to end slideshow after X transitions (where X == slide count)</value>
+  </data>
+  <data name="autostop.Text" xml:space="preserve">
+    <value>Autostop</value>
+  </data>
+  <data name="autostopCount.Help" xml:space="preserve">
+    <value>number of transitions (optionally used with autostop to define X)</value>
+  </data>
+  <data name="autostopCount.Text" xml:space="preserve">
+    <value>Autostop Count</value>
+  </data>
+  <data name="backwards.Help" xml:space="preserve">
+    <value>true to start slideshow at last slide and move backwards through the stack</value>
+  </data>
+  <data name="backwards.Text" xml:space="preserve">
+    <value>Backwards</value>
+  </data>
+  <data name="cleartypeNoBg.Help" xml:space="preserve">
+    <value>set to true to disable extra cleartype fixing (leave false to force background color setting on slides)</value>
+  </data>
+  <data name="cleartypeNoBg.Text" xml:space="preserve">
+    <value>Cleartype No Bg</value>
+  </data>
+  <data name="containerResize.Help" xml:space="preserve">
+    <value>resize container to fit largest slide</value>
+  </data>
+  <data name="containerResize.Text" xml:space="preserve">
+    <value>Container Resize</value>
+  </data>
+  <data name="continuous.Help" xml:space="preserve">
+    <value>true to start next transition immediately after current one completes</value>
+  </data>
+  <data name="continuous.Text" xml:space="preserve">
+    <value>Continuous</value>
+  </data>
+  <data name="delay.Help" xml:space="preserve">
+    <value>additional delay (in ms) for first transition (hint: can be negative)</value>
+  </data>
+  <data name="delay.Text" xml:space="preserve">
+    <value>Delay</value>
+  </data>
+  <data name="fastOnEvent.Help" xml:space="preserve">
+    <value>force fast transitions when triggered manually (via pager or prev/next); value == time in ms</value>
+  </data>
+  <data name="fastOnEvent.Text" xml:space="preserve">
+    <value>Fast On Event</value>
+  </data>
+  <data name="fit.Help" xml:space="preserve">
+    <value>force slides to fit container</value>
+  </data>
+  <data name="fit.Text" xml:space="preserve">
+    <value>fit</value>
+  </data>
+  <data name="height.Help" xml:space="preserve">
+    <value>container height</value>
+  </data>
+  <data name="height.Text" xml:space="preserve">
+    <value>Height</value>
+  </data>
+  <data name="manualTrump.Help" xml:space="preserve">
+    <value>causes manual transition to stop an active transition instead of being ignored</value>
+  </data>
+  <data name="manualTrump.Text" xml:space="preserve">
+    <value>Manual Trump</value>
+  </data>
+  <data name="nowrap.Help" xml:space="preserve">
+    <value>true to prevent slideshow from wrapping</value>
+  </data>
+  <data name="nowrap.Text" xml:space="preserve">
+    <value>Nowrap</value>
+  </data>
+  <data name="pause.Help" xml:space="preserve">
+    <value>true to enable "pause on hover"</value>
+  </data>
+  <data name="pause.Text" xml:space="preserve">
+    <value>Pause</value>
+  </data>
+  <data name="random.Help" xml:space="preserve">
+    <value>true for random, false for sequence (not applicable to shuffle fx)</value>
+  </data>
+  <data name="random.Text" xml:space="preserve">
+    <value>Random</value>
+  </data>
+  <data name="randomizeEffects.Help" xml:space="preserve">
+    <value>valid when multiple effects are used; true to make the effect sequence random</value>
+  </data>
+  <data name="randomizeEffects.Text" xml:space="preserve">
+    <value>Randomize Effects</value>
+  </data>
+  <data name="requeueOnImageNotLoaded.Help" xml:space="preserve">
+    <value>requeue the slideshow if any image slides are not yet loaded</value>
+  </data>
+  <data name="requeueOnImageNotLoaded.Text" xml:space="preserve">
+    <value>Requeue On Image Not Loaded</value>
+  </data>
+  <data name="requeueTimeout.Help" xml:space="preserve">
+    <value>ms delay for requeue</value>
+  </data>
+  <data name="requeueTimeout.Text" xml:space="preserve">
+    <value>Requeue Timeout</value>
+  </data>
+  <data name="rev.Help" xml:space="preserve">
+    <value>causes animations to transition in reverse (for effects that support it such as scrollHorz/scrollVert/shuffle)</value>
+  </data>
+  <data name="rev.Text" xml:space="preserve">
+    <value>Rev</value>
+  </data>
+  <data name="slideResize.Help" xml:space="preserve">
+    <value>force slide width/height to fixed size before every transition</value>
+  </data>
+  <data name="slideResize.Text" xml:space="preserve">
+    <value>Slide Resize</value>
+  </data>
+  <data name="speed.Help" xml:space="preserve">
+    <value>speed of the transition (any valid fx speed value)</value>
+  </data>
+  <data name="speed.Text" xml:space="preserve">
+    <value>Speed</value>
+  </data>
+  <data name="sync.Help" xml:space="preserve">
+    <value>true if in/out transitions should occur simultaneously</value>
+  </data>
+  <data name="sync.Text" xml:space="preserve">
+    <value>Sync</value>
+  </data>
+  <data name="timeout.Help" xml:space="preserve">
+    <value>milliseconds between slide transitions (0 to disable auto advance)</value>
+  </data>
+  <data name="timeout.Text" xml:space="preserve">
+    <value>Timeout</value>
+  </data>
+</root>

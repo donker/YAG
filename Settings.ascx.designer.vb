@@ -176,6 +176,24 @@ Partial Public Class Settings
  Protected WithEvents Requiredfieldvalidator4 As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
  '''<summary>
+ '''plZoomFitType control.
+ '''</summary>
+ '''<remarks>
+ '''Auto-generated field.
+ '''To modify move field declaration from designer file to code-behind file.
+ '''</remarks>
+ Protected WithEvents plZoomFitType As Global.System.Web.UI.UserControl
+
+ '''<summary>
+ '''ddZoomFitType control.
+ '''</summary>
+ '''<remarks>
+ '''Auto-generated field.
+ '''To modify move field declaration from designer file to code-behind file.
+ '''</remarks>
+ Protected WithEvents ddZoomFitType As Global.System.Web.UI.WebControls.DropDownList
+
+ '''<summary>
  '''plRegenerate control.
  '''</summary>
  '''<remarks>

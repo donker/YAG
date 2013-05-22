@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+ <resheader name="resmimetype">
+  <value>text/microsoft-resx</value>
+ </resheader>
+ <resheader name="version">
+  <value>2.0</value>
+ </resheader>
+ <resheader name="reader">
+  <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+ </resheader>
+ <resheader name="writer">
+  <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+ </resheader>
+ <data name="transition_speed.Text" xml:space="preserve">
+  <value>transition_speed</value>
+ </data>
+ <data name="transition_speed.Help" xml:space="preserve">
+  <value>duration of panel/frame transition (in milliseconds)</value>
+ </data>
+ <data name="transition_interval.Text" xml:space="preserve">
+  <value>transition_interval</value>
+ </data>
+ <data name="transition_interval.Help" xml:space="preserve">
+  <value>delay between panel/frame transitions (in milliseconds)</value>
+ </data>
+ <data name="easing.Text" xml:space="preserve">
+  <value>easing</value>
+ </data>
+ <data name="easing.Help" xml:space="preserve">
+  <value>easing method to use for animations (jQuery provides 'swing' or 'linear', more available with jQuery UI or Easing plugin)</value>
+ </data>
+ <data name="show_panels.Text" xml:space="preserve">
+  <value>show_panels</value>
+ </data>
+ <data name="show_panels.Help" xml:space="preserve">
+  <value>flag to show or hide panel portion of gallery</value>
+ </data>
+ <data name="show_panel_nav.Text" xml:space="preserve">
+  <value>show_panel_nav</value>
+ </data>
+ <data name="show_panel_nav.Help" xml:space="preserve">
+  <value>flag to show or hide panel navigation buttons</value>
+ </data>
+ <data name="enable_overlays.Text" xml:space="preserve">
+  <value>enable_overlays</value>
+ </data>
+ <data name="enable_overlays.Help" xml:space="preserve">
+  <value>flag to show or hide panel overlays</value>
+ </data>
+ <data name="panel_width.Text" xml:space="preserve">
+  <value>panel_width</value>
+ </data>
+ <data name="panel_width.Help" xml:space="preserve">
+  <value>width of gallery panel (in pixels)</value>
+ </data>
+ <data name="panel_height.Text" xml:space="preserve">
+  <value>panel_height</value>
+ </data>
+ <data name="panel_height.Help" xml:space="preserve">
+  <value>height of gallery panel (in pixels)</value>
+ </data>
+ <data name="panel_animation.Text" xml:space="preserve">
+  <value>panel_animation</value>
+ </data>
+ <data name="panel_animation.Help" xml:space="preserve">
+  <value>animation method for panel transitions (crossfade,fade,slide,none)</value>
+ </data>
+ <data name="panel_scale.Text" xml:space="preserve">
+  <value>panel_scale</value>
+ </data>
+ <data name="panel_scale.Help" xml:space="preserve">
+  <value>cropping option for panel images (crop = scale image and fit to aspect ratio determined by panel_width and panel_height, fit = scale image and preserve original aspect ratio)</value>
+ </data>
+ <data name="overlay_position.Text" xml:space="preserve">
+  <value>overlay_position</value>
+ </data>
+ <data name="overlay_position.Help" xml:space="preserve">
+  <value>position of panel overlay (bottom, top)</value>
+ </data>
+ <data name="pan_images.Text" xml:space="preserve">
+  <value>pan_images</value>
+ </data>
+ <data name="pan_images.Help" xml:space="preserve">
+  <value>flag to allow user to grab/drag oversized images within gallery</value>
+ </data>
+ <data name="pan_style.Text" xml:space="preserve">
+  <value>pan_style</value>
+ </data>
+ <data name="pan_style.Help" xml:space="preserve">
+  <value>panning method (drag = user clicks and drags image to pan, track = image automatically pans based on mouse position</value>
+ </data>
+ <data name="pan_smoothness.Text" xml:space="preserve">
+  <value>pan_smoothness</value>
+ </data>
+ <data name="pan_smoothness.Help" xml:space="preserve">
+  <value>determines smoothness of tracking pan animation (higher number = smoother)</value>
+ </data>
+ <data name="start_frame.Text" xml:space="preserve">
+  <value>start_frame</value>
+ </data>
+ <data name="start_frame.Help" xml:space="preserve">
+  <value>index of panel/frame to show first when gallery loads</value>
+ </data>
+ <data name="show_filmstrip.Text" xml:space="preserve">
+  <value>show_filmstrip</value>
+ </data>
+ <data name="show_filmstrip.Help" xml:space="preserve">
+  <value>flag to show or hide filmstrip portion of gallery</value>
+ </data>
+ <data name="show_filmstrip_nav.Text" xml:space="preserve">
+  <value>show_filmstrip_nav</value>
+ </data>
+ <data name="show_filmstrip_nav.Help" xml:space="preserve">
+  <value>flag indicating whether to display navigation buttons</value>
+ </data>
+ <data name="enable_slideshow.Text" xml:space="preserve">
+  <value>enable_slideshow</value>
+ </data>
+ <data name="enable_slideshow.Help" xml:space="preserve">
+  <value>flag indicating whether to display slideshow play/pause button</value>
+ </data>
+ <data name="autoplay.Text" xml:space="preserve">
+  <value>autoplay</value>
+ </data>
+ <data name="autoplay.Help" xml:space="preserve">
+  <value>flag to start slideshow on gallery load</value>
+ </data>
+ <data name="show_captions.Text" xml:space="preserve">
+  <value>show_captions</value>
+ </data>
+ <data name="show_captions.Help" xml:space="preserve">
+  <value>flag to show or hide frame captions	\t</value>
+ </data>
+ <data name="filmstrip_size.Text" xml:space="preserve">
+  <value>filmstrip_size</value>
+ </data>
+ <data name="filmstrip_size.Help" xml:space="preserve">
+  <value>number of frames to show in filmstrip-only gallery</value>
+ </data>
+ <data name="filmstrip_style.Text" xml:space="preserve">
+  <value>filmstrip_style</value>
+ </data>
+ <data name="filmstrip_style.Help" xml:space="preserve">
+  <value>type of filmstrip to use (scroll = display one line of frames, scroll filmstrip if necessary, showall = display multiple rows of frames if necessary)</value>
+ </data>
+ <data name="filmstrip_position.Text" xml:space="preserve">
+  <value>filmstrip_position</value>
+ </data>
+ <data name="filmstrip_position.Help" xml:space="preserve">
+  <value>position of filmstrip within gallery (bottom, top, left, right)</value>
+ </data>
+ <data name="frame_width.Text" xml:space="preserve">
+  <value>frame_width</value>
+ </data>
+ <data name="frame_width.Help" xml:space="preserve">
+  <value>width of filmstrip frames (in pixels)</value>
+ </data>
+ <data name="frame_height.Text" xml:space="preserve">
+  <value>frame_height</value>
+ </data>
+ <data name="frame_height.Help" xml:space="preserve">
+  <value>width of filmstrip frames (in pixels)</value>
+ </data>
+ <data name="frame_opacity.Text" xml:space="preserve">
+  <value>frame_opacity</value>
+ </data>
+ <data name="frame_opacity.Help" xml:space="preserve">
+  <value>transparency of non-active frames (1.0 = opaque, 0.0 = transparent)</value>
+ </data>
+ <data name="frame_scale.Text" xml:space="preserve">
+  <value>frame_scale</value>
+ </data>
+ <data name="frame_scale.Help" xml:space="preserve">
+  <value>cropping option for filmstrip images (same as above)</value>
+ </data>
+ <data name="frame_gap.Text" xml:space="preserve">
+  <value>frame_gap</value>
+ </data>
+ <data name="frame_gap.Help" xml:space="preserve">
+  <value>spacing between frames within filmstrip (in pixels)</value>
+ </data>
+ <data name="show_infobar.Text" xml:space="preserve">
+  <value>show_infobar</value>
+ </data>
+ <data name="show_infobar.Help" xml:space="preserve">
+  <value>flag to show or hide infobar</value>
+ </data>
+ <data name="infobar_opacity.Text" xml:space="preserve">
+  <value>infobar_opacity</value>
+ </data>
+ <data name="infobar_opacity.Help" xml:space="preserve">
+  <value>transparency for info bar</value>
+ </data>
+</root>

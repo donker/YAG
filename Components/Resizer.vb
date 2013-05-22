@@ -1,6 +1,6 @@
 ﻿'
 ' Bring2mind - http://www.bring2mind.net
-' Copyright (c) 2011
+' Copyright (c) 2012
 ' by Bring2mind
 '
 ' Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
@@ -32,18 +32,21 @@ Public Class Resizer
  Public Sub Process(originalFile As String)
 
   ' Load Image
-  Dim thisImage As New Bitmap(originalFile)
-  Dim imgFormat As ImageFormat = thisImage.RawFormat
-  Dim originalWidth As Integer = thisImage.Width
-  Dim originalHeight As Integer = thisImage.Height
-  Dim imgRatio As Single = Convert.ToSingle(originalHeight / originalWidth)
+  Using thisImage As New Bitmap(originalFile)
 
-  Dim ext As String = IO.Path.GetExtension(originalFile)
-  Dim saveFilename As String = Left(originalFile, originalFile.Length - ext.Length)
+   Dim imgFormat As ImageFormat = thisImage.RawFormat
+   Dim originalWidth As Integer = thisImage.Width
+   Dim originalHeight As Integer = thisImage.Height
+   Dim imgRatio As Single = Convert.ToSingle(originalHeight / originalWidth)
 
-  ' Resize Image
-  ResizeImage(thisImage, imgFormat, originalWidth, originalHeight, imgRatio, Settings.Width, Settings.Height, Settings.FitType, saveFilename & "_tn" & ext)
-  ResizeImage(thisImage, imgFormat, originalWidth, originalHeight, imgRatio, Settings.ZoomWidth, Settings.ZoomHeight, Settings.FitType, saveFilename & "_zoom" & ext)
+   Dim ext As String = IO.Path.GetExtension(originalFile)
+   Dim saveFilename As String = Left(originalFile, originalFile.Length - ext.Length)
+
+   ' Resize Image
+   ResizeImage(thisImage, imgFormat, originalWidth, originalHeight, imgRatio, Settings.Width, Settings.Height, Settings.FitType, saveFilename & "_tn" & ext)
+   ResizeImage(thisImage, imgFormat, originalWidth, originalHeight, imgRatio, Settings.ZoomWidth, Settings.ZoomHeight, Settings.ZoomFitType, saveFilename & "_zoom" & ext)
+
+  End Using
 
  End Sub
 

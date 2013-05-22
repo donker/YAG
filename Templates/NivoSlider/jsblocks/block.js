@@ -1,0 +1,20 @@
+﻿$(document).ready(function () {
+ $('#nivoslider[settings:moduleid]').nivoSlider({
+effect:'[settings:effect]',
+slices:[settings:slices],
+boxCols:[settings:boxCols],
+boxRows:[settings:boxRows],
+animSpeed:[settings:animSpeed],
+pauseTime:[settings:pauseTime],
+startSlide:[settings:startSlide],
+directionNav:[settings:directionNav],
+directionNavHide:[settings:directionNavHide],
+controlNav:[settings:controlNav],
+controlNavThumbs:[settings:controlNavThumbs],
+pauseOnHover:[settings:pauseOnHover],
+manualAdvance:[settings:manualAdvance],
+prevText:'[settings:prevText]',
+nextText:'[settings:nextText]',
+randomStart:[settings:randomStart]
+ });
+});

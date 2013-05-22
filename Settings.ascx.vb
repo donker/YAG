@@ -1,6 +1,6 @@
 ﻿'
 ' Bring2mind - http://www.bring2mind.net
-' Copyright (c) 2011
+' Copyright (c) 2012
 ' by Bring2mind
 '
 ' Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
@@ -61,6 +61,15 @@ Public Class Settings
 
  Private Sub cmdRegenerate_Click(sender As Object, e As System.EventArgs) Handles cmdRegenerate.Click
 
+  With Settings
+   .Width = Integer.Parse(txtWidth.Text)
+   .Height = Integer.Parse(txtHeight.Text)
+   .ZoomWidth = Integer.Parse(txtZoomWidth.Text)
+   .ZoomHeight = Integer.Parse(txtZoomHeight.Text)
+   .FitType = ddFitType.SelectedValue
+   .ZoomFitType = ddZoomFitType.SelectedValue
+  End With
+
   Dim killList As New List(Of String)
   For Each f As String In IO.Directory.GetFiles(Settings.ImageMapPath, "*_tn.*")
    killList.Add(f)
@@ -111,6 +120,10 @@ Public Class Settings
      Catch ex As Exception
      End Try
      Try
+      ddZoomFitType.Items.FindByValue(.ZoomFitType).Selected = True
+     Catch ex As Exception
+     End Try
+     Try
       ddTemplate.Items.FindByValue(Settings.Template).Selected = True
      Catch ex As Exception
      End Try
@@ -139,6 +152,7 @@ Public Class Settings
     .ZoomWidth = Integer.Parse(txtZoomWidth.Text)
     .ZoomHeight = Integer.Parse(txtZoomHeight.Text)
     .FitType = ddFitType.SelectedValue
+    .ZoomFitType = ddZoomFitType.SelectedValue
     .Template = ddTemplate.SelectedValue
     .Save()
    End With

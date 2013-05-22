@@ -187,7 +187,7 @@
     <value>How should the module resize a new image presuming the original is larger than the image we want? Crop will cut off excess image after scaling down. Shrink will mean the image may actually be smaller than anticipated and borders may appear. Strech will attempt to fill the box with the picture either stretching it in X or Y directions.</value>
   </data>
   <data name="plFitType.Text" xml:space="preserve">
-    <value>Image Fit</value>
+    <value>Thumbnail Image Fit</value>
   </data>
   <data name="plGalleryColumns.Help" xml:space="preserve">
     <value>Nr of images across for a gallery display</value>
@@ -311,5 +311,11 @@
   </data>
   <data name="plRegenerate.Text" xml:space="preserve">
     <value>Regenerate Thumbnails</value>
+  </data>
+  <data name="plZoomFitType.Help" xml:space="preserve">
+    <value>How should the module resize a new image presuming the original is larger than the image we want? Crop will cut off excess image after scaling down. Shrink will mean the image may actually be smaller than anticipated and borders may appear. Strech will attempt to fill the box with the picture either stretching it in X or Y directions.</value>
+  </data>
+  <data name="plZoomFitType.Text" xml:space="preserve">
+    <value>Zoom Image Fit</value>
   </data>
 </root>

@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<dotnetnuke xmlns:fo="http://www.w3.org/1999/XSL/Format" type="Package" version="5.0">
+<dotnetnuke version="5.0" type="Package" xmlns:fo="http://www.w3.org/1999/XSL/Format">
  <packages>
-  <package type="Module" name="Bring2mind_YAG" version="01.00.00">
+  <package name="Bring2mind_YAG" type="Module" version="01.00.00">
    <friendlyName>Yet Another Gallery</friendlyName>
    <description>Use Bring2mind's Yet Another Gallery module to display a set of pictures on your page.</description>
    <owner>
@@ -10,12 +9,29 @@
     <url>http://www.bring2mind.net</url>
     <email>info@bring2mind.net</email>
    </owner>
-   <license src="License.txt"/>
-   <releaseNotes src="ReleaseNotes.txt"/>
+   <license><![CDATA[Bring2mind - http://www.bring2mind.net<br />Copyright (c) 2012<br />by Bring2mind<br /><br />Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated <br />documentation files (the "Software"), to deal in the Software without restriction, including without limitation <br />the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and <br />to permit persons to whom the Software is furnished to do so, subject to the following conditions:<br /><br />The above copyright notice and this permission notice shall be included in all copies or substantial portions <br />of the Software.<br /><br />THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED <br />TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL <br />THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF <br />CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER <br />DEALINGS IN THE SOFTWARE.<br /><br />]]></license>
+   <releaseNotes><![CDATA[<h1>Release Notes for Bring2mind's Yet Another Gallery</h1>
+<h2>Requirements</h2>
+<p>
+<ul>
+<li>DotNetNuke 6.2.0 or higher</li>
+</ul>
+</p>
+
+<h2>Release Notes for 01.00.00</h2><table cellpadding="3"><tbody><tr><td><strong>Change:</strong> First release of module</td><td style="width:75px;text-align:right;vertical-align:top;" /></tr></tbody></table>]]></releaseNotes>
    <dependencies>
-    <dependency type="CoreVersion">05.06.02</dependency>
+    <dependency type="CoreVersion">06.02.00</dependency>
    </dependencies>
    <components>
+    <component type="Assembly">
+     <assemblies>
+      <assembly>
+       <name>Bring2mind.DNN.Modules.YAG.dll</name>
+       <sourceFileName>Bring2mind.DNN.Modules.YAG.dll</sourceFileName>
+       <version>01.00.00</version>
+      </assembly>
+     </assemblies>
+    </component>
     <component type="Module">
      <desktopModule>
       <moduleName>Bring2mind_YAG</moduleName>
@@ -26,7 +42,7 @@
         <defaultCacheTime>0</defaultCacheTime>
         <moduleControls>
          <moduleControl>
-          <controlKey/>
+          <controlKey />
           <controlSrc>DesktopModules/Bring2mind/YAG/Gallery.ascx</controlSrc>
           <controlTitle>Gallery</controlTitle>
           <controlType>View</controlType>
@@ -34,29 +50,44 @@
          <moduleControl>
           <controlKey>Edit</controlKey>
           <controlSrc>DesktopModules/Bring2mind/YAG/EditGallery.ascx</controlSrc>
-          <supportsPartialRendering/>
+          <supportsPartialRendering />
           <controlTitle>Edit Gallery</controlTitle>
+          <controlType>Edit</controlType>
+         </moduleControl>
+         <moduleControl>
+          <controlKey>Upload</controlKey>
+          <controlSrc>DesktopModules/Bring2mind/YAG/Upload.ascx</controlSrc>
+          <supportsPartialRendering />
+          <controlTitle>Upload</controlTitle>
           <controlType>Edit</controlType>
          </moduleControl>
          <moduleControl>
           <controlKey>TemplateSettings</controlKey>
           <controlSrc>DesktopModules/Bring2mind/YAG/TemplateSettings.ascx</controlSrc>
-          <supportsPartialRendering/>
+          <supportsPartialRendering />
           <controlTitle>Edit Template Settings</controlTitle>
           <controlType>Edit</controlType>
          </moduleControl>
          <moduleControl>
           <controlKey>Settings</controlKey>
           <controlSrc>DesktopModules/Bring2mind/YAG/Settings.ascx</controlSrc>
-          <supportsPartialRendering/>
+          <supportsPartialRendering />
           <controlTitle>Simple Gallery Settings</controlTitle>
           <controlType>Edit</controlType>
          </moduleControl>
         </moduleControls>
-        <permissions/>
+        <permissions />
        </moduleDefinition>
       </moduleDefinitions>
      </desktopModule>
+    </component>
+    <component type="ResourceFile">
+     <resourceFiles>
+      <basePath>/DesktopModules/Bring2mind\YAG</basePath>
+      <resourceFile>
+       <name>resources.zip</name>
+      </resourceFile>
+     </resourceFiles>
     </component>
    </components>
   </package>

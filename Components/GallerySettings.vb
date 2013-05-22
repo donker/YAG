@@ -1,6 +1,6 @@
 ﻿'
 ' Bring2mind - http://www.bring2mind.net
-' Copyright (c) 2011
+' Copyright (c) 2012
 ' by Bring2mind
 '
 ' Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
@@ -26,36 +26,37 @@ Public Class GallerySettings
 #Region " Constructor "
  Public Sub New(ByVal ModuleId As Integer)
 
-  _moduleId = ModuleId
-  _settings = (New DotNetNuke.Entities.Modules.ModuleController).GetModuleSettings(ModuleId)
-  Common.ReadValue(_settings, "Width", Width)
-  Common.ReadValue(_settings, "Height", Height)
-  Common.ReadValue(_settings, "ZoomWidth", ZoomWidth)
-  Common.ReadValue(_settings, "ZoomHeight", ZoomHeight)
-  Common.ReadValue(_settings, "FitType", FitType)
-  Common.ReadValue(_settings, "Template", Template)
+  _ModuleId = ModuleId
+  _Settings = (New DotNetNuke.Entities.Modules.ModuleController).GetModuleSettings(ModuleId)
+  Common.ReadValue(_Settings, "Width", Width)
+  Common.ReadValue(_Settings, "Height", Height)
+  Common.ReadValue(_Settings, "ZoomWidth", ZoomWidth)
+  Common.ReadValue(_Settings, "ZoomHeight", ZoomHeight)
+  Common.ReadValue(_Settings, "FitType", FitType)
+  Common.ReadValue(_Settings, "ZoomFitType", ZoomFitType)
+  Common.ReadValue(_Settings, "Template", Template)
 
-  _portalModulePath = DotNetNuke.Entities.Portals.PortalSettings.Current.HomeDirectory
-  _portalModuleMapPath = DotNetNuke.Entities.Portals.PortalSettings.Current.HomeDirectoryMapPath
-  If Not _portalModulePath.EndsWith("/") Then
-   _portalModulePath &= "/"
+  _PortalModulePath = DotNetNuke.Entities.Portals.PortalSettings.Current.HomeDirectory
+  _PortalModuleMapPath = DotNetNuke.Entities.Portals.PortalSettings.Current.HomeDirectoryMapPath
+  If Not _PortalModulePath.EndsWith("/") Then
+   _PortalModulePath &= "/"
   End If
-  _portalModulePath &= String.Format("YAG/", ModuleId)
-  _imagePath = String.Format("{0}{1}/", _portalModulePath, ModuleId)
-  If Not _portalModuleMapPath.EndsWith("\") Then
-   _portalModuleMapPath &= "\"
+  _PortalModulePath &= String.Format("YAG/", ModuleId)
+  _imagePath = String.Format("{0}{1}/", _PortalModulePath, ModuleId)
+  If Not _PortalModuleMapPath.EndsWith("\") Then
+   _PortalModuleMapPath &= "\"
   End If
-  _portalModuleMapPath &= String.Format("YAG\", ModuleId)
-  _imageMapPath = String.Format("{0}{1}\", _portalModuleMapPath, ModuleId)
+  _PortalModuleMapPath &= String.Format("YAG\", ModuleId)
+  _imageMapPath = String.Format("{0}{1}\", _PortalModuleMapPath, ModuleId)
   If Not IO.Directory.Exists(_imageMapPath) Then
    IO.Directory.CreateDirectory(_imageMapPath)
   End If
 
-  _portalTemplatesMapPath = String.Format("{0}Templates\", _portalModuleMapPath)
+  _portalTemplatesMapPath = String.Format("{0}Templates\", _PortalModuleMapPath)
   If Not IO.Directory.Exists(_portalTemplatesMapPath) Then
    IO.Directory.CreateDirectory(_portalTemplatesMapPath)
   End If
-  _PortalTemplatesPath = String.Format("{0}Templates/", _portalModulePath)
+  _PortalTemplatesPath = String.Format("{0}Templates/", _PortalModulePath)
 
   ' Template Settings - first load defaults
   SetTemplate(Template)
@@ -66,19 +67,20 @@ Public Class GallerySettings
 #Region " Public Methods "
  Public Sub Save()
   Dim objModules As New DotNetNuke.Entities.Modules.ModuleController
-  objModules.UpdateModuleSetting(_moduleId, "Width", Me.Width.ToString)
-  objModules.UpdateModuleSetting(_moduleId, "Height", Me.Height.ToString)
-  objModules.UpdateModuleSetting(_moduleId, "ZoomWidth", Me.ZoomWidth.ToString)
-  objModules.UpdateModuleSetting(_moduleId, "ZoomHeight", Me.ZoomHeight.ToString)
-  objModules.UpdateModuleSetting(_moduleId, "FitType", Me.FitType)
-  objModules.UpdateModuleSetting(_moduleId, "Template", Me.Template)
-  DotNetNuke.Common.Utilities.DataCache.SetCache(CacheKey(_moduleId), Me)
+  objModules.UpdateModuleSetting(_ModuleId, "Width", Me.Width.ToString)
+  objModules.UpdateModuleSetting(_ModuleId, "Height", Me.Height.ToString)
+  objModules.UpdateModuleSetting(_ModuleId, "ZoomWidth", Me.ZoomWidth.ToString)
+  objModules.UpdateModuleSetting(_ModuleId, "ZoomHeight", Me.ZoomHeight.ToString)
+  objModules.UpdateModuleSetting(_ModuleId, "FitType", Me.FitType)
+  objModules.UpdateModuleSetting(_ModuleId, "ZoomFitType", Me.ZoomFitType)
+  objModules.UpdateModuleSetting(_ModuleId, "Template", Me.Template)
+  DotNetNuke.Common.Utilities.DataCache.SetCache(CacheKey(_ModuleId), Me)
  End Sub
 
  Public Sub SaveTemplateSettings()
   Dim objModules As New DotNetNuke.Entities.Modules.ModuleController
   For Each key As String In TemplateSettings.Keys
-   objModules.UpdateModuleSetting(_moduleId, "t_" & key, TemplateSettings(key))
+   objModules.UpdateModuleSetting(_ModuleId, "t_" & key, TemplateSettings(key))
   Next
  End Sub
 
@@ -102,6 +104,7 @@ Public Class GallerySettings
  Public Property ZoomWidth As Integer = 400
  Public Property ZoomHeight As Integer = 300
  Public Property FitType As String = "Crop"
+ Public Property ZoomFitType As String = "Shrink"
  Public Property PortalTemplatesPath As String = ""
  Public Property TemplateSettings As New Dictionary(Of String, String)
 
@@ -136,6 +139,13 @@ Public Class GallerySettings
    Return _portalTemplatesMapPath
   End Get
  End Property
+
+ Dim _version As String = System.Reflection.Assembly.GetExecutingAssembly.GetName.Version.ToString
+ Public ReadOnly Property Version As String
+  Get
+   Return _version
+  End Get
+ End Property
 #End Region
 
 #Region " Static Methods "
@@ -159,14 +169,14 @@ Public Class GallerySettings
 
 #Region " Private Methods "
  Private Sub SetTemplate(template As String)
-  _templateManager = New Bring2mind.DNN.Modules.YAG.Templating.TemplateManager(DotNetNuke.Entities.Portals.PortalSettings.Current, Me, template)
+  _TemplateManager = New Bring2mind.DNN.Modules.YAG.Templating.TemplateManager(DotNetNuke.Entities.Portals.PortalSettings.Current, Me, template)
   TemplateSettings.Clear()
-  For Each st As Templating.TemplateSetting In _templateManager.TemplateSettings.Settings
+  For Each st As Templating.TemplateSetting In _TemplateManager.TemplateSettings.Settings
    TemplateSettings.Add(st.Key, st.DefaultValue)
   Next
-  For Each key As String In _settings.Keys
+  For Each key As String In _Settings.Keys
    If key.StartsWith("t_") Then
-    SetTemplateSetting(Mid(key, 3), CStr(_settings(key)))
+    SetTemplateSetting(Mid(key, 3), CStr(_Settings(key)))
    End If
   Next
  End Sub
@@ -188,7 +198,7 @@ Public Class GallerySettings
   End If
   Select Case strPropertyName.ToLower
    Case "moduleid"
-    Return (_moduleId.ToString(OutputFormat, formatProvider))
+    Return (_ModuleId.ToString(OutputFormat, formatProvider))
    Case "width"
     Return (Me.Width.ToString(OutputFormat, formatProvider))
    Case "height"
@@ -208,9 +218,9 @@ Public Class GallerySettings
    Case "portaltemplatesmappath"
     Return PropertyAccess.FormatString(Me.PortalTemplatesMapPath, strFormat)
    Case "templatepath"
-    Return PropertyAccess.FormatString(_templateManager.TemplatePath, strFormat)
+    Return PropertyAccess.FormatString(_TemplateManager.TemplatePath, strFormat)
    Case "templatemappath"
-    Return PropertyAccess.FormatString(_templateManager.TemplateMapPath, strFormat)
+    Return PropertyAccess.FormatString(_TemplateManager.TemplateMapPath, strFormat)
    Case Else
     If TemplateSettings.ContainsKey(strPropertyName) Then
      Return PropertyAccess.FormatString(CStr(TemplateSettings(strPropertyName)), strFormat)

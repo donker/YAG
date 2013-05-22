@@ -143,5 +143,9 @@
   </data>
   <data name="cmdReturn.Text" xml:space="preserve">
     <value>Return</value>
+    <comment>&lt;foo&gt;bar&lt;/foo&gt;</comment>
+  </data>
+  <data name="Delete.Confirm" xml:space="preserve">
+    <value>Do you really want to delete this picture?</value>
   </data>
 </root>

@@ -1,6 +1,6 @@
 ﻿'
 ' Bring2mind - http://www.bring2mind.net
-' Copyright (c) 2011
+' Copyright (c) 2012
 ' by Bring2mind
 '
 ' Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
@@ -34,5 +34,8 @@ Public Class ModuleBase
   End Set
  End Property
 
+ Public Function Resx(key As String) As String
+  Return DotNetNuke.Services.Localization.Localization.GetString(key, LocalResourceFile)
+ End Function
 
 End Class

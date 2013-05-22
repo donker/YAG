@@ -1,6 +1,6 @@
 ﻿'
 ' Bring2mind - http://www.bring2mind.net
-' Copyright (c) 2011
+' Copyright (c) 2012
 ' by Bring2mind
 '
 ' Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 

@@ -1,6 +1,6 @@
 ﻿'
 ' Bring2mind - http://www.bring2mind.net
-' Copyright (c) 2011
+' Copyright (c) 2012
 ' by Bring2mind
 '
 ' Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
@@ -100,6 +100,7 @@ Public Class YAG
  Public ReadOnly Property ModuleActions() As ModuleActionCollection Implements IActionable.ModuleActions
   Get
    Dim Acts As New ModuleActionCollection
+   Acts.Add(GetNextActionID, Localization.GetString("Upload", LocalResourceFile), ModuleActionType.EditContent, "", "", EditUrl("Upload"), False, SecurityAccessLevel.Edit, True, False)
    Acts.Add(GetNextActionID, Localization.GetString(ModuleActionType.EditContent, LocalResourceFile), ModuleActionType.EditContent, "", "", EditUrl(), False, SecurityAccessLevel.Edit, True, False)
    Acts.Add(GetNextActionID, Localization.GetString("TemplateSettings", LocalResourceFile), ModuleActionType.EditContent, "", "", EditUrl("TemplateSettings"), False, SecurityAccessLevel.Edit, True, False)
    Return Acts

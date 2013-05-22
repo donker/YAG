@@ -1,0 +1,10 @@
+﻿<hr />
+<h3>Template Description</h3>
+<p>
+ The jQuery Cycle Plugin is a slideshow plugin that supports many different types of transition effects. It supports pause-on-hover, auto-stop, auto-fit, before/after callbacks, click triggers and much more. <a href="http://jquery.malsup.com/cycle/" target="_new">Read more ...</a>
+</p>
+<h4>License</h4>
+<p>
+ Dual licensed under the MIT and GPL licenses.
+</p>
+<hr />

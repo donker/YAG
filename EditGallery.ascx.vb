@@ -1,6 +1,6 @@
 ﻿'
 ' Bring2mind - http://www.bring2mind.net
-' Copyright (c) 2011
+' Copyright (c) 2012
 ' by Bring2mind
 '
 ' Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
@@ -18,10 +18,18 @@
 ' DEALINGS IN THE SOFTWARE.
 '
 
+Imports DotNetNuke.Web.Client.ClientResourceManagement
+
 Public Class EditGallery
  Inherits ModuleBase
 
  Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
+  DotNetNuke.Framework.jQuery.RequestRegistration()
+  DotNetNuke.Framework.jQuery.RequestUIRegistration()
+  ClientResourceManager.RegisterStyleSheet(Me.Page, ResolveUrl("~/DesktopModules/Bring2mind/YAG/css/bootstrap.min.css?_=" & Settings.Version))
+  ClientResourceManager.RegisterStyleSheet(Me.Page, ResolveUrl("~/DesktopModules/Bring2mind/YAG/css/editgallery.css?_=" & Settings.Version))
+  ClientResourceManager.RegisterScript(Me.Page, ResolveUrl("~/DesktopModules/Bring2mind/YAG/js/editgallery.js?_=" & Settings.Version), 10) ' last one loads our own stuff
 
   If Not Me.IsPostBack Then
    Me.DataBind()
@@ -32,87 +40,17 @@ Public Class EditGallery
  Public Overrides Sub DataBind()
 
   Dim album As New ImageCollection(Settings.ImageMapPath)
-  dlExisting.DataSource = album.Images
-  dlExisting.DataBind()
-
- End Sub
-
- Private Sub cmdUpload_Click(sender As Object, e As System.EventArgs) Handles cmdUpload.Click
-
-  Dim origName As String = ctlUpload.FileName
-  Dim ext As String = IO.Path.GetExtension(origName)
-  Dim extOK As Boolean = False
-  Select Case ext.ToLower
-   Case ".jpg", ".png", ".gif"
-    extOK = True
-  End Select
-  If Not extOK Then Throw New Exception("Must upload an image")
-
-  Dim newFile As String = String.Format("{0}{1:yyyyMMdd}-{1:HHmmss}{2}", Settings.ImageMapPath, Now, ext)
-  ctlUpload.SaveAs(newFile)
-
-  Dim r As New Resizer(Settings)
-  r.Process(newFile)
-
-  Dim title As String = txtTitle.Text.Trim
-  If title = "" Then title = IO.Path.GetFileNameWithoutExtension(ctlUpload.FileName)
-
-  Dim album As New ImageCollection(Settings.ImageMapPath)
-  album.Images.Add(New Image(newFile, title, txtRemarks.Text.Trim))
-  album.Save()
-
-  txtTitle.Text = ""
-  txtRemarks.Text = ""
-
-  Me.DataBind()
-
- End Sub
-
- Private Sub dlExisting_ItemCommand(source As Object, e As System.Web.UI.WebControls.DataListCommandEventArgs) Handles dlExisting.ItemCommand
-
-  Dim file As String = CStr(e.CommandArgument)
-  Dim album As New ImageCollection(Settings.ImageMapPath)
-  Dim img As Image = album.Images.Find(Function(x)
-                                        If x.File = file Then Return True
-                                       End Function)
-  If img IsNot Nothing Then
-   Select Case e.CommandName.ToLower
-    Case "up"
-     If img.Order > 0 Then
-      Dim img2 As Image = album.Images.Find(Function(x)
-                                             If x.Order = img.Order - 1 Then Return True
-                                            End Function)
-      img.Order -= 1
-      If img2 IsNot Nothing Then
-       img2.Order += 1
-      End If
-     End If
-     album.Sort()
-    Case "down"
-     Dim img2 As Image = album.Images.Find(Function(x)
-                                            If x.Order = img.Order + 1 Then Return True
-                                           End Function)
-     img.Order += 1
-     If img2 IsNot Nothing Then
-      img2.Order -= 1
-     End If
-     album.Sort()
-    Case "delete"
-     Try
-      IO.File.Delete(Settings.ImageMapPath & img.File & img.Extension)
-      IO.File.Delete(Settings.ImageMapPath & img.File & "_tn" & img.Extension)
-      IO.File.Delete(Settings.ImageMapPath & img.File & "_zoom" & img.Extension)
-     Catch ex As Exception
-     End Try
-     album.Images.Remove(img)
-   End Select
-  End If
-  album.Save()
-  Me.DataBind()
+  album.Recheck()
+  rpImages.DataSource = album.Images
+  rpImages.DataBind()
 
  End Sub
 
  Private Sub cmdReturn_Click(sender As Object, e As System.EventArgs) Handles cmdReturn.Click
   Response.Redirect(DotNetNuke.Common.NavigateURL, False)
+ End Sub
+
+ Private Sub cmdUpload_Click(sender As Object, e As System.EventArgs) Handles cmdUpload.Click
+  Response.Redirect(EditUrl("Upload"), False)
  End Sub
 End Class

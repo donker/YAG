@@ -1,6 +1,6 @@
 ﻿'
 ' Bring2mind - http://www.bring2mind.net
-' Copyright (c) 2011
+' Copyright (c) 2012
 ' by Bring2mind
 '
 ' Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
@@ -31,11 +31,13 @@ Namespace Templating
   Private Property SecondaryResourceFile As String = ""
 
 #Region " Constructors "
-  Public Sub New(ByVal TemplateFileMapPath As String)
-   Dim f As New IO.FileInfo(TemplateFileMapPath)
-   Me.ResourcesPath = f.Directory.Parent.FullName & "\resx\"
-   Me.PrimaryResourceFile = Me.ResourcesPath & f.Name & ".resx"
-   Me.SecondaryResourceFile = Me.ResourcesPath & "SharedResources.ascx.resx"
+  Public Sub New(ByVal TemplateRelPath As String)
+   Me.PrimaryResourceFile = TemplateRelPath
+   Me.ResourcesPath = TemplateRelPath.Substring(0, TemplateRelPath.LastIndexOf("/"))
+   If Not PrimaryResourceFile.ToLower.EndsWith(".resx") Then
+    Me.PrimaryResourceFile = Me.PrimaryResourceFile & ".resx"
+   End If
+   Me.SecondaryResourceFile = Me.ResourcesPath & "/resx/SharedResources.ascx.resx"
   End Sub
 #End Region
 

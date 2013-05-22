@@ -1,6 +1,6 @@
 ﻿'
 ' Bring2mind - http://www.bring2mind.net
-' Copyright (c) 2011
+' Copyright (c) 2012
 ' by Bring2mind
 '
 ' Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
@@ -20,6 +20,7 @@
 
 Imports DotNetNuke.Services.Localization.Localization
 Imports DotNetNuke.Services.Tokens
+Imports DotNetNuke.Web.Client.ClientResourceManagement
 
 Namespace Templating
  Public Class ViewTemplate
@@ -28,8 +29,10 @@ Namespace Templating
 #Region " Properties "
   Public Property Template As Template
   Public Property TemplatePath As String = ""
+  Public Property TemplateRelPath As String = ""
   Public Property TemplateMapPath As String = ""
   Public Property DefaultReplacer As GenericTokenReplace
+  Public Property StartTemplate As String = "Template.html"
   Private Property ViewPath As String = ""
   Private Property ViewMapPath As String = ""
 #End Region
@@ -50,9 +53,9 @@ Namespace Templating
 
    RaiseEvent GetData("", params, dataSrc, args)
    If dataSrc.Count > 0 Then
-    Template = New Template(ViewMapPath, "Template.html", dataSrc(0), Nothing)
+    Template = New Template(ViewMapPath, TemplateRelPath, StartTemplate, dataSrc(0), Nothing)
    Else
-    Template = New Template(ViewMapPath, "Template.html", DefaultReplacer, Nothing)
+    Template = New Template(ViewMapPath, TemplateRelPath, StartTemplate, DefaultReplacer, Nothing)
    End If
    AddHandler Template.GetData, AddressOf Template_GetData
 
@@ -72,36 +75,36 @@ Namespace Templating
 
    'hook in css files
    If IO.File.Exists(TemplateMapPath & "template.css") Then
-    CType(Me.Page, DotNetNuke.Framework.CDefault).AddStyleSheet("DmxTemplate", TemplatePath & "template.css")
+    ClientResourceManager.RegisterStyleSheet(Me.Page, TemplatePath & "template.css")
    End If
    If IO.Directory.Exists(TemplateMapPath & "css") Then
     For Each f As IO.FileInfo In (New IO.DirectoryInfo(TemplateMapPath & "css")).GetFiles("*.css")
-     CType(Me.Page, DotNetNuke.Framework.CDefault).AddStyleSheet(f.Name, TemplatePath & "css/" & f.Name)
+     ClientResourceManager.RegisterStyleSheet(Me.Page, TemplatePath & "css/" & f.Name)
     Next
    End If
    If IO.Directory.Exists(ViewMapPath & "css") Then
     For Each f As IO.FileInfo In (New IO.DirectoryInfo(ViewMapPath & "css")).GetFiles("*.css")
-     CType(Me.Page, DotNetNuke.Framework.CDefault).AddStyleSheet(f.Name, ViewPath & "css/" & f.Name)
+     ClientResourceManager.RegisterStyleSheet(Me.Page, ViewPath & "css/" & f.Name)
     Next
    End If
    'hook in js files
    If IO.File.Exists(TemplateMapPath & "template.js") Then
-    Page.ClientScript.RegisterClientScriptInclude("DmxTemplate", TemplatePath & "template.js")
+    ClientResourceManager.RegisterScript(Me.Page, TemplatePath & "template.js")
    End If
    If IO.Directory.Exists(TemplateMapPath & "js") Then
     For Each f As IO.FileInfo In (New IO.DirectoryInfo(TemplateMapPath & "js")).GetFiles("*.js")
-     Page.ClientScript.RegisterClientScriptInclude(f.Name, TemplatePath & "js/" & f.Name)
+     ClientResourceManager.RegisterScript(Me.Page, TemplatePath & "js/" & f.Name)
     Next
    End If
    If IO.Directory.Exists(ViewMapPath & "js") Then
     For Each f As IO.FileInfo In (New IO.DirectoryInfo(ViewMapPath & "js")).GetFiles("*.js")
-     Page.ClientScript.RegisterClientScriptInclude(f.Name, ViewPath & "js/" & f.Name)
+     ClientResourceManager.RegisterScript(Me.Page, ViewPath & "js/" & f.Name)
     Next
    End If
    ' add js blocks
    If IO.Directory.Exists(ViewMapPath & "jsblocks") Then
     For Each f As IO.FileInfo In (New IO.DirectoryInfo(ViewMapPath & "jsblocks")).GetFiles("*.js")
-     Dim t As New Template(ViewMapPath & "jsblocks\", f.Name, DefaultReplacer, Nothing)
+     Dim t As New Template(ViewMapPath & "jsblocks\", ViewPath, f.Name, DefaultReplacer, Nothing)
      Dim s As String = t.ReplaceContents
      If Not s.StartsWith("<") Then
       s = String.Format("<script type=""text/javascript"">{0}//<![CDATA[{0}{1}//]]>{0}</script>", vbCrLf, s)

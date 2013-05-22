@@ -87,6 +87,7 @@ Public Class YAG
   Dim tmgr As New TemplateManager(PortalSettings, Settings, Settings.Template)
   With vtContents
    .TemplatePath = tmgr.TemplatePath
+   .TemplateRelPath = tmgr.TemplateRelPath
    .TemplateMapPath = tmgr.TemplateMapPath
    .DefaultReplacer = New GalleryTokenReplace(ModuleConfiguration, Settings)
   End With

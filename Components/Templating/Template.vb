@@ -1,6 +1,6 @@
 ﻿'
 ' Bring2mind - http://www.bring2mind.net
-' Copyright (c) 2011
+' Copyright (c) 2012
 ' by Bring2mind
 '
 ' Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
@@ -25,6 +25,7 @@ Namespace Templating
   Public Property FileName As String = "Template.html"
   Public Property Contents As String = ""
   Public Property ViewMapPath As String = ""
+  Public Property ViewRelPath As String = ""
   Public Property Replacer As GenericTokenReplace = Nothing
 #End Region
 
@@ -37,20 +38,22 @@ Namespace Templating
 #End Region
 
 #Region " Constructors "
-  Public Sub New(ByVal ViewMapPath As String, ByVal Filename As String, ByVal Replacer As GenericTokenReplace, item As TemplateRepeaterItem)
+  Public Sub New(ByVal ViewMapPath As String, ViewRelPath As String, ByVal Filename As String, ByVal Replacer As GenericTokenReplace, item As TemplateRepeaterItem)
    Me.ViewMapPath = ViewMapPath
+   Me.ViewRelPath = ViewRelPath
    Me.FileName = Filename
    Me.Replacer = Replacer
-   Me.Replacer.AddResources(ViewMapPath & Filename)
+   Me.Replacer.AddResources(ViewRelPath & Filename)
    If item IsNot Nothing Then Me.Replacer.AddPropertySource("item", item)
   End Sub
 
-  Public Sub New(ByVal ViewMapPath As String, ByVal Filename As String, ByVal Replacer As GenericTokenReplace, item As TemplateRepeaterItem, ByVal Arguments As String())
+  Public Sub New(ByVal ViewMapPath As String, ViewRelPath As String, ByVal Filename As String, ByVal Replacer As GenericTokenReplace, item As TemplateRepeaterItem, ByVal Arguments As String())
    Me.ViewMapPath = ViewMapPath
+   Me.ViewRelPath = ViewRelPath
    Me.FileName = Filename
    Me.Replacer = Replacer
    Me.Replacer.AddCustomParameters(Arguments)
-   Me.Replacer.AddResources(ViewMapPath & Filename)
+   Me.Replacer.AddResources(ViewRelPath & Filename)
    If item IsNot Nothing Then Me.Replacer.AddPropertySource("item", item)
   End Sub
 #End Region
@@ -103,7 +106,7 @@ Namespace Templating
    If totalItems = 1 And args.Count > 0 Then
     For Each arg As String() In args
      Dim tri As New TemplateRepeaterItem(totalItems, 1)
-     Dim t As New Template(ViewMapPath, file, dataSrc(0), tri, arg)
+     Dim t As New Template(ViewMapPath, ViewRelPath, file, dataSrc(0), tri, arg)
      AddHandler t.GetData, AddressOf Template_GetData
      res.Append(t.ReplaceContents)
     Next
@@ -113,7 +116,7 @@ Namespace Templating
      Dim i As Integer = 1
      For Each d As GenericTokenReplace In dataSrc
       Dim tri As New TemplateRepeaterItem(totalItems, i)
-      Dim t As New Template(ViewMapPath, file, d, tri, arg)
+      Dim t As New Template(ViewMapPath, ViewRelPath, file, d, tri, arg)
       AddHandler t.GetData, AddressOf Template_GetData
       res.Append(t.ReplaceContents)
       i += 1
@@ -122,7 +125,7 @@ Namespace Templating
      Dim i As Integer = 1
      For Each d As GenericTokenReplace In dataSrc
       Dim tri As New TemplateRepeaterItem(totalItems, i)
-      Dim t As New Template(ViewMapPath, file, d, tri)
+      Dim t As New Template(ViewMapPath, ViewRelPath, file, d, tri)
       AddHandler t.GetData, AddressOf Template_GetData
       res.Append(t.ReplaceContents)
       i += 1

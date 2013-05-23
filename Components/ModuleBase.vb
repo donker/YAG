@@ -1,4 +1,6 @@
-﻿'
+﻿Imports DotNetNuke.Web.Client.ClientResourceManagement
+
+'
 ' Bring2mind - http://www.bring2mind.net
 ' Copyright (c) 2011-2013
 ' by Bring2mind
@@ -37,5 +39,26 @@ Public Class ModuleBase
  Public Function Resx(key As String) As String
   Return DotNetNuke.Services.Localization.Localization.GetString(key, LocalResourceFile)
  End Function
+
+ Public Sub AddYagService()
+
+  DotNetNuke.Framework.jQuery.RequestDnnPluginsRegistration()
+  DotNetNuke.Framework.ServicesFramework.Instance.RequestAjaxScriptSupport()
+  DotNetNuke.Framework.ServicesFramework.Instance.RequestAjaxAntiForgerySupport()
+  AddJavascriptFile("bring2mind.yag.js", 70)
+
+  ' Load initialization snippet
+  Dim scriptBlock As String = Common.ReadFile(DotNetNuke.Common.ApplicationMapPath & "\DesktopModules\Bring2mind\Yag\js\bring2mind.yag.pagescript.js")
+  Dim tr As New Templating.GenericTokenReplace(DotNetNuke.Services.Tokens.Scope.DefaultSettings, ModuleId)
+  tr.AddPropertySource("resx", New Templating.Resources)
+  scriptBlock = tr.ReplaceTokens(scriptBlock)
+  scriptBlock = "<script type=""text/javascript"">" & vbCrLf & "//<![CDATA[" & vbCrLf & scriptBlock & vbCrLf & "//]]>" & vbCrLf & "</script>"
+  Page.ClientScript.RegisterClientScriptBlock(Me.GetType, "YagServiceScript", scriptBlock)
+
+ End Sub
+
+ Public Sub AddJavascriptFile(jsFilename As String, priority As Integer)
+  ClientResourceManager.RegisterScript(Page, ResolveUrl("~/DesktopModules/Bring2mind/Yag/js/" & jsFilename), priority)
+ End Sub
 
 End Class

@@ -6,6 +6,7 @@ Public Class Upload
  Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
   DotNetNuke.Framework.jQuery.RequestRegistration()
+  AddYagService()
 
   ClientResourceManager.RegisterStyleSheet(Me.Page, ResolveUrl("~/DesktopModules/Bring2mind/YAG/css/bootstrap.yag.css?_=" & Settings.Version))
   ClientResourceManager.RegisterStyleSheet(Me.Page, ResolveUrl("~/DesktopModules/Bring2mind/YAG/css/bootstrap-responsive.yag.css?_=" & Settings.Version))

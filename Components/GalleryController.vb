@@ -67,10 +67,15 @@ Public Class GalleryController
   Return Request.CreateResponse(HttpStatusCode.OK, res)
  End Function
 
+ Public Class fileDTO
+  Public Property fileName As String
+ End Class
+
  <HttpPost()>
  <DnnModuleAuthorize(AccessLevel:=DotNetNuke.Security.SecurityAccessLevel.Edit)>
- Public Function DeleteFile() As HttpResponseMessage
-  Dim fileName As String = System.Web.HttpContext.Current.Request.Params("fileName")
+ <ValidateAntiForgeryToken()>
+ Public Function DeleteFile(postData As fileDTO) As HttpResponseMessage
+  Dim fileName As String = postData.fileName
   Dim res As Boolean = True
   If UploadList.ContainsKey(fileName) Then
    Dim fullName As String = Settings.ImageMapPath & UploadList(fileName) & Path.GetExtension(fileName)
@@ -93,8 +98,9 @@ Public Class GalleryController
 
  <HttpPost()>
  <DnnModuleAuthorize(AccessLevel:=DotNetNuke.Security.SecurityAccessLevel.Edit)>
- Public Function CommitFile() As HttpResponseMessage
-  Dim fileName As String = System.Web.HttpContext.Current.Request.Params("fileName")
+ <ValidateAntiForgeryToken()>
+ Public Function CommitFile(postData As fileDTO) As HttpResponseMessage
+  Dim fileName As String = postData.fileName
   Dim res As String = ""
   If UploadList.ContainsKey(fileName) Then
    Dim newFile As String = UploadList(fileName)
@@ -103,7 +109,7 @@ Public Class GalleryController
    If IO.File.Exists(fullName) Then
     Dim extOK As Boolean = False
     Select Case ext.ToLower
-     Case ".jpg", ".png", ".gif"
+     Case ".jpg", ".jpeg", ".png", ".gif"
       extOK = True
     End Select
     If Not extOK Then Throw New Exception("Must upload an image")
@@ -115,11 +121,17 @@ Public Class GalleryController
   Return Request.CreateResponse(HttpStatusCode.OK, res)
  End Function
 
+ Public Class editFileDTO
+  Public Property control As String
+  Public Property value As String
+ End Class
+
  <HttpPost()>
  <DnnModuleAuthorize(AccessLevel:=DotNetNuke.Security.SecurityAccessLevel.Edit)>
- Public Function EditFile() As HttpResponseMessage
-  Dim control As String = System.Web.HttpContext.Current.Request.Params("control")
-  Dim value As String = System.Web.HttpContext.Current.Request.Params("value")
+ <ValidateAntiForgeryToken()>
+ Public Function EditFile(postData As editFileDTO) As HttpResponseMessage
+  Dim control As String = postData.control
+  Dim value As String = postData.value
   Dim res As Boolean = True
   Dim album As New ImageCollection(Settings.ImageMapPath)
   If control.StartsWith("title") Then
@@ -134,11 +146,16 @@ Public Class GalleryController
   Return Request.CreateResponse(HttpStatusCode.OK, res)
  End Function
 
+ Public Class orderDTO
+  Public Property order As String
+ End Class
+
  <HttpPost()>
  <DnnModuleAuthorize(AccessLevel:=DotNetNuke.Security.SecurityAccessLevel.Edit)>
- Public Function Reorder() As HttpResponseMessage
+ <ValidateAntiForgeryToken()>
+ Public Function Reorder(postData As orderDTO) As HttpResponseMessage
   Dim res As Boolean = True
-  Dim order As String() = System.Web.HttpContext.Current.Request.Params("order").Replace("T", "-").Split("&"c)
+  Dim order As String() = postData.order.Replace("T", "-").Split("&"c)
   Dim index As Integer = 0
   Dim newIndexes As New Dictionary(Of String, Integer)
   For Each ord As String In order
@@ -162,14 +179,17 @@ Public Class GalleryController
 
  <HttpPost()>
  <DnnModuleAuthorize(AccessLevel:=DotNetNuke.Security.SecurityAccessLevel.Edit)>
+ <ValidateAntiForgeryToken()>
  Public Function UploadFile() As HttpResponseMessage
+  Dim res As New HttpResponseMessage(HttpStatusCode.OK)
   Dim statuses As New List(Of FilesStatus)
   HandleUploadFile(System.Web.HttpContext.Current, statuses)
   System.Web.HttpContext.Current.Response.ContentType = "text/plain"
-  WriteJsonIframeSafe(System.Web.HttpContext.Current, statuses)
-  Return Nothing
+  res.Content = New StringContent(WriteJsonIframeSafe(System.Web.HttpContext.Current, statuses))
+  Return res
  End Function
- Private Sub WriteJsonIframeSafe(context As HttpContext, statuses As List(Of FilesStatus))
+
+ Private Function WriteJsonIframeSafe(context As HttpContext, statuses As List(Of FilesStatus)) As String
   context.Response.AddHeader("Vary", "Accept")
   Try
    If context.Request("HTTP_ACCEPT").Contains("application/json") Then
@@ -180,9 +200,8 @@ Public Class GalleryController
   Catch
    context.Response.ContentType = "text/plain"
   End Try
-  Dim jsonObj As String = js.Serialize(statuses.ToArray())
-  context.Response.Write(jsonObj)
- End Sub
+  Return js.Serialize(statuses.ToArray())
+ End Function
 
  ' Upload file to the server
  Private Sub HandleUploadFile(context As HttpContext, ByRef statuses As List(Of FilesStatus))

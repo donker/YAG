@@ -24,12 +24,11 @@
 </p>
 
 <script type="text/javascript">
- $(function () {
+(function ($, Sys) {
+ $(document).ready(function () {
   $('#images').yagEdit({
-   serviceUrl: '<%=ResolveUrl("~/DesktopModules/Bring2mind/YAG/API/")%>',
-   moduleId: '<%=ModuleId%>',
-   tabId: '<%=TabId%>',
    localization: { deleteConfirm: '<%=Resx("Delete.Confirm")%>' }
   });
  });
+} (jQuery, window.Sys));
 </script>

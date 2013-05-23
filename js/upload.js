@@ -1,7 +1,6 @@
 ; (function ($, window, document, undefined) {
  var pluginName = 'yagUpload',
   defaults = {
-   serviceUrl: '',
    moduleId: '-1',
    tabId: '-1',
    localization: {
@@ -18,6 +17,7 @@
   this._defaults = defaults;
   this._name = pluginName;
   this.init();
+  var afValue = $('[name="__RequestVerificationToken"]').val();
 
   $(this.element).fileupload({
    fileTypes: /^image\/(gif|jpeg|png)$/,
@@ -25,38 +25,39 @@
    maxChunkSize: 1000000,
    progressall: function (e, data) {
     var progress = parseInt(data.loaded / data.total * 100, 10);
-    $('#progress .bar').css(
+    $('#progress .yag-bar').css(
             'width',
             progress + '%'
         );
    },
+   headers: {'ModuleId': options.moduleId, 'TabId': options.tabId, 'RequestVerificationToken': afValue},
    done: function (e, data) {
     data.context.find('div.status').text(options.localization.uploaded);
-    data.context.find('div.commands button').addClass('btn-danger delete').removeAttr('disabled').click(function (e) {
+    data.context.find('div.commands button').addClass('yag-btn-danger delete').removeAttr('disabled').click(function (e) {
      if (confirm(options.localization.deleteConfirm)) {
-      if ($.post(options.serviceUrl+'Delete?TabId='+options.tabId+'&ModuleId='+options.moduleId,
-        { fileName: data.files[0].name })) {$(data.context).remove();};
+      var cont = $(data.context);
+      yagService.deleteFile(data.files[0].name, function() {
+       cont.remove();
+      });
      };
     });
-    $.post(options.serviceUrl+'Commit?TabId='+options.tabId+'&ModuleId='+options.moduleId,
-        { fileName: data.files[0].name },
-        function(res) {
-         data.context.find('div.thumbnailcolumn img').attr('src', res);
+    yagService.commitFile(data.files[0].name, function(res) {
+     data.context.find('div.thumbnailcolumn img').attr('src', res);
         });
-    data.context.find('div.progresscolumn div.progress div.bar').css('width', '0%');
+    data.context.find('div.progresscolumn div.yag-progress div.yag-bar').css('width', '0%');
    },
    progress: function (e, data) {
     var progress = _formatPercentage(data.loaded / data.total);
     data.context.find('div.status').text(_renderExtendedProgress(data));
-    data.context.find('div.progresscolumn div.progress div.bar').css('width', progress);
+    data.context.find('div.progresscolumn div.yag-progress div.yag-bar').css('width', progress);
    },
    add: function (e, data) {
-    data.context = $('<div class="row-fluid" />').appendTo('div.files');
-    $('<div class="span3 textcell title" />').text(data.files[0].name).appendTo(data.context);
-    $('<div class="span2 textcell status" />').text(options.localization.queued).appendTo(data.context);
-    $('<div class="span2 textcell progresscolumn" />').append($('<div class="progress progress-striped progress-info" />').append($('<div class="bar" style="width:0%" />'))).appendTo(data.context);
-    $('<div class="span2 thumbnailcolumn" />').append($('<img/>')).appendTo(data.context);
-    $('<div class="span2 textcell commands" />').append($('<button class="btn"/>', { type: 'button', disabled: 'disabled', id: 'delete'+data.files[0].name }).append($('<i class="icon-trash icon-white"/>'))).appendTo(data.context).find('button:first-child').append($('<span/>').text(options.localization.cmdDelete));
+    data.context = $('<div class="yag-row-fluid" />').appendTo('div.files');
+    $('<div class="yag-span3 textcell title" />').text(data.files[0].name).appendTo(data.context);
+    $('<div class="yag-span2 textcell status" />').text(options.localization.queued).appendTo(data.context);
+    $('<div class="yag-span2 textcell progresscolumn" />').append($('<div class="yag-progress yag-progress-striped yag-progress-info" style="height: 20px;" />').append($('<div class="yag-bar" style="width:0%" />'))).appendTo(data.context);
+    $('<div class="yag-span2 thumbnailcolumn" />').append($('<img/>')).appendTo(data.context);
+    $('<div class="yag-span2 textcell commands" />').append($('<button class="yag-btn"/>', { type: 'button', disabled: 'disabled', id: 'delete'+data.files[0].name }).append($('<i class="yag-icon-trash yag-icon-white"/>'))).appendTo(data.context).find('button:first-child').append($('<span/>').text(options.localization.cmdDelete));
     _upload(data, 4)
     $('button.cancel').click(function (e) {
      jqXHR.abort();
@@ -70,7 +71,7 @@
     var that = $(this).data('fileupload');
     if (data.context && data.dataType &&
                         data.dataType.substr(0, 6) === 'iframe') {
-     data.context.find('div.progresscolumn div.progress div.bar').css('width', '100%');
+     data.context.find('div.progresscolumn div.yag-progress div.yag-bar').css('width', '100%');
     }
     return that._trigger('sent', e, data);
    }
@@ -82,8 +83,7 @@
      var jqXHR = data.submit()
       .error(function (jqXHR, textStatus, errorThrown) {
         data.context.find('div.status').addClass('error').text(textStatus);
-        $.post(options.serviceUrl+'Delete?TabId='+options.tabId+'&ModuleId='+options.moduleId,
-         { fileName: data.files[0].name });
+        yagService.deleteFile(data.files[0].name, null);
         setTimeout(function() {_upload(data, retries-1)}, 1000);    
        })
    }

@@ -39,6 +39,11 @@ Namespace Templating
    End If
    Me.SecondaryResourceFile = Me.ResourcesPath & "/resx/SharedResources.ascx.resx"
   End Sub
+
+  Public Sub New()
+   Me.PrimaryResourceFile = Common.glbSharedResourceFileName
+   Me.SecondaryResourceFile = Common.glbSharedResourceFileName
+  End Sub
 #End Region
 
 #Region " IPropertyAccess Implementation "

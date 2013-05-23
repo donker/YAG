@@ -174,6 +174,8 @@
     <Content Include="css\bootstrap.yag.css" />
     <Content Include="css\editgallery.css" />
     <Content Include="css\fileupload.css" />
+    <Content Include="js\bring2mind.yag.js" />
+    <Content Include="js\bring2mind.yag.pagescript.js" />
     <Content Include="js\editgallery.js" />
     <Content Include="js\jquery.ui.widget.js" />
     <Content Include="js\upload.js" />
@@ -196,6 +198,9 @@
     <Content Include="App_LocalResources\Gallery.ascx.resx" />
     <Content Include="Upload.ascx" />
     <Content Include="App_LocalResources\Upload.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\SharedResources.resx">
       <SubType>Designer</SubType>
     </Content>
     <EmbeddedResource Include="Templates\_default\resx\SharedResources.ascx.resx">

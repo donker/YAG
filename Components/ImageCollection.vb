@@ -94,10 +94,9 @@ Public Class ImageCollection
    hasChanges = True
    Images.Remove(i)
   Next
-  ' pick up new jpgs
-  For Each f As String In IO.Directory.GetFiles(_imagesMapPath, "*.jpg")
-   'Dim m As Match = Regex.Match(f, "(?i)([^_\\\.]+)(_tn|_zoom)?\.jpg(?-i)")
-   Dim m As Match = Regex.Match(f, "(?i)(\d{8}-\d{6,})\.jpg(?-i)")
+  ' pick up new images
+  For Each f As String In IO.Directory.GetFiles(_imagesMapPath, "*.*")
+   Dim m As Match = Regex.Match(f, "(?i)(\d{8}-\d{6,})\.(?-i)")
    If m.Success Then
     Dim fname As String = m.Groups(1).Value
     If Not registered.Contains(fname) Then
@@ -109,8 +108,8 @@ Public Class ImageCollection
    End If
   Next
   ' remove orphaned thumbnails/zooms
-  For Each f As String In IO.Directory.GetFiles(_imagesMapPath, "*.jpg")
-   Dim m As Match = Regex.Match(f, "(?i)([^_\\\.]+)(_tn|_zoom)\.jpg(?-i)")
+  For Each f As String In IO.Directory.GetFiles(_imagesMapPath, "*.*")
+   Dim m As Match = Regex.Match(f, "(?i)([^_\\\.]+)(_tn|_zoom)\.(?-i)")
    If m.Success Then
     Dim fname As String = m.Groups(1).Value
     If Not registered.Contains(fname) Then

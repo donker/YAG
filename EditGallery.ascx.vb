@@ -27,6 +27,7 @@ Public Class EditGallery
 
   DotNetNuke.Framework.jQuery.RequestRegistration()
   DotNetNuke.Framework.jQuery.RequestUIRegistration()
+  AddYagService()
   ClientResourceManager.RegisterStyleSheet(Me.Page, ResolveUrl("~/DesktopModules/Bring2mind/YAG/css/bootstrap.yag.css?_=" & Settings.Version))
   ClientResourceManager.RegisterStyleSheet(Me.Page, ResolveUrl("~/DesktopModules/Bring2mind/YAG/css/editgallery.css?_=" & Settings.Version))
   ClientResourceManager.RegisterScript(Me.Page, ResolveUrl("~/DesktopModules/Bring2mind/YAG/js/editgallery.js?_=" & Settings.Version), 10) ' last one loads our own stuff

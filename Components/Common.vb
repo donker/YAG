@@ -21,6 +21,7 @@
 Public Class Common
 
  Public Const glbTemplatesPath As String = "~/DesktopModules/Bring2mind/YAG/Templates/"
+ Public Const glbSharedResourceFileName As String = "~/DesktopModules/Bring2mind/YAG/App_LocalResources/SharedResources.resx"
 
  Public Shared Function ReadFile(ByVal fileName As String) As String
   If Not IO.File.Exists(fileName) Then Return ""

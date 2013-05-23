@@ -1,9 +1,6 @@
 ; (function ($, window, document, undefined) {
  var pluginName = 'yagEdit',
   defaults = {
-   serviceUrl: '',
-   moduleId: '-1',
-   tabId: '-1',
    localization: {deleteConfirm : 'Do you really want to delete this picture?'}
   };
 
@@ -24,23 +21,22 @@
   });
 
   $(this.element).find('.textbox').change(function() {
-    $.post(options.serviceUrl+'Edit?TabId='+options.tabId+'&ModuleId='+options.moduleId,
-        { control: this.id, value: this.value });
+    yagService.editFile(this.id, this.value, null)
    });
 
   $('#exitControls a').click(function() {
    if (hasChanges) {
-    $.post(options.serviceUrl+'Reorder?TabId='+options.tabId+'&ModuleId='+options.moduleId,
-        { order: $(element).sortable('serialize') });
+    yagService.reorder($(element).sortable('serialize'), null)
    };   
    return true;
   });
   
-  $(this.element).find('li div.delbutton a.close').click(function () {
+  $(this.element).find('li div.delbutton a.yag-close').click(function () {
    if (confirm(options.localization.deleteConfirm)) {
-    $.post(options.serviceUrl+'Delete?TabId='+options.tabId+'&ModuleId='+options.moduleId,
-        { fileName: this.id.substring(6) });
-    $(this).parent().parent().remove();
+    var id = this.id;
+    yagService.deleteFile(id.substring(6), function() {
+     $('#'+id).parent().parent().remove();
+    })   
    };
   });
  }

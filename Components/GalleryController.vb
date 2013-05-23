@@ -1,15 +1,20 @@
-﻿Imports System.Web.Mvc
-Imports DotNetNuke.Web.Services
+﻿Imports System.Runtime.Serialization
+Imports System.Runtime.Serialization.Json
+Imports System.Net
+Imports System.Net.Http
+Imports System.Web.Http
+Imports DotNetNuke.Web.Api
+
 Imports DotNetNuke.Security.Permissions
 Imports System.Globalization
-Imports System.Runtime.Serialization.Json
 Imports System.IO
 Imports System.Web.Script.Serialization
 
 Public Class GalleryController
- Inherits DnnController
+ Inherits DnnApiController
  Implements IServiceRouteMapper
 
+#Region " Properties "
  Private _uploadList As Dictionary(Of String, String)
  Public ReadOnly Property UploadList() As Dictionary(Of String, String)
   Get
@@ -29,28 +34,29 @@ Public Class GalleryController
    Return _uploadList
   End Get
  End Property
- Private Sub SaveUploadList()
-  If _uploadList Is Nothing Then Exit Sub
-  Dim listFile As String = Settings.ImageMapPath & UserInfo.UserID.ToString & ".resources"
-  Using ins As New IO.StreamWriter(listFile, False)
-   For Each key As String In _uploadList.Keys
-    ins.WriteLine(String.Format("{0};{1}", key, _uploadList(key)))
-   Next
-  End Using
- End Sub
 
- Public Sub RegisterRoutes(mapRouteManager As DotNetNuke.Web.Services.IMapRoute) Implements DotNetNuke.Web.Services.IServiceRouteMapper.RegisterRoutes
-  mapRouteManager.MapRoute("Bring2mind/YAG", "", New With {.Controller = "Gallery", .Action = "ListCurrentFiles"}, New String() {"Bring2mind.DNN.Modules.YAG"})
-  mapRouteManager.MapRoute("Bring2mind/YAG", "Upload", New With {.Controller = "Gallery", .Action = "UploadFile"}, New String() {"Bring2mind.DNN.Modules.YAG"})
-  mapRouteManager.MapRoute("Bring2mind/YAG", "Delete", New With {.Controller = "Gallery", .Action = "DeleteFile"}, New String() {"Bring2mind.DNN.Modules.YAG"})
-  mapRouteManager.MapRoute("Bring2mind/YAG", "Commit", New With {.Controller = "Gallery", .Action = "CommitFile"}, New String() {"Bring2mind.DNN.Modules.YAG"})
-  mapRouteManager.MapRoute("Bring2mind/YAG", "Edit", New With {.Controller = "Gallery", .Action = "EditFile"}, New String() {"Bring2mind.DNN.Modules.YAG"})
-  mapRouteManager.MapRoute("Bring2mind/YAG", "Reorder", New With {.Controller = "Gallery", .Action = "Reorder"}, New String() {"Bring2mind.DNN.Modules.YAG"})
- End Sub
+ Private ReadOnly Property Settings As GallerySettings
+  Get
+   Return GallerySettings.GetGallerySettings(ActiveModule.ModuleID)
+  End Get
+ End Property
+#End Region
 
- <AcceptVerbs(HttpVerbs.Get)>
+#Region " IServiceRouteMapper "
+ Public Sub RegisterRoutes(mapRouteManager As DotNetNuke.Web.Api.IMapRoute) Implements DotNetNuke.Web.Api.IServiceRouteMapper.RegisterRoutes
+  mapRouteManager.MapHttpRoute("Bring2mind/YAG", "Default", "", New With {.Controller = "Gallery", .Action = "ListCurrentFiles"}, New String() {"Bring2mind.DNN.Modules.YAG"})
+  mapRouteManager.MapHttpRoute("Bring2mind/YAG", "Upload", "Upload", New With {.Controller = "Gallery", .Action = "UploadFile"}, New String() {"Bring2mind.DNN.Modules.YAG"})
+  mapRouteManager.MapHttpRoute("Bring2mind/YAG", "Delete", "Delete", New With {.Controller = "Gallery", .Action = "DeleteFile"}, New String() {"Bring2mind.DNN.Modules.YAG"})
+  mapRouteManager.MapHttpRoute("Bring2mind/YAG", "Commit", "Commit", New With {.Controller = "Gallery", .Action = "CommitFile"}, New String() {"Bring2mind.DNN.Modules.YAG"})
+  mapRouteManager.MapHttpRoute("Bring2mind/YAG", "Edit", "Edit", New With {.Controller = "Gallery", .Action = "EditFile"}, New String() {"Bring2mind.DNN.Modules.YAG"})
+  mapRouteManager.MapHttpRoute("Bring2mind/YAG", "Reorder", "Reorder", New With {.Controller = "Gallery", .Action = "Reorder"}, New String() {"Bring2mind.DNN.Modules.YAG"})
+ End Sub
+#End Region
+
+#Region " Other Service Methods "
+ <HttpGet()>
  <DnnModuleAuthorize(AccessLevel:=DotNetNuke.Security.SecurityAccessLevel.View)>
- Public Function ListCurrentFiles() As ActionResult
+ Public Function ListCurrentFiles() As HttpResponseMessage
   Dim res As New List(Of Image)
   If ActiveModule IsNot Nothing Then
    Dim album As New ImageCollection(Settings.ImageMapPath)
@@ -58,41 +64,12 @@ Public Class GalleryController
     res = album.Images
    End If
   End If
-  Return Json(res, JsonRequestBehavior.AllowGet)
+  Return Request.CreateResponse(HttpStatusCode.OK, res)
  End Function
 
- Private ReadOnly js As New JavaScriptSerializer()
-
- <ValidateInput(False)>
- <AcceptVerbs(HttpVerbs.Post)>
+ <HttpPost()>
  <DnnModuleAuthorize(AccessLevel:=DotNetNuke.Security.SecurityAccessLevel.Edit)>
- Public Function UploadFile() As ActionResult
-  Dim statuses As New List(Of FilesStatus)
-  HandleUploadFile(System.Web.HttpContext.Current, statuses)
-  System.Web.HttpContext.Current.Response.ContentType = "text/plain"
-  WriteJsonIframeSafe(System.Web.HttpContext.Current, statuses)
-  'Return Json(statuses, JsonRequestBehavior.DenyGet)
-  Return Nothing
- End Function
- Private Sub WriteJsonIframeSafe(context As HttpContext, statuses As List(Of FilesStatus))
-  context.Response.AddHeader("Vary", "Accept")
-  Try
-   If context.Request("HTTP_ACCEPT").Contains("application/json") Then
-    context.Response.ContentType = "application/json"
-   Else
-    context.Response.ContentType = "text/plain"
-   End If
-  Catch
-   context.Response.ContentType = "text/plain"
-  End Try
-  Dim jsonObj As String = js.Serialize(statuses.ToArray())
-  context.Response.Write(jsonObj)
- End Sub
-
- <ValidateInput(False)>
- <AcceptVerbs(HttpVerbs.Post)>
- <DnnModuleAuthorize(AccessLevel:=DotNetNuke.Security.SecurityAccessLevel.Edit)>
- Public Function DeleteFile() As ActionResult
+ Public Function DeleteFile() As HttpResponseMessage
   Dim fileName As String = System.Web.HttpContext.Current.Request.Params("fileName")
   Dim res As Boolean = True
   If UploadList.ContainsKey(fileName) Then
@@ -111,13 +88,12 @@ Public Class GalleryController
    album.Delete(fileName)
    album.Save()
   End If
-  Return Json(res, JsonRequestBehavior.DenyGet)
+  Return Request.CreateResponse(HttpStatusCode.OK, res)
  End Function
 
- <ValidateInput(False)>
- <AcceptVerbs(HttpVerbs.Post)>
+ <HttpPost()>
  <DnnModuleAuthorize(AccessLevel:=DotNetNuke.Security.SecurityAccessLevel.Edit)>
- Public Function CommitFile() As ActionResult
+ Public Function CommitFile() As HttpResponseMessage
   Dim fileName As String = System.Web.HttpContext.Current.Request.Params("fileName")
   Dim res As String = ""
   If UploadList.ContainsKey(fileName) Then
@@ -136,13 +112,12 @@ Public Class GalleryController
     res = Settings.ImagePath & newFile & "_tn" & ext
    End If
   End If
-  Return Json(res, JsonRequestBehavior.DenyGet)
+  Return Request.CreateResponse(HttpStatusCode.OK, res)
  End Function
 
- <ValidateInput(False)>
- <AcceptVerbs(HttpVerbs.Post)>
+ <HttpPost()>
  <DnnModuleAuthorize(AccessLevel:=DotNetNuke.Security.SecurityAccessLevel.Edit)>
- Public Function EditFile() As ActionResult
+ Public Function EditFile() As HttpResponseMessage
   Dim control As String = System.Web.HttpContext.Current.Request.Params("control")
   Dim value As String = System.Web.HttpContext.Current.Request.Params("value")
   Dim res As Boolean = True
@@ -156,12 +131,12 @@ Public Class GalleryController
   Else
    res = False
   End If
-  Return Json(res, JsonRequestBehavior.DenyGet)
+  Return Request.CreateResponse(HttpStatusCode.OK, res)
  End Function
 
- <AcceptVerbs(HttpVerbs.Post)>
+ <HttpPost()>
  <DnnModuleAuthorize(AccessLevel:=DotNetNuke.Security.SecurityAccessLevel.Edit)>
- Public Function Reorder() As ActionResult
+ Public Function Reorder() As HttpResponseMessage
   Dim res As Boolean = True
   Dim order As String() = System.Web.HttpContext.Current.Request.Params("order").Replace("T", "-").Split("&"c)
   Dim index As Integer = 0
@@ -178,8 +153,36 @@ Public Class GalleryController
   Next
   album.Sort()
   album.Save()
-  Return Json(res, JsonRequestBehavior.DenyGet)
+  Return Request.CreateResponse(HttpStatusCode.OK, res)
  End Function
+#End Region
+
+#Region " Upload Handler "
+ Private ReadOnly js As New JavaScriptSerializer()
+
+ <HttpPost()>
+ <DnnModuleAuthorize(AccessLevel:=DotNetNuke.Security.SecurityAccessLevel.Edit)>
+ Public Function UploadFile() As HttpResponseMessage
+  Dim statuses As New List(Of FilesStatus)
+  HandleUploadFile(System.Web.HttpContext.Current, statuses)
+  System.Web.HttpContext.Current.Response.ContentType = "text/plain"
+  WriteJsonIframeSafe(System.Web.HttpContext.Current, statuses)
+  Return Nothing
+ End Function
+ Private Sub WriteJsonIframeSafe(context As HttpContext, statuses As List(Of FilesStatus))
+  context.Response.AddHeader("Vary", "Accept")
+  Try
+   If context.Request("HTTP_ACCEPT").Contains("application/json") Then
+    context.Response.ContentType = "application/json"
+   Else
+    context.Response.ContentType = "text/plain"
+   End If
+  Catch
+   context.Response.ContentType = "text/plain"
+  End Try
+  Dim jsonObj As String = js.Serialize(statuses.ToArray())
+  context.Response.Write(jsonObj)
+ End Sub
 
  ' Upload file to the server
  Private Sub HandleUploadFile(context As HttpContext, ByRef statuses As List(Of FilesStatus))
@@ -241,11 +244,15 @@ Public Class GalleryController
   SaveUploadList()
  End Sub
 
- Private ReadOnly Property Settings As GallerySettings
-  Get
-   Return GallerySettings.GetGallerySettings(ActiveModule.ModuleID)
-  End Get
- End Property
+ Private Sub SaveUploadList()
+  If _uploadList Is Nothing Then Exit Sub
+  Dim listFile As String = Settings.ImageMapPath & UserInfo.UserID.ToString & ".resources"
+  Using ins As New IO.StreamWriter(listFile, False)
+   For Each key As String In _uploadList.Keys
+    ins.WriteLine(String.Format("{0};{1}", key, _uploadList(key)))
+   Next
+  End Using
+ End Sub
 
  Private Function GetNewFilekey(extension As String) As String
   Dim res As String = String.Format("{0:yyyyMMdd}-{0:HHmmss}", Now)
@@ -258,5 +265,6 @@ Public Class GalleryController
   End If
   Return res
  End Function
+#End Region
 
 End Class

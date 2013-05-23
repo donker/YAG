@@ -83,7 +83,7 @@ Public Class Resizer
    Using backBufferGraphics As Graphics = Graphics.FromImage(backBuffer)
     backBufferGraphics.InterpolationMode = Drawing.Drawing2D.InterpolationMode.HighQualityBicubic
     backBufferGraphics.SmoothingMode = Drawing.Drawing2D.SmoothingMode.AntiAlias
-    backBufferGraphics.DrawImage(thisImage, newX, newY, Convert.ToInt32(originalWidth * scaleX), Convert.ToInt32(originalHeight * scaleY))
+    backBufferGraphics.DrawImage(thisImage, newX - 1, newY - 1, Convert.ToInt32(originalWidth * scaleX) + 2, Convert.ToInt32(originalHeight * scaleY) + 2)
     backBuffer.Save(SaveAs, imgFormat)
    End Using
   End Using

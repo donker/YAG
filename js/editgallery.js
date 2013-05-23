@@ -22,12 +22,10 @@
            }
 
   });
-  $(this.element).disableSelection();
 
   $(this.element).find('.textbox').change(function() {
     $.post(options.serviceUrl+'Edit?TabId='+options.tabId+'&ModuleId='+options.moduleId,
         { control: this.id, value: this.value });
-    // alert($(this.element).sortable('serialize'));
    });
 
   $('#exitControls a').click(function() {

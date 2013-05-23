@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <code-summaries>
-  <code-summary date="2013-05-23T16:12:58.5195313+02:00" buildname="2.1.0.0">
-    <linecount label="VB" totalLineCount="8905" emptyLineCount="838" commentLineCount="1886">
+  <code-summary date="2013-05-23T16:45:42.7304688+02:00" buildname="2.1.0.0">
+    <linecount label="VB" totalLineCount="8875" emptyLineCount="834" commentLineCount="1872">
       <file-summaries>
         <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Components\Templating\CustomParameters.vb" totalLineCount="71" emptyLineCount="7" commentLineCount="19" />
         <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Components\Templating\GalleryTokenReplace.vb" totalLineCount="49" emptyLineCount="9" commentLineCount="19" />
@@ -61,9 +61,9 @@
         <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\EditGallery.ascx" totalLineCount="34" emptyLineCount="3" commentLineCount="0" />
         <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\EditGallery.ascx.designer.vb" totalLineCount="42" emptyLineCount="6" commentLineCount="29" />
         <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\EditGallery.ascx.vb" totalLineCount="57" emptyLineCount="11" commentLineCount="19" />
-        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Gallery.ascx" totalLineCount="10" emptyLineCount="2" commentLineCount="0" />
-        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Gallery.ascx.designer.vb" totalLineCount="51" emptyLineCount="7" commentLineCount="36" />
-        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Gallery.ascx.vb" totalLineCount="129" emptyLineCount="23" commentLineCount="19" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Gallery.ascx" totalLineCount="8" emptyLineCount="2" commentLineCount="0" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Gallery.ascx.designer.vb" totalLineCount="33" emptyLineCount="5" commentLineCount="22" />
+        <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Gallery.ascx.vb" totalLineCount="119" emptyLineCount="21" commentLineCount="19" />
         <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Settings.ascx" totalLineCount="91" emptyLineCount="3" commentLineCount="0" />
         <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Settings.ascx.designer.vb" totalLineCount="240" emptyLineCount="28" commentLineCount="183" />
         <file-summary name="D:\Webroot\b2m\DesktopModules\Bring2mind\YAG\Settings.ascx.vb" totalLineCount="174" emptyLineCount="18" commentLineCount="36" />

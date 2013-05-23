@@ -46,8 +46,6 @@ Public Class YAG
 
   If Permissions.ModulePermissionController.HasModulePermission(Me.ModuleConfiguration.ModulePermissions, "EDIT") Then
    cmdEdit.Visible = True
-   cmdSettings.Visible = True
-   cmdUpload.Visible = True
   End If
 
   DotNetNuke.Framework.jQuery.RequestRegistration()
@@ -88,14 +86,6 @@ Public Class YAG
 
  Private Sub cmdEdit_Click(sender As Object, e As System.EventArgs) Handles cmdEdit.Click
   Response.Redirect(EditUrl(), False)
- End Sub
-
- Private Sub cmdSettings_Click(sender As Object, e As System.EventArgs) Handles cmdSettings.Click
-  Response.Redirect(EditUrl("TemplateSettings"), False)
- End Sub
-
- Private Sub cmdUpload_Click(sender As Object, e As System.EventArgs) Handles cmdUpload.Click
-  Response.Redirect(EditUrl("Upload"), False)
  End Sub
 #End Region
 

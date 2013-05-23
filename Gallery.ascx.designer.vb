@@ -30,22 +30,4 @@ Partial Public Class YAG
  '''To modify move field declaration from designer file to code-behind file.
  '''</remarks>
  Protected WithEvents cmdEdit As Global.System.Web.UI.WebControls.LinkButton
-
- '''<summary>
- '''cmdUpload control.
- '''</summary>
- '''<remarks>
- '''Auto-generated field.
- '''To modify move field declaration from designer file to code-behind file.
- '''</remarks>
- Protected WithEvents cmdUpload As Global.System.Web.UI.WebControls.LinkButton
-
- '''<summary>
- '''cmdSettings control.
- '''</summary>
- '''<remarks>
- '''Auto-generated field.
- '''To modify move field declaration from designer file to code-behind file.
- '''</remarks>
- Protected WithEvents cmdSettings As Global.System.Web.UI.WebControls.LinkButton
 End Class

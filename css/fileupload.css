@@ -17,8 +17,8 @@
   direction: ltr;
   cursor: pointer;
 }
-.fileupload-buttonbar .btn,
-.fileupload-buttonbar .toggle {
+.fileupload-buttonbar .yag-btn,
+.fileupload-buttonbar .yag-toggle {
   margin-bottom: 5px;
 }
 .fileupload-loading {
@@ -69,7 +69,7 @@
  background: url(../images/spacer.gif);
  border: 0px solid #fff;
 }
-.files div.row-fluid
+.files div.yag-row-fluid
 {
  height: 110px;
  background-color: #eee;
@@ -95,17 +95,17 @@
   filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=0);
   filter: progid:dximagetransform.microsoft.gradient(enabled=false);
 }
-.files div.row-fluid div.textcell
+.files div.yag-row-fluid div.textcell
 {
  margin-top: 45px;
  padding-left: 6px;
 }
-.files div.row-fluid div.thumbnailcolumn
+.files div.yag-row-fluid div.thumbnailcolumn
 {
  margin-top: 15px;
  padding-left: 18px;
 }
-.btn span
+.yag-btn span
 {
  padding-left: 4px;
 }

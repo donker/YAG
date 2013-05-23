@@ -4,9 +4,9 @@
 <ul id="images">
 <asp:Repeater ID="rpImages" runat="server">
  <ItemTemplate>
- <li class="ui-state-default well" id="image_<%#Eval("file").Replace("-","T")%>">
+ <li class="ui-state-default yag-well" id="image_<%#Eval("file").Replace("-","T")%>">
   <div class="delbutton">
-   <a class="close" id="delete<%#Eval("file")%>" href="#">&times;</a>
+   <a class="yag-close" id="delete<%#Eval("file")%>" href="#">&times;</a>
   </div>
   <div class="imagetn">
    <img src="<%=Settings.ImagePath%><%#Eval("file")%>_tn<%#Eval("extension")%>" alt="<%#Eval("title")%>" />

@@ -1,19 +1,19 @@
 ﻿<%@ Control Language="vb" AutoEventWireup="false" CodeBehind="Upload.ascx.vb" Inherits="Bring2mind.DNN.Modules.YAG.Upload" %>
-<div class="row fileupload-buttonbar">
+<div class="yag-row fileupload-buttonbar">
  <div class="span7">
-  <span class="btn btn-success fileinput-button"><i class="icon-plus icon-white"></i>
+  <span class="yag-btn yag-btn-success fileinput-button"><i class="yag-icon-plus yag-icon-white"></i>
    <span><%=Resx("AddFiles")%></span>
    <input id="fileupload" type="file" name="files[]" data-url="<%=ResolveUrl("~/DesktopModules/Bring2mind/YAG/API/Upload")%>?TabId=<%=TabId%>&ModuleId=<%=ModuleId%>"
     multiple="1" />
   </span>
-  <button type="reset" class="btn btn-warning cancel">
-   <i class="icon-ban-circle icon-white"></i><span><%=Resx("CancelUpload")%></span>
+  <button type="reset" class="yag-btn yag-btn-warning yag-cancel">
+   <i class="yag-icon-ban-circle yag-icon-white"></i><span><%=Resx("CancelUpload")%></span>
   </button>
  </div>
  <div class="span5">
   <!-- The global progress bar -->
-  <div class="progress progress-success progress-striped active fade">
-   <div class="bar" style="width: 0%;">
+  <div class="yag-progress yag-progress-success yag-progress-striped yag-active yag-fade">
+   <div class="yag-bar" style="width: 0%;">
    </div>
   </div>
  </div>
@@ -21,8 +21,8 @@
 <div class="fileupload-loading">
 </div>
 <br />
-<div id="progress" class="progress progress-striped progress-success">
- <div class="bar" style="width: 0%;">
+<div id="progress" class="yag-progress yag-progress-striped yag-progress-success">
+ <div class="yag-bar" style="width: 0%;">
  </div>
 </div>
 <div class="files">

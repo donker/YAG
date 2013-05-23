@@ -7,8 +7,8 @@ Public Class Upload
 
   DotNetNuke.Framework.jQuery.RequestRegistration()
 
-  ClientResourceManager.RegisterStyleSheet(Me.Page, ResolveUrl("~/DesktopModules/Bring2mind/YAG/css/bootstrap.min.css?_=" & Settings.Version))
-  ClientResourceManager.RegisterStyleSheet(Me.Page, ResolveUrl("~/DesktopModules/Bring2mind/YAG/css/bootstrap-responsive.min.css?_=" & Settings.Version))
+  ClientResourceManager.RegisterStyleSheet(Me.Page, ResolveUrl("~/DesktopModules/Bring2mind/YAG/css/bootstrap.yag.css?_=" & Settings.Version))
+  ClientResourceManager.RegisterStyleSheet(Me.Page, ResolveUrl("~/DesktopModules/Bring2mind/YAG/css/bootstrap-responsive.yag.css?_=" & Settings.Version))
   ClientResourceManager.RegisterStyleSheet(Me.Page, ResolveUrl("~/DesktopModules/Bring2mind/YAG/css/fileupload.css?_=" & Settings.Version))
 
   ClientResourceManager.RegisterScript(Me.Page, ResolveUrl("~/DesktopModules/Bring2mind/YAG/js/jquery.ui.widget.js?_=" & Settings.Version), 0)

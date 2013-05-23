@@ -1,11 +1,11 @@
 ﻿<%@ Control Language="vb" AutoEventWireup="false" CodeBehind="Upload.ascx.vb" Inherits="Bring2mind.DNN.Modules.YAG.Upload" %>
 <div class="yag-row fileupload-buttonbar">
  <div class="yag-span7">
-  <span class="yag-btn yag-btn-success fileinput-button"><i class="yag-icon-plus yag-icon-white"></i>
+  <span class="yag-btn yag-btn-success fileinput-button" id="uploadSpan"><i class="yag-icon-plus yag-icon-white"></i>
    <span><%=Resx("AddFiles")%></span>
-  </span>
    <input id="fileupload" type="file" name="files[]" data-url="<%=ResolveUrl("~/DesktopModules/Bring2mind/YAG/API/Upload")%>"
-    multiple="1" class="nothing" />
+    multiple="1" />
+  </span>
   <button type="reset" class="yag-btn yag-btn-warning yag-cancel">
    <i class="yag-icon-ban-circle yag-icon-white"></i><span><%=Resx("CancelUpload")%></span>
   </button>
@@ -30,6 +30,10 @@
 <!--[if gte IE 8]><script src="<%=ResolveUrl("~/DesktopModules/Bring2mind/YAG/")%>js/jquery.xdr-transport.js"></script><![endif]-->
 
 <script type="text/javascript">
+ (function ($) {
+  $.fn.dnnFileInput = function () { };
+  $(':file').dnnFileInput();
+ })(jQuery);
  $(function () {
   $('#fileupload').yagUpload({
    moduleId: '<%=ModuleId%>',

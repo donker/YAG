@@ -82,6 +82,8 @@ Public Class GalleryController
    If IO.File.Exists(fullName) Then
     Try
      IO.File.Delete(fullName)
+     UploadList.Remove(fileName)
+     SaveUploadList()
      IO.File.Delete(Settings.ImageMapPath & UploadList(fileName) & "_tn" & Path.GetExtension(fileName))
      IO.File.Delete(Settings.ImageMapPath & UploadList(fileName) & "_zoom" & Path.GetExtension(fileName))
     Catch ex As Exception

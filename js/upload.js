@@ -40,6 +40,7 @@
        cont.remove();
       });
      };
+     return false;
     });
     yagService.commitFile(data.files[0].name, function(res) {
      data.context.find('div.thumbnailcolumn img').attr('src', res);
@@ -64,6 +65,9 @@
     });
   },
    start: function (e) {
+   },
+   stop: function (e) {
+    $('#progress .yag-bar').css('width', '0%');
    },
    failed: function (e) {
    },

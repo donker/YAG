@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="D:\Programs\Nant\ChangelogToVersionDoc.xsl"?>
+<changelog project="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="D:\Programs\Nant\Changelog.xsd">
+ <release version="02.01.00">
+  <change type="Change">Dependency to DNN 7.0.0</change>
+  <change type="Enhancement">Completely new edit screen which allows you to drag images around and edit titles in real time</change>
+  <change type="Enhancement">jQuery upload component should provide a smooth UI for uploading files</change>
+  <change type="Enhancement">New templates: GalleryView, NivoSlider and one using Masonry and Magnific</change>
+ </release>
+</changelog>

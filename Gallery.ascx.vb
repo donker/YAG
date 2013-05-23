@@ -44,6 +44,12 @@ Public Class YAG
 #Region " Event Handlers "
  Private Sub Page_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
+  If Permissions.ModulePermissionController.HasModulePermission(Me.ModuleConfiguration.ModulePermissions, "EDIT") Then
+   cmdEdit.Visible = True
+   cmdSettings.Visible = True
+   cmdUpload.Visible = True
+  End If
+
   DotNetNuke.Framework.jQuery.RequestRegistration()
   Common.ReadValue(Me.Request.Params, "Page", _reqPage)
   DataBind()
@@ -79,6 +85,18 @@ Public Class YAG
   End Select
 
  End Sub
+
+ Private Sub cmdEdit_Click(sender As Object, e As System.EventArgs) Handles cmdEdit.Click
+  Response.Redirect(EditUrl(), False)
+ End Sub
+
+ Private Sub cmdSettings_Click(sender As Object, e As System.EventArgs) Handles cmdSettings.Click
+  Response.Redirect(EditUrl("TemplateSettings"), False)
+ End Sub
+
+ Private Sub cmdUpload_Click(sender As Object, e As System.EventArgs) Handles cmdUpload.Click
+  Response.Redirect(EditUrl("Upload"), False)
+ End Sub
 #End Region
 
 #Region " Overrides "
@@ -107,6 +125,5 @@ Public Class YAG
   End Get
  End Property
 #End Region
-
 
 End Class

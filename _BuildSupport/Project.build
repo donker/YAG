@@ -5,6 +5,7 @@
  <call target="set.parameters" />
  <property name="additionalPackaging" value="true"/>
  <property value="bootstrap.min.css,bootstrap-responsive.min.css" name="excludecssfiles"/>
+ <property value="bring2mind.yag.pagescript.js,block.js" name="excludejsfiles"/>
  <target name="custom.package">
    <copy todir="${resourcedir}/Templates" flatten="false">
    <fileset basedir="${basedirectory}/Templates">

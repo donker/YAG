@@ -1,10 +1,16 @@
 ﻿<hr />
 <h3>Template Description</h3>
 <p>
- The jQuery Cycle Plugin is a slideshow plugin that supports many different types of transition effects. It supports pause-on-hover, auto-stop, auto-fit, before/after callbacks, click triggers and much more. <a href="http://jquery.malsup.com/cycle/" target="_new">Read more ...</a>
+ Masonry is a dynamic grid layout plugin for jQuery. Think of it as the flip-side of CSS floats. Whereas floating arranges elements horizontally then vertically, Masonry arranges elements vertically, positioning each element in the next open spot in the grid. The result minimizes vertical gaps between elements of varying height, just like a mason fitting stones in a wall.
+ <a href="http://masonry.desandro.com" target="_new">Read more ...</a>
+</p>
+<p>
+ Magnific Popup is a free responsive jQuery lightbox plugin that is focused on performance and providing best experience for user with any device (Zepto.js compatible).
+ <a href="http://dimsemenov.com/plugins/magnific-popup/" target="_new">Read more ...</a>
 </p>
 <h4>License</h4>
 <p>
- Dual licensed under the MIT and GPL licenses.
+ jQuery Masonry is licensed under the MIT license. It may be used for personal and commercial applications.<br />
+ Magnific Popup is available under MIT license and will always be kept this way.
 </p>
 <hr />

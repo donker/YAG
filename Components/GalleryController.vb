@@ -15,16 +15,6 @@ Public Class GalleryController
  Implements IServiceRouteMapper
 
 #Region " Properties "
- Private _uploadList As Dictionary(Of String, String)
- Public ReadOnly Property UploadList() As Dictionary(Of String, String)
-  Get
-   If _uploadList Is Nothing Then
-    _uploadList = LoadUploadList(10)
-   End If
-   Return _uploadList
-  End Get
- End Property
-
  Private ReadOnly Property Settings As GallerySettings
   Get
    Return GallerySettings.GetGallerySettings(ActiveModule.ModuleID)
@@ -67,15 +57,15 @@ Public Class GalleryController
  Public Function DeleteFile(postData As fileDTO) As HttpResponseMessage
   Dim fileName As String = postData.fileName
   Dim res As Boolean = True
-  If UploadList.ContainsKey(fileName) Then
-   Dim fullName As String = Settings.ImageMapPath & UploadList(fileName) & Path.GetExtension(fileName)
+  Dim localFile As String = GetUploadedFileName(Settings.ImageMapPath, fileName)
+  If localFile <> "" Then
+   Dim fullName As String = Settings.ImageMapPath & localFile & Path.GetExtension(fileName)
    If IO.File.Exists(fullName) Then
     Try
      IO.File.Delete(fullName)
-     UploadList.Remove(fileName)
-     SaveUploadList(10)
-     IO.File.Delete(Settings.ImageMapPath & UploadList(fileName) & "_tn" & Path.GetExtension(fileName))
-     IO.File.Delete(Settings.ImageMapPath & UploadList(fileName) & "_zoom" & Path.GetExtension(fileName))
+     IO.File.Delete(Settings.ImageMapPath & localFile & ".resources")
+     IO.File.Delete(Settings.ImageMapPath & localFile & "_tn" & Path.GetExtension(fileName))
+     IO.File.Delete(Settings.ImageMapPath & localFile & "_zoom" & Path.GetExtension(fileName))
     Catch ex As Exception
      res = False
     End Try
@@ -94,10 +84,10 @@ Public Class GalleryController
  Public Function CommitFile(postData As fileDTO) As HttpResponseMessage
   Dim fileName As String = postData.fileName
   Dim res As String = ""
-  If UploadList.ContainsKey(fileName) Then
-   Dim newFile As String = UploadList(fileName)
+  Dim localFile As String = GetUploadedFileName(Settings.ImageMapPath, fileName)
+  If localFile <> "" Then
    Dim ext As String = IO.Path.GetExtension(fileName)
-   Dim fullName As String = Settings.ImageMapPath & newFile & ext
+   Dim fullName As String = Settings.ImageMapPath & localFile & ext
    If IO.File.Exists(fullName) Then
     Dim extOK As Boolean = False
     Select Case ext.ToLower
@@ -107,7 +97,7 @@ Public Class GalleryController
     If Not extOK Then Throw New Exception("Must upload an image")
     Dim r As New Resizer(Settings)
     r.Process(fullName)
-    res = Settings.ImagePath & newFile & "_tn" & ext
+    res = Settings.ImagePath & localFile & "_tn" & ext
    End If
   End If
   Return Request.CreateResponse(HttpStatusCode.OK, res)
@@ -199,7 +189,7 @@ Public Class GalleryController
  Private Sub HandleUploadFile(context As HttpContext, ByRef statuses As List(Of FilesStatus))
   Dim headers As NameValueCollection = context.Request.Headers
   If String.IsNullOrEmpty(headers("X-File-Name")) Then
-   UploadWholeFile(context, statuses, 10)
+   UploadWholeFiles(context, statuses)
   Else
    UploadPartialFile(headers("X-File-Name"), context, statuses)
   End If
@@ -209,15 +199,15 @@ Public Class GalleryController
  Private Sub UploadPartialFile(fileName As String, context As HttpContext, ByRef statuses As List(Of FilesStatus))
   fileName = Path.GetFileName(fileName)
   Dim extension As String = Path.GetExtension(fileName)
-  Dim newFile As String = ""
-  If Not UploadList.ContainsKey(fileName) Then
-   newFile = GetNewFilekey(extension)
-   UploadList(fileName) = newFile
-   SaveUploadList(10)
+  Dim fileToWriteTo As String = ""
+  Dim localFile As String = GetUploadedFileName(Settings.ImageMapPath, fileName)
+  If localFile = "" Then
+   fileToWriteTo = GetNewFilekey(extension)
+   Common.WriteTextToFile(String.Format("{0}{1}.resources", Settings.ImageMapPath, fileToWriteTo), fileName)
   Else
-   newFile = UploadList(fileName)
+   fileToWriteTo = localFile
   End If
-  Dim fullName As String = String.Format("{0}{1}{2}", Settings.ImageMapPath, newFile, Path.GetExtension(fileName))
+  Dim fullName As String = String.Format("{0}{1}{2}", Settings.ImageMapPath, fileToWriteTo, Path.GetExtension(fileName))
   Using inputStream As Stream = context.Request.Files(0).InputStream
    Using fs As New FileStream(fullName, FileMode.Append, FileAccess.Write)
     Dim buffer(1023) As Byte
@@ -231,63 +221,36 @@ Public Class GalleryController
    End Using
   End Using
   Dim f As New FileInfo(fullName)
-  statuses.Add(New FilesStatus(Settings.ImagePath, newFile, extension, CInt(f.Length)))
+  statuses.Add(New FilesStatus(Settings.ImagePath, fileToWriteTo, extension, CInt(f.Length)))
+ End Sub
+
+ Private Sub UploadWholeFiles(context As HttpContext, ByRef statuses As List(Of FilesStatus))
+  For i As Integer = 0 To context.Request.Files.Count - 1
+   UploadWholeFile(context.Request.Files(i), statuses, 10)
+  Next
  End Sub
 
  ' Upload entire file
- Private Sub UploadWholeFile(context As HttpContext, statuses As List(Of FilesStatus), retries As Integer)
+ Private Sub UploadWholeFile(file As HttpPostedFile, ByRef statuses As List(Of FilesStatus), retries As Integer)
   If retries = 0 Then Exit Sub
-  For i As Integer = 0 To context.Request.Files.Count - 1
-   Dim file As HttpPostedFile = context.Request.Files(i)
-   Dim extension As String = Path.GetExtension(file.FileName)
-   Dim newFile As String = GetNewFilekey(extension)
-   Dim fileName As String = Path.GetFileName(file.FileName)
-   UploadList(fileName) = newFile
-   Dim fullName As String = Settings.ImageMapPath & newFile & extension
-   Try
-    file.SaveAs(fullName)
-   Catch ioex As IOException
-    Threading.Thread.Sleep(500)
-    UploadWholeFile(context, statuses, retries - 1)
-   Catch ex As Exception
-    '
-   End Try
-   statuses.Add(New FilesStatus(Settings.ImagePath, newFile, extension, file.ContentLength))
-  Next
-  SaveUploadList(10)
- End Sub
-
- Private Sub SaveUploadList(retries As Integer)
-  If _uploadList Is Nothing Then Exit Sub
-  If retries = 0 Then Exit Sub
-  Dim listFile As String = Settings.ImageMapPath & UserInfo.UserID.ToString & ".resources"
+  Dim extension As String = Path.GetExtension(file.FileName)
+  Dim newFile As String = GetNewFilekey(extension)
+  Dim fileName As String = Path.GetFileName(file.FileName)
+  Dim fullName As String = Settings.ImageMapPath & newFile & extension
   Try
-   Dim oldList As Dictionary(Of String, String) = LoadUploadList(10)
-   Using ins As New IO.StreamWriter(listFile, False)
-    For Each key As String In oldList.Keys
-     ins.WriteLine(String.Format("{0};{1}", key, _uploadList(key)))
-    Next
-    For Each key As String In _uploadList.Keys
-     If Not oldList.ContainsKey(key) Then
-      ins.WriteLine(String.Format("{0};{1}", key, _uploadList(key)))
-     End If
-    Next
-    ins.Flush()
-   End Using
+   file.SaveAs(fullName)
+   Common.WriteTextToFile(Settings.ImageMapPath & newFile & ".resources", file.FileName)
   Catch ioex As IOException
-   Dim rnd As New Random
-   Threading.Thread.Sleep(rnd.Next(100, 500))
-   SaveUploadList(retries - 1)
+   Threading.Thread.Sleep(500)
+   UploadWholeFile(file, statuses, retries - 1)
   Catch ex As Exception
-
+   '
   End Try
+  statuses.Add(New FilesStatus(Settings.ImagePath, newFile, extension, file.ContentLength))
  End Sub
 
  Private Function GetNewFilekey(extension As String) As String
-  Randomize()
-  Dim rnd As New Random
-  Dim res As String = String.Format("{0:yyyyMMdd}-{0:HHmmss}-{1:00}", Now, rnd.Next(1, 99))
-  'Dim res As String = String.Format("{0:yyyyMMdd}-{0:HHmmss}", Now)
+  Dim res As String = String.Format("{0:yyyyMMdd}-{0:HHmmss}", Now)
   If IO.File.Exists(Settings.ImageMapPath & res & extension) Then
    Dim i As Integer = 0
    Do While IO.File.Exists(Settings.ImageMapPath & res & i.ToString & extension)
@@ -300,28 +263,13 @@ Public Class GalleryController
 #End Region
 
 #Region " Private Methods "
- Private Function LoadUploadList(retries As Integer) As Dictionary(Of String, String)
-  Dim res As New Dictionary(Of String, String)
-  If retries = 0 Then Return res
-  Dim listFile As String = Settings.ImageMapPath & UserInfo.UserID.ToString & ".resources"
-  If IO.File.Exists(listFile) Then
-   Try
-    Using ins As New IO.StreamReader(listFile)
-     Dim line As String = ins.ReadLine
-     While Not String.IsNullOrEmpty(line)
-      res(line.Substring(0, line.IndexOf(";"c))) = line.Substring(line.IndexOf(";"c) + 1)
-      line = ins.ReadLine
-     End While
-    End Using
-   Catch ioex As IOException
-    Dim rnd As New Random
-    Threading.Thread.Sleep(rnd.Next(100, 500))
-    res = LoadUploadList(retries - 1)
-   Catch ex As Exception
-    '
-   End Try
-  End If
-  Return res
+ Private Function GetUploadedFileName(folder As String, originalFilename As String) As String
+  For Each f As String In IO.Directory.GetFiles(folder, "*.resources")
+   If Common.ReadFile(f) = originalFilename Then
+    Return IO.Path.GetFileNameWithoutExtension(f)
+   End If
+  Next
+  Return ""
  End Function
 #End Region
 

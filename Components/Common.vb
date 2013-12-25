@@ -24,11 +24,39 @@ Public Class Common
  Public Const glbSharedResourceFileName As String = "~/DesktopModules/Bring2mind/YAG/App_LocalResources/SharedResources.resx"
 
  Public Shared Function ReadFile(ByVal fileName As String) As String
-  If Not IO.File.Exists(fileName) Then Return ""
-  Using sr As New IO.StreamReader(fileName)
-   Return sr.ReadToEnd
-  End Using
+  Return ReadFile(fileName, 10)
  End Function
+ Public Shared Function ReadFile(ByVal fileName As String, retries As Integer) As String
+  If Not IO.File.Exists(fileName) Then Return ""
+  If retries = 0 Then Return ""
+  Try
+   Using sr As New IO.StreamReader(fileName)
+    Return sr.ReadToEnd
+   End Using
+  Catch ioex As IO.IOException
+   Threading.Thread.Sleep(200)
+   Return ReadFile(fileName, retries - 1)
+  Catch ex As Exception
+   Return ""
+  End Try
+ End Function
+
+ Public Shared Sub WriteTextToFile(filePath As String, textToWrite As String)
+  WriteTextToFile(filePath, textToWrite, 10)
+ End Sub
+ Public Shared Sub WriteTextToFile(filePath As String, textToWrite As String, retries As Integer)
+  If retries = 0 Then Exit Sub
+  Try
+   Using sw As New IO.StreamWriter(filePath)
+    sw.Write(textToWrite)
+    sw.Flush()
+   End Using
+  Catch ioex As IO.IOException
+   Threading.Thread.Sleep(200)
+   WriteTextToFile(filePath, textToWrite, retries - 1)
+  Catch ex As Exception
+  End Try
+ End Sub
 
  Public Shared Function FormatBoolean(ByVal value As Boolean, ByVal format As String) As String
   If String.IsNullOrEmpty(format) Then

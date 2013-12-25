@@ -96,7 +96,7 @@ Public Class ImageCollection
   Next
   ' pick up new images
   For Each f As String In IO.Directory.GetFiles(_imagesMapPath, "*.*")
-   Dim m As Match = Regex.Match(f, "(?i)(\d{8}-\d{6,}-\d+)\.(?-i)")
+   Dim m As Match = Regex.Match(f, "(?i)(\d{8}-\d{6,})\.(?-i)")
    If m.Success Then
     Dim fname As String = m.Groups(1).Value
     If Not registered.Contains(fname) Then

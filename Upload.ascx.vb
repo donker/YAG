@@ -26,6 +26,12 @@ Public Class Upload
  End Sub
 
  Private Sub cmdReturn_Click(sender As Object, e As System.EventArgs) Handles cmdReturn.Click
+  For Each f As String In IO.Directory.GetFiles(Settings.ImageMapPath, "*.resources")
+   Try
+    IO.File.Delete(f)
+   Catch ex As Exception
+   End Try
+  Next
   Me.Response.Redirect(EditUrl(), False)
  End Sub
 End Class

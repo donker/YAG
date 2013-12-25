@@ -72,7 +72,7 @@
    failed: function (e) {
    },
    send: function (e, data) {
-    var that = $(this).data('fileupload');
+    var that = $(this).data('blueimp-fileupload');
     if (data.context && data.dataType &&
                         data.dataType.substr(0, 6) === 'iframe') {
      data.context.find('div.progresscolumn div.yag-progress div.yag-bar').css('width', '100%');

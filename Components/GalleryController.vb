@@ -19,17 +19,7 @@ Public Class GalleryController
  Public ReadOnly Property UploadList() As Dictionary(Of String, String)
   Get
    If _uploadList Is Nothing Then
-    _uploadList = New Dictionary(Of String, String)
-    Dim listFile As String = Settings.ImageMapPath & UserInfo.UserID.ToString & ".resources"
-    If IO.File.Exists(listFile) Then
-     Using ins As New IO.StreamReader(listFile)
-      Dim line As String = ins.ReadLine
-      While Not String.IsNullOrEmpty(line)
-       _uploadList(line.Substring(0, line.IndexOf(";"c))) = line.Substring(line.IndexOf(";"c) + 1)
-       line = ins.ReadLine
-      End While
-     End Using
-    End If
+    _uploadList = LoadUploadList(10)
    End If
    Return _uploadList
   End Get
@@ -83,7 +73,7 @@ Public Class GalleryController
     Try
      IO.File.Delete(fullName)
      UploadList.Remove(fileName)
-     SaveUploadList()
+     SaveUploadList(10)
      IO.File.Delete(Settings.ImageMapPath & UploadList(fileName) & "_tn" & Path.GetExtension(fileName))
      IO.File.Delete(Settings.ImageMapPath & UploadList(fileName) & "_zoom" & Path.GetExtension(fileName))
     Catch ex As Exception
@@ -209,7 +199,7 @@ Public Class GalleryController
  Private Sub HandleUploadFile(context As HttpContext, ByRef statuses As List(Of FilesStatus))
   Dim headers As NameValueCollection = context.Request.Headers
   If String.IsNullOrEmpty(headers("X-File-Name")) Then
-   UploadWholeFile(context, statuses)
+   UploadWholeFile(context, statuses, 10)
   Else
    UploadPartialFile(headers("X-File-Name"), context, statuses)
   End If
@@ -218,18 +208,12 @@ Public Class GalleryController
  ' Upload partial file
  Private Sub UploadPartialFile(fileName As String, context As HttpContext, ByRef statuses As List(Of FilesStatus))
   fileName = Path.GetFileName(fileName)
-  'If (New Random(Now.Second)).NextDouble > 0.7 Then
-  ' Throw New HttpRequestValidationException("Random error")
-  'End If
-  'If context.Request.Files.Count <> 1 Then
-  ' Throw New HttpRequestValidationException("Attempt to upload chunked file containing more than one fragment per request")
-  'End If
   Dim extension As String = Path.GetExtension(fileName)
   Dim newFile As String = ""
   If Not UploadList.ContainsKey(fileName) Then
    newFile = GetNewFilekey(extension)
    UploadList(fileName) = newFile
-   SaveUploadList()
+   SaveUploadList(10)
   Else
    newFile = UploadList(fileName)
   End If
@@ -251,7 +235,8 @@ Public Class GalleryController
  End Sub
 
  ' Upload entire file
- Private Sub UploadWholeFile(context As HttpContext, statuses As List(Of FilesStatus))
+ Private Sub UploadWholeFile(context As HttpContext, statuses As List(Of FilesStatus), retries As Integer)
+  If retries = 0 Then Exit Sub
   For i As Integer = 0 To context.Request.Files.Count - 1
    Dim file As HttpPostedFile = context.Request.Files(i)
    Dim extension As String = Path.GetExtension(file.FileName)
@@ -259,30 +244,82 @@ Public Class GalleryController
    Dim fileName As String = Path.GetFileName(file.FileName)
    UploadList(fileName) = newFile
    Dim fullName As String = Settings.ImageMapPath & newFile & extension
-   file.SaveAs(fullName)
+   Try
+    file.SaveAs(fullName)
+   Catch ioex As IOException
+    Threading.Thread.Sleep(500)
+    UploadWholeFile(context, statuses, retries - 1)
+   Catch ex As Exception
+    '
+   End Try
    statuses.Add(New FilesStatus(Settings.ImagePath, newFile, extension, file.ContentLength))
   Next
-  SaveUploadList()
+  SaveUploadList(10)
  End Sub
 
- Private Sub SaveUploadList()
+ Private Sub SaveUploadList(retries As Integer)
   If _uploadList Is Nothing Then Exit Sub
+  If retries = 0 Then Exit Sub
   Dim listFile As String = Settings.ImageMapPath & UserInfo.UserID.ToString & ".resources"
-  Using ins As New IO.StreamWriter(listFile, False)
-   For Each key As String In _uploadList.Keys
-    ins.WriteLine(String.Format("{0};{1}", key, _uploadList(key)))
-   Next
-  End Using
+  Try
+   Dim oldList As Dictionary(Of String, String) = LoadUploadList(10)
+   Using ins As New IO.StreamWriter(listFile, False)
+    For Each key As String In oldList.Keys
+     ins.WriteLine(String.Format("{0};{1}", key, _uploadList(key)))
+    Next
+    For Each key As String In _uploadList.Keys
+     If Not oldList.ContainsKey(key) Then
+      ins.WriteLine(String.Format("{0};{1}", key, _uploadList(key)))
+     End If
+    Next
+    ins.Flush()
+   End Using
+  Catch ioex As IOException
+   Dim rnd As New Random
+   Threading.Thread.Sleep(rnd.Next(100, 500))
+   SaveUploadList(retries - 1)
+  Catch ex As Exception
+
+  End Try
  End Sub
 
  Private Function GetNewFilekey(extension As String) As String
-  Dim res As String = String.Format("{0:yyyyMMdd}-{0:HHmmss}", Now)
+  Randomize()
+  Dim rnd As New Random
+  Dim res As String = String.Format("{0:yyyyMMdd}-{0:HHmmss}-{1:00}", Now, rnd.Next(1, 99))
+  'Dim res As String = String.Format("{0:yyyyMMdd}-{0:HHmmss}", Now)
   If IO.File.Exists(Settings.ImageMapPath & res & extension) Then
    Dim i As Integer = 0
    Do While IO.File.Exists(Settings.ImageMapPath & res & i.ToString & extension)
     i += 1
    Loop
    res &= i.ToString
+  End If
+  Return res
+ End Function
+#End Region
+
+#Region " Private Methods "
+ Private Function LoadUploadList(retries As Integer) As Dictionary(Of String, String)
+  Dim res As New Dictionary(Of String, String)
+  If retries = 0 Then Return res
+  Dim listFile As String = Settings.ImageMapPath & UserInfo.UserID.ToString & ".resources"
+  If IO.File.Exists(listFile) Then
+   Try
+    Using ins As New IO.StreamReader(listFile)
+     Dim line As String = ins.ReadLine
+     While Not String.IsNullOrEmpty(line)
+      res(line.Substring(0, line.IndexOf(";"c))) = line.Substring(line.IndexOf(";"c) + 1)
+      line = ins.ReadLine
+     End While
+    End Using
+   Catch ioex As IOException
+    Dim rnd As New Random
+    Threading.Thread.Sleep(rnd.Next(100, 500))
+    res = LoadUploadList(retries - 1)
+   Catch ex As Exception
+    '
+   End Try
   End If
   Return res
  End Function

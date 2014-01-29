@@ -65,7 +65,9 @@ Namespace Templating
     Contents = Templating.GetTemplateFile(_ViewMapPath & _FileName)
     If String.IsNullOrEmpty(Contents) Then Return ""
     ' Expand subtemplates
-    ' e.g. [subtemplate|Flight.html|flights|pagesize=6]
+    ' Simple conditional template e.g. [subtemplate|Pager.html|settings:pager|true]
+    Contents = Regex.Replace(_Contents, "(?i)\[subtemplate\|([^|\]]+)\|([^:|\]]+):([^|\]]+)\|?([^|\]]+)?\](?-i)", AddressOf ReplaceConditionalTemplate)
+    ' e.g. [subtemplate|Image.html|images|pagesize=-1]
     Contents = Regex.Replace(Contents, "(?i)\[subtemplate\|([^|\]]+)\|([^|\]]+)\|?([^|\]]+)?\](?-i)", AddressOf ReplaceSubtemplates)
     If Replacer IsNot Nothing Then
      Return Replacer.ReplaceTokens(Contents)
@@ -80,6 +82,33 @@ Namespace Templating
 #End Region
 
 #Region " Private Methods "
+  Private Function ReplaceConditionalTemplate(ByVal m As Match) As String
+
+   Dim file As String = m.Groups(1).Value.ToLower
+   Dim conditionObject As String = m.Groups(2).Value.ToLower
+   Dim conditionProperty As String = m.Groups(3).Value.ToLower
+   Dim shouldRender As String = Replacer.GetTokenValue(conditionObject, conditionProperty, "")
+   If String.IsNullOrEmpty(shouldRender) Then Return ""
+   shouldRender = shouldRender.ToLower
+   Dim compareValue As String = ""
+   If m.Groups(4) IsNot Nothing AndAlso Not String.IsNullOrEmpty(m.Groups(4).Value) Then
+    compareValue = m.Groups(4).Value.ToLower
+    If shouldRender <> compareValue Then
+     Return ""
+    End If
+   Else
+    Select Case shouldRender
+     Case "false", "no", "0"
+      Return ""
+    End Select
+   End If
+
+   Dim t As New Template(ViewMapPath, ViewRelPath, file, _Replacer, Nothing)
+   AddHandler t.GetData, AddressOf Template_GetData
+   Return t.ReplaceContents
+
+  End Function
+
   Private Function ReplaceSubtemplates(ByVal m As Match) As String
 
    Dim file As String = m.Groups(1).Value.ToLower

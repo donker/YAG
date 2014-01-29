@@ -11,4 +11,10 @@
   <change type="Fix">Updated jQuery upload plugin and made it compatible with latest versions of jQuery</change>
   <change type="Fix">Changed image upload bookkeeping logic to solve concurrency issues</change>
  </release>
+ <release version="02.01.02">
+  <change type="Fix">Fix to services js pattern that changed in v 7.2.0 of DNN</change>
+  <change type="Enhancement">Added conditional template logic</change>
+  <change type="Fix">Removed all hard coded spacing in the module. Now all through css.</change>
+  <change type="Enhancement">New Cycle 2 template</change>
+ </release>
 </changelog>

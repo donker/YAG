@@ -1,11 +1,12 @@
-﻿function YagService($, settings, servicesFramework) {
- var baseServicepath = servicesFramework.getServiceRoot('Bring2mind/YAG');
+﻿function YagService($, settings, mid) {
+ var moduleId = mid;
+ var baseServicepath = $.dnnSF(moduleId).getServiceRoot('Bring2mind/YAG');
 
  this.listCurrentFiles = function (success) {
   $.ajax({
    type: "GET",
    url: commentsServicepath,
-   beforeSend: servicesFramework.setModuleHeaders,
+   beforeSend: $.dnnSF(moduleId).setModuleHeaders,
    data: { }
   }).done(function (data) {
    if (success != undefined) {
@@ -20,7 +21,7 @@
   $.ajax({
    type: "POST",
    url: baseServicepath + "Delete",
-   beforeSend: servicesFramework.setModuleHeaders,
+   beforeSend: $.dnnSF(moduleId).setModuleHeaders,
    data: { fileName: filename }
   }).done(function (data) {
    if (success != undefined) {
@@ -35,7 +36,7 @@
   $.ajax({
    type: "POST",
    url: baseServicepath + "Commit",
-   beforeSend: servicesFramework.setModuleHeaders,
+   beforeSend: $.dnnSF(moduleId).setModuleHeaders,
    data: { fileName: filename }
   }).done(function (data) {
    if (success != undefined) {
@@ -50,7 +51,7 @@
   $.ajax({
    type: "POST",
    url: baseServicepath + "Edit",
-   beforeSend: servicesFramework.setModuleHeaders,
+   beforeSend: $.dnnSF(moduleId).setModuleHeaders,
    data: { control: control, value: value }
   }).done(function (data) {
    if (success != undefined) {
@@ -65,7 +66,7 @@
   $.ajax({
    type: "POST",
    url: baseServicepath + "Reorder",
-   beforeSend: servicesFramework.setModuleHeaders,
+   beforeSend: $.dnnSF(moduleId).setModuleHeaders,
    data: { order: order }
   }).done(function (data) {
    if (success != undefined) {

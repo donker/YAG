@@ -5,5 +5,5 @@ jQuery(function ($) {
    serverErrorWithDescriptionText: '[resx:ServerErrorWithDescription]',
    errorBoxId: '#yagServiceErrorBox[module:moduleId]'
   },
-  $.dnnSF([module:moduleID]));
+  [module:moduleID]);
 });

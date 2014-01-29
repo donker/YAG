@@ -18,7 +18,7 @@
 </asp:Repeater>
 </ul>
 
-<p style="clear:both;width:100%;text-align:center;padding-top:40px;" id="exitControls">
+<p class="yag_buttonBar" id="exitControls">
  <asp:LinkButton runat="server" ID="cmdReturn" resourcekey="cmdReturn" CssClass="dnnPrimaryAction" />
  <asp:LinkButton runat="server" ID="cmdUpload" resourcekey="cmdUpload" CssClass="dnnSecondaryAction" />
 </p>

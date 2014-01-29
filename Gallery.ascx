@@ -3,6 +3,6 @@
 
 <sg:ViewTemplate runat="server" id="vtContents" />
 
-<div style="width:100%;text-align:center;padding-top:20px;">
+<div class="yag_buttonBar">
  <asp:LinkButton runat="server" ID="cmdEdit" resourcekey="EditContent.Action" CssClass="dnnPrimaryAction" Visible="false" />
 </div>

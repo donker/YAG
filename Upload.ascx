@@ -23,7 +23,7 @@
 <div id="results">
 </div>
 
-<p style="width:100%;text-align:center;padding-top:40px;">
+<p class="yag_buttonBar">
  <asp:LinkButton runat="server" ID="cmdReturn" resourcekey="cmdReturn" CssClass="dnnPrimaryAction" />
 </p>
 

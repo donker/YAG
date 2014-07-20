@@ -54,6 +54,11 @@
       <HintPath>_References\DotNetNuke.Web.Client.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="DotNetNuke.WebUtility, Version=4.2.1.783, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>_References\DotNetNuke.WebUtility.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -175,14 +180,8 @@
     <Content Include="css\editgallery.css" />
     <Content Include="css\fileupload.css" />
     <Content Include="js\bring2mind.yag.js" />
-    <Content Include="js\bring2mind.yag.pagescript.js" />
     <Content Include="js\editgallery.js" />
-    <Content Include="js\jquery.ui.widget.js" />
     <Content Include="js\upload.js" />
-    <Content Include="js\jquery.fileupload-fp.js" />
-    <Content Include="js\jquery.fileupload.js" />
-    <Content Include="js\jquery.iframe-transport.js" />
-    <Content Include="js\jquery.xdr-transport.js" />
     <Content Include="module.css" />
     <Content Include="TemplateSettings.ascx" />
     <Content Include="Templates\_default\css\prettyPhoto.css" />

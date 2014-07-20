@@ -36,29 +36,34 @@ Public Class ModuleBase
   End Set
  End Property
 
- Public Function Resx(key As String) As String
-  Return DotNetNuke.Services.Localization.Localization.GetString(key, LocalResourceFile)
+ Public Function LocalizeJSString(resourceKey As String) As String
+  Return DotNetNuke.UI.Utilities.ClientAPI.GetSafeJSString(LocalizeString(resourceKey))
  End Function
+
+ Public Sub RegisterStyleSheet(styleSheet As String)
+  DotNetNuke.Web.Client.ClientResourceManagement.ClientResourceManager.RegisterStyleSheet(Me.Page, ResolveUrl("~/DesktopModules/Bring2mind/Yag/css/" & styleSheet & "?_=" & Settings.Version))
+ End Sub
+
+ Public Sub RegisterScript(scriptFile As String, priority As Integer)
+  DotNetNuke.Web.Client.ClientResourceManagement.ClientResourceManager.RegisterScript(Me.Page, ResolveUrl("~/DesktopModules/Bring2mind/Yag/js/" & scriptFile & "?_=" & Settings.Version), priority)
+ End Sub
 
  Public Sub AddYagService()
 
-  DotNetNuke.Framework.jQuery.RequestDnnPluginsRegistration()
-  DotNetNuke.Framework.ServicesFramework.Instance.RequestAjaxScriptSupport()
-  DotNetNuke.Framework.ServicesFramework.Instance.RequestAjaxAntiForgerySupport()
-  AddJavascriptFile("bring2mind.yag.js", 70)
-
-  ' Load initialization snippet
-  Dim scriptBlock As String = Common.ReadFile(DotNetNuke.Common.ApplicationMapPath & "\DesktopModules\Bring2mind\Yag\js\bring2mind.yag.pagescript.js")
-  Dim tr As New Templating.GenericTokenReplace(DotNetNuke.Services.Tokens.Scope.DefaultSettings, ModuleId)
-  tr.AddPropertySource("resx", New Templating.Resources)
-  scriptBlock = tr.ReplaceTokens(scriptBlock)
-  scriptBlock = "<script type=""text/javascript"">" & vbCrLf & "//<![CDATA[" & vbCrLf & scriptBlock & vbCrLf & "//]]>" & vbCrLf & "</script>"
-  Page.ClientScript.RegisterClientScriptBlock(Me.GetType, "YagServiceScript", scriptBlock)
+  If Context.Items("YagServiceAdded") Is Nothing Then
+   DotNetNuke.Framework.jQuery.RequestDnnPluginsRegistration()
+   DotNetNuke.Framework.ServicesFramework.Instance.RequestAjaxScriptSupport()
+   DotNetNuke.Framework.ServicesFramework.Instance.RequestAjaxAntiForgerySupport()
+   RegisterScript("bring2mind.yag.js", 70)
+   Context.Items("YagServiceAdded") = True
+  End If
 
  End Sub
 
- Public Sub AddJavascriptFile(jsFilename As String, priority As Integer)
-  ClientResourceManager.RegisterScript(Page, ResolveUrl("~/DesktopModules/Bring2mind/Yag/js/" & jsFilename), priority)
+#Region " Page Events "
+ Private Sub Page_Load(sender As Object, e As System.EventArgs) Handles Me.Load
+  DotNetNuke.Framework.jQuery.RequestRegistration()
  End Sub
+#End Region
 
 End Class

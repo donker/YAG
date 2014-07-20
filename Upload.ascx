@@ -2,12 +2,12 @@
 <div class="yag-row fileupload-buttonbar">
  <div class="yag-span7">
   <span class="yag-btn yag-btn-success fileinput-button" id="uploadSpan"><i class="yag-icon-plus yag-icon-white"></i>
-   <span><%=Resx("AddFiles")%></span>
+   <span><%=LocalizeString("AddFiles")%></span>
    <input id="fileupload" type="file" name="files[]" data-url="<%=ResolveUrl("~/DesktopModules/Bring2mind/YAG/API/Upload")%>"
     multiple="1" />
   </span>
   <button type="reset" class="yag-btn yag-btn-warning yag-cancel">
-   <i class="yag-icon-ban-circle yag-icon-white"></i><span><%=Resx("CancelUpload")%></span>
+   <i class="yag-icon-ban-circle yag-icon-white"></i><span><%=LocalizeString("CancelUpload")%></span>
   </button>
  </div>
 </div>
@@ -30,20 +30,34 @@
 <!--[if gte IE 8]><script src="<%=ResolveUrl("~/DesktopModules/Bring2mind/YAG/")%>js/jquery.xdr-transport.js"></script><![endif]-->
 
 <script type="text/javascript">
- (function ($) {
-  $.fn.dnnFileInput = function () { };
-  $(':file').dnnFileInput();
- })(jQuery);
- $(function () {
+var yagService
+
+(function ($, Sys) {
+
+ $.fn.dnnFileInput = function () { };
+ $(':file').dnnFileInput();
+
+ $(document).ready(function () {
+
+  yagService = new YagService($, {
+   serverErrorText: '<%= LocalizeJSString("ServerError") %>',
+   serverErrorWithDescriptionText: '<%= LocalizeJSString("ServerErrorWithDescription") %>',
+   errorBoxId: '#yagServiceErrorBox<%= ModuleId %>'
+  },
+  <%= ModuleId %>);
+
   $('#fileupload').yagUpload({
    moduleId: '<%=ModuleId%>',
    tabId: '<%=TabId%>',
    localization: {
-    deleteConfirm: '<%=Resx("Delete.Confirm")%>',
-    uploaded: '<%=Resx("Uploaded")%>',
-    queued: '<%=Resx("Queued")%>',
-    cmdDelete: '<%=Resx("Delete")%>'
+    deleteConfirm: '<%=LocalizeString("Delete.Confirm")%>',
+    uploaded: '<%=LocalizeString("Uploaded")%>',
+    queued: '<%=LocalizeString("Queued")%>',
+    cmdDelete: '<%=LocalizeString("Delete")%>'
    }
   });
- });
+
+ }); // doc ready
+
+} (jQuery, window.Sys));
 </script>

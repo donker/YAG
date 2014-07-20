@@ -24,11 +24,24 @@
 </p>
 
 <script type="text/javascript">
+var yagService
+
 (function ($, Sys) {
  $(document).ready(function () {
+
+  yagService = new YagService($, {
+   serverErrorText: '<%= LocalizeJSString("ServerError") %>',
+   serverErrorWithDescriptionText: '<%= LocalizeJSString("ServerErrorWithDescription") %>',
+   errorBoxId: '#yagServiceErrorBox<%= ModuleId %>'
+  },
+  <%= ModuleId %>);
+
   $('#images').yagEdit({
-   localization: { deleteConfirm: '<%=Resx("Delete.Confirm")%>' }
+   localization: { deleteConfirm: '<%= LocalizeJSString("Delete.Confirm")%>' }
   });
+
  });
 } (jQuery, window.Sys));
+
+
 </script>

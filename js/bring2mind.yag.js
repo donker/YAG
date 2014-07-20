@@ -5,7 +5,7 @@
  this.listCurrentFiles = function (success) {
   $.ajax({
    type: "GET",
-   url: commentsServicepath,
+   url: baseServicepath,
    beforeSend: $.dnnSF(moduleId).setModuleHeaders,
    data: { }
   }).done(function (data) {

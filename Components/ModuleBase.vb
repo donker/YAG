@@ -1,4 +1,4 @@
-﻿Imports DotNetNuke.Web.Client.ClientResourceManagement
+﻿
 
 '
 ' Bring2mind - http://www.bring2mind.net

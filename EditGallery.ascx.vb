@@ -18,7 +18,6 @@
 ' DEALINGS IN THE SOFTWARE.
 '
 
-Imports DotNetNuke.Web.Client.ClientResourceManagement
 
 Public Class EditGallery
  Inherits ModuleBase

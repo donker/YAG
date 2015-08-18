@@ -18,8 +18,6 @@
 ' DEALINGS IN THE SOFTWARE.
 '
 
-Imports DotNetNuke.Entities.Portals
-Imports DotNetNuke.Entities.Users
 Imports DotNetNuke.Services.Tokens
 
 Namespace Templating

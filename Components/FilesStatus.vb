@@ -1,4 +1,4 @@
-﻿Imports System.IO
+﻿
 
 Public Class FilesStatus
  Public Property name() As String

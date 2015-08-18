@@ -1,4 +1,4 @@
-﻿Imports DotNetNuke.Web.Client.ClientResourceManagement
+﻿
 
 Public Class Upload
  Inherits ModuleBase

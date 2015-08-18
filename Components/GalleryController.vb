@@ -1,12 +1,9 @@
-﻿Imports System.Runtime.Serialization
-Imports System.Runtime.Serialization.Json
+﻿
 Imports System.Net
 Imports System.Net.Http
 Imports System.Web.Http
 Imports DotNetNuke.Web.Api
 
-Imports DotNetNuke.Security.Permissions
-Imports System.Globalization
 Imports System.IO
 Imports System.Web.Script.Serialization
 

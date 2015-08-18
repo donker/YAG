@@ -20,8 +20,6 @@
 
 Imports DotNetNuke.Services.Exceptions
 
-Imports Bring2mind.DNN.Modules.YAG.Templating
-
 Public Class Settings
  Inherits DotNetNuke.Entities.Modules.ModuleSettingsBase
 

@@ -20,7 +20,6 @@
 
 Imports DotNetNuke.Common.Utilities
 Imports DotNetNuke.Services.Tokens
-Imports DotNetNuke.Services.Localization.Localization
 
 Namespace Templating
  Public Class TemplateRepeaterItem

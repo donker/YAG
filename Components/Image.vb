@@ -20,8 +20,6 @@
 
 Imports DotNetNuke.Services.Tokens
 
-Imports System.Drawing
-Imports System.Drawing.Imaging
 Imports System.Xml.Serialization
 
 <Serializable()> _

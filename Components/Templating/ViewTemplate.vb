@@ -18,8 +18,6 @@
 ' DEALINGS IN THE SOFTWARE.
 '
 
-Imports DotNetNuke.Services.Localization.Localization
-Imports DotNetNuke.Services.Tokens
 Imports DotNetNuke.Web.Client.ClientResourceManagement
 
 Namespace Templating

@@ -185,10 +185,14 @@ Public Class GalleryController
  ' Upload file to the server
  Private Sub HandleUploadFile(context As HttpContext, ByRef statuses As List(Of FilesStatus))
   Dim headers As NameValueCollection = context.Request.Headers
-  If String.IsNullOrEmpty(headers("X-File-Name")) Then
+  If String.IsNullOrEmpty(headers("Content-Range")) Then
    UploadWholeFiles(context, statuses)
   Else
-   UploadPartialFile(headers("X-File-Name"), context, statuses)
+   Dim cdh As String = headers("Content-Disposition")
+   Dim m As Match = Regex.Match(cdh, "filename=""([^""]+)""")
+   If m.Success Then
+    UploadPartialFile(m.Groups(1).Value, context, statuses)
+   End If
   End If
  End Sub
 

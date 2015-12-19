@@ -198,7 +198,7 @@ Public Class GalleryController
 
  ' Upload partial file
  Private Sub UploadPartialFile(fileName As String, context As HttpContext, ByRef statuses As List(Of FilesStatus))
-  fileName = Path.GetFileName(fileName)
+  fileName = HttpUtility.UrlDecode(Path.GetFileName(fileName))
   Dim extension As String = Path.GetExtension(fileName)
   Dim fileToWriteTo As String = ""
   Dim localFile As String = GetUploadedFileName(Settings.ImageMapPath, fileName)
@@ -240,7 +240,7 @@ Public Class GalleryController
   Dim fullName As String = Settings.ImageMapPath & newFile & extension
   Try
    file.SaveAs(fullName)
-   Common.WriteTextToFile(Settings.ImageMapPath & newFile & ".resources", file.FileName)
+   Common.WriteTextToFile(Settings.ImageMapPath & newFile & ".resources", HttpUtility.UrlDecode(file.FileName))
   Catch ioex As IOException
    Threading.Thread.Sleep(500)
    UploadWholeFile(file, statuses, retries - 1)

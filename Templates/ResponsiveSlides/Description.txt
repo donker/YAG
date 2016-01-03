@@ -1,0 +1,44 @@
+﻿<hr />
+<h3>Template Description</h3>
+<p><a href="http://responsiveslides.com/">ResponsiveSlides.js</a> is a tiny jQuery plugin that creates a responsive slider using elements inside a container. It has been used on sites like <a href="http://www.buildwindows.com/launch">Microsoft's Build 2012</a> and <a href="https://gridsetapp.com">Gridset App</a>. ResponsiveSlides.js works with wide range of browsers including all IE versions from IE6 and up. It also adds CSS max-width support for IE6 and other browsers that don't natively support it. Only dependency is <a href="http://jquery.com/">jQuery</a> (1.6 and up supported, tested up to 1.8.3) and that all the images are the same size.</p>
+
+<p>Biggest difference to other responsive slider plugins is the file size (1.4kb minified and gzipped) + that this one doesn't try to do everything. ResponsiveSlides.js has basically only two different modes: Either it just automatically fades the images, or operates as a responsive image container with pagination and/or navigation to fade between slides.</p>
+
+<h4><a id="user-content-features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features:</h4>
+
+<ul>
+<li>Fully responsive</li>
+<li>1kb minified and gzipped</li>
+<li>CSS3 transitions with JavaScript fallback</li>
+<li>Simple markup using unordered list</li>
+<li>Settings for transition and timeout durations</li>
+<li>Multiple slideshows supported</li>
+<li>Automatic and manual fade</li>
+<li>Works in all major desktop and mobile browsers</li>
+<li>Captions and other html-elements supported inside slides</li>
+<li>Separate pagination and next/prev controls</li>
+<li>Possibility to choose where the controls append to</li>
+<li>Possibility to randomize the order of the slides</li>
+<li>Possibility to use custom markup for pagination</li>
+<li>Can be paused while hovering slideshow and/or controls</li>
+<li>Images can be wrapped inside links</li>
+<li>Optional 'before' and 'after' callbacks</li>
+</ul>
+
+<h4>License</h4>
+<p>
+License
+======
+
+Licensed under the MIT license.
+
+Copyright (c) 2011-2012 Viljami Salminen, http://viljamis.com/
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+</p>
+<hr />

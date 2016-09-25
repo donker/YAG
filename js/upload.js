@@ -23,6 +23,7 @@
    fileTypes: /^image\/(gif|jpeg|png)$/,
    maxFileSize: 2000000,
    maxChunkSize: 1000000,
+   sequentialUploads: 1,
    progressall: function (e, data) {
     var progress = parseInt(data.loaded / data.total * 100, 10);
     $('#progress .yag-bar').css(

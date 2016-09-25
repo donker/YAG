@@ -57,12 +57,12 @@ Public Class GalleryController
   Dim localFile As String = GetUploadedFileName(Settings.ImageMapPath, fileName)
   If localFile <> "" Then
    Dim fullName As String = Settings.ImageMapPath & localFile & Path.GetExtension(fileName)
-   If IO.File.Exists(fullName) Then
+   If File.Exists(fullName) Then
     Try
-     IO.File.Delete(fullName)
-     IO.File.Delete(Settings.ImageMapPath & localFile & ".resources")
-     IO.File.Delete(Settings.ImageMapPath & localFile & "_tn" & Path.GetExtension(fileName))
-     IO.File.Delete(Settings.ImageMapPath & localFile & "_zoom" & Path.GetExtension(fileName))
+     File.Delete(fullName)
+     File.Delete(Settings.ImageMapPath & localFile & ".resources")
+     File.Delete(Settings.ImageMapPath & localFile & "_tn" & Path.GetExtension(fileName))
+     File.Delete(Settings.ImageMapPath & localFile & "_zoom" & Path.GetExtension(fileName))
     Catch ex As Exception
      res = False
     End Try
@@ -83,9 +83,9 @@ Public Class GalleryController
   Dim res As String = ""
   Dim localFile As String = GetUploadedFileName(Settings.ImageMapPath, fileName)
   If localFile <> "" Then
-   Dim ext As String = IO.Path.GetExtension(fileName)
+   Dim ext As String = Path.GetExtension(fileName)
    Dim fullName As String = Settings.ImageMapPath & localFile & ext
-   If IO.File.Exists(fullName) Then
+   If File.Exists(fullName) Then
     Dim extOK As Boolean = False
     Select Case ext.ToLower
      Case ".jpg", ".jpeg", ".png", ".gif"
@@ -165,9 +165,9 @@ Public Class GalleryController
  Public Function UploadFile() As HttpResponseMessage
   Dim res As New HttpResponseMessage(HttpStatusCode.OK)
   Dim statuses As New List(Of FilesStatus)
-  HandleUploadFile(System.Web.HttpContext.Current, statuses)
-  System.Web.HttpContext.Current.Response.ContentType = "text/plain"
-  res.Content = New StringContent(WriteJsonIframeSafe(System.Web.HttpContext.Current, statuses))
+  HandleUploadFile(HttpContext.Current, statuses)
+  HttpContext.Current.Response.ContentType = "text/plain"
+  res.Content = New StringContent(WriteJsonIframeSafe(HttpContext.Current, statuses))
   Return res
  End Function
 
@@ -255,9 +255,9 @@ Public Class GalleryController
 
  Private Function GetNewFilekey(extension As String) As String
   Dim res As String = String.Format("{0:yyyyMMdd}-{0:HHmmss}", Now)
-  If IO.File.Exists(Settings.ImageMapPath & res & extension) Then
+  If File.Exists(Settings.ImageMapPath & res & extension) Then
    Dim i As Integer = 0
-   Do While IO.File.Exists(Settings.ImageMapPath & res & i.ToString & extension)
+   Do While File.Exists(Settings.ImageMapPath & res & i.ToString & extension)
     i += 1
    Loop
    res &= i.ToString
@@ -268,9 +268,9 @@ Public Class GalleryController
 
 #Region " Private Methods "
  Private Function GetUploadedFileName(folder As String, originalFilename As String) As String
-  For Each f As String In IO.Directory.GetFiles(folder, "*.resources")
+  For Each f As String In Directory.GetFiles(folder, "*.resources")
    If Common.ReadFile(f) = originalFilename Then
-    Return IO.Path.GetFileNameWithoutExtension(f)
+    Return Path.GetFileNameWithoutExtension(f)
    End If
   Next
   Return ""

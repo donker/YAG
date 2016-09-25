@@ -34,7 +34,7 @@ Namespace Templating
   <XmlElement("valueType")> _
   Public Property ValueType As String = "string"
 
-  <System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1002:DoNotExposeGenericLists"), XmlArray("values"), XmlArrayItem("value")> _
+  <CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1002:DoNotExposeGenericLists"), XmlArray("values"), XmlArrayItem("value")> _
   Public Property Values() As New List(Of TemplateSettingValue)
 
  End Class

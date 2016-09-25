@@ -44,12 +44,12 @@ Public Class YAG
 #Region " Event Handlers "
  Private Sub Page_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
-  If Permissions.ModulePermissionController.HasModulePermission(Me.ModuleConfiguration.ModulePermissions, "EDIT") Then
+  If Permissions.ModulePermissionController.HasModulePermission(ModuleConfiguration.ModulePermissions, "EDIT") Then
    cmdEdit.Visible = True
   End If
 
   DotNetNuke.Framework.jQuery.RequestRegistration()
-  Common.ReadValue(Me.Request.Params, "Page", _reqPage)
+  Common.ReadValue(Request.Params, "Page", _reqPage)
   DataBind()
 
  End Sub

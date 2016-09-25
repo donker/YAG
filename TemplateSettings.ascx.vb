@@ -34,7 +34,7 @@ Public Class TemplateSettings
    Dim td As New TableCell
    td.CssClass = "SubHead"
    td.Width = Unit.Pixel(165)
-   Dim dnnl As DotNetNuke.UI.UserControls.LabelControl = CType(Me.LoadControl(ResolveUrl("~/controls/LabelControl.ascx")), DotNetNuke.UI.UserControls.LabelControl)
+   Dim dnnl As DotNetNuke.UI.UserControls.LabelControl = CType(LoadControl(ResolveUrl("~/controls/LabelControl.ascx")), DotNetNuke.UI.UserControls.LabelControl)
    dnnl.Suffix = ":"
    dnnl.Text = GetString(ts.Key & ".Text", tmgr.SharedResourcesFile)
    dnnl.HelpText = GetString(ts.Key & ".Help", tmgr.SharedResourcesFile)
@@ -76,7 +76,7 @@ Public Class TemplateSettings
    tblSettings.Rows.Add(tr)
   Next
 
-  If Not Me.IsPostBack Then
+  If Not IsPostBack Then
    DataBind()
   End If
 

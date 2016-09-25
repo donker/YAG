@@ -27,19 +27,19 @@ Namespace Templating
   Public Sub New(ByVal moduleConfiguration As DotNetNuke.Entities.Modules.ModuleInfo, settings As GallerySettings)
    MyBase.new(Scope.DefaultSettings)
 
-   Me.ModuleInfo = moduleConfiguration
-   Me.UseObjectLessExpression = False
-   Me.PropertySource("settings") = settings
+   ModuleInfo = moduleConfiguration
+   UseObjectLessExpression = False
+   PropertySource("settings") = settings
 
   End Sub
 
   Public Sub New(ByVal moduleConfiguration As DotNetNuke.Entities.Modules.ModuleInfo, settings As GallerySettings, image As Image)
    MyBase.new(Scope.DefaultSettings)
 
-   Me.ModuleInfo = moduleConfiguration
-   Me.UseObjectLessExpression = False
-   Me.PropertySource("settings") = settings
-   Me.PropertySource("image") = image
+   ModuleInfo = moduleConfiguration
+   UseObjectLessExpression = False
+   PropertySource("settings") = settings
+   PropertySource("image") = image
 
   End Sub
 

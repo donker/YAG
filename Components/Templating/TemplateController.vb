@@ -28,7 +28,7 @@ Namespace Templating
  Public Class Templating
 
 #Region " Public Methods "
-  Public Shared Function FormatBoolean(ByVal value As Boolean, ByVal format As String, ByVal formatProvider As System.Globalization.CultureInfo) As String
+  Public Shared Function FormatBoolean(ByVal value As Boolean, ByVal format As String, ByVal formatProvider As Globalization.CultureInfo) As String
    If String.IsNullOrEmpty(format) Then
     Return value.ToString
    End If

@@ -41,7 +41,7 @@ Public Class Settings
 #Region " Events Handlers "
  Private Sub Page_Init(sender As Object, e As System.EventArgs) Handles Me.Init
 
-  If Not Me.IsPostBack Then
+  If Not IsPostBack Then
    ' Load up dropdown
    ddTemplate.Items.Clear()
    ddTemplate.Items.Add(New ListItem("Default [System]", "[G]_default"))

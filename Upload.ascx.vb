@@ -17,7 +17,7 @@ Public Class Upload
 
   RegisterScript("upload.js", 70)
 
-  If Not Me.IsPostBack Then
+  If Not IsPostBack Then
    If IO.File.Exists(Settings.ImageMapPath & UserInfo.UserID.ToString & ".resources") Then IO.File.Delete(Settings.ImageMapPath & UserInfo.UserID.ToString & ".resources")
   End If
 
@@ -30,6 +30,6 @@ Public Class Upload
    Catch ex As Exception
    End Try
   Next
-  Me.Response.Redirect(EditUrl(), False)
+  Response.Redirect(EditUrl(), False)
  End Sub
 End Class

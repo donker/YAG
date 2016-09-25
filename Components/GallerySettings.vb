@@ -67,13 +67,13 @@ Public Class GallerySettings
 #Region " Public Methods "
  Public Sub Save()
   Dim objModules As New DotNetNuke.Entities.Modules.ModuleController
-  objModules.UpdateModuleSetting(_ModuleId, "Width", Me.Width.ToString)
-  objModules.UpdateModuleSetting(_ModuleId, "Height", Me.Height.ToString)
-  objModules.UpdateModuleSetting(_ModuleId, "ZoomWidth", Me.ZoomWidth.ToString)
-  objModules.UpdateModuleSetting(_ModuleId, "ZoomHeight", Me.ZoomHeight.ToString)
-  objModules.UpdateModuleSetting(_ModuleId, "FitType", Me.FitType)
-  objModules.UpdateModuleSetting(_ModuleId, "ZoomFitType", Me.ZoomFitType)
-  objModules.UpdateModuleSetting(_ModuleId, "Template", Me.Template)
+  objModules.UpdateModuleSetting(_ModuleId, "Width", Width.ToString)
+  objModules.UpdateModuleSetting(_ModuleId, "Height", Height.ToString)
+  objModules.UpdateModuleSetting(_ModuleId, "ZoomWidth", ZoomWidth.ToString)
+  objModules.UpdateModuleSetting(_ModuleId, "ZoomHeight", ZoomHeight.ToString)
+  objModules.UpdateModuleSetting(_ModuleId, "FitType", FitType)
+  objModules.UpdateModuleSetting(_ModuleId, "ZoomFitType", ZoomFitType)
+  objModules.UpdateModuleSetting(_ModuleId, "Template", Template)
   DotNetNuke.Common.Utilities.DataCache.SetCache(CacheKey(_ModuleId), Me)
  End Sub
 
@@ -183,13 +183,13 @@ Public Class GallerySettings
 #End Region
 
 #Region " IPropertyAccess "
- Public ReadOnly Property Cacheability As DotNetNuke.Services.Tokens.CacheLevel Implements DotNetNuke.Services.Tokens.IPropertyAccess.Cacheability
+ Public ReadOnly Property Cacheability As DotNetNuke.Services.Tokens.CacheLevel Implements IPropertyAccess.Cacheability
   Get
    Return CacheLevel.fullyCacheable
   End Get
  End Property
 
- Public Function GetProperty(strPropertyName As String, strFormat As String, formatProvider As System.Globalization.CultureInfo, AccessingUser As DotNetNuke.Entities.Users.UserInfo, AccessLevel As DotNetNuke.Services.Tokens.Scope, ByRef PropertyNotFound As Boolean) As String Implements DotNetNuke.Services.Tokens.IPropertyAccess.GetProperty
+ Public Function GetProperty(strPropertyName As String, strFormat As String, formatProvider As Globalization.CultureInfo, AccessingUser As DotNetNuke.Entities.Users.UserInfo, AccessLevel As DotNetNuke.Services.Tokens.Scope, ByRef PropertyNotFound As Boolean) As String Implements IPropertyAccess.GetProperty
   Dim OutputFormat As String = String.Empty
   If strFormat = String.Empty Then
    OutputFormat = "D"
@@ -200,23 +200,23 @@ Public Class GallerySettings
    Case "moduleid"
     Return (_ModuleId.ToString(OutputFormat, formatProvider))
    Case "width"
-    Return (Me.Width.ToString(OutputFormat, formatProvider))
+    Return (Width.ToString(OutputFormat, formatProvider))
    Case "height"
-    Return (Me.Height.ToString(OutputFormat, formatProvider))
+    Return (Height.ToString(OutputFormat, formatProvider))
    Case "zoomwidth"
-    Return (Me.ZoomWidth.ToString(OutputFormat, formatProvider))
+    Return (ZoomWidth.ToString(OutputFormat, formatProvider))
    Case "zoomheight"
-    Return (Me.ZoomHeight.ToString(OutputFormat, formatProvider))
+    Return (ZoomHeight.ToString(OutputFormat, formatProvider))
    Case "fittype"
-    Return PropertyAccess.FormatString(Me.FitType, strFormat)
+    Return PropertyAccess.FormatString(FitType, strFormat)
    Case "imagepath"
-    Return PropertyAccess.FormatString(Me.ImagePath, strFormat)
+    Return PropertyAccess.FormatString(ImagePath, strFormat)
    Case "imagemappath"
-    Return PropertyAccess.FormatString(Me.ImageMapPath, strFormat)
+    Return PropertyAccess.FormatString(ImageMapPath, strFormat)
    Case "portaltemplatespath"
-    Return PropertyAccess.FormatString(Me.PortalTemplatesPath, strFormat)
+    Return PropertyAccess.FormatString(PortalTemplatesPath, strFormat)
    Case "portaltemplatesmappath"
-    Return PropertyAccess.FormatString(Me.PortalTemplatesMapPath, strFormat)
+    Return PropertyAccess.FormatString(PortalTemplatesMapPath, strFormat)
    Case "templatepath"
     Return PropertyAccess.FormatString(_TemplateManager.TemplatePath, strFormat)
    Case "templatemappath"

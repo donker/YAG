@@ -32,28 +32,28 @@ Namespace Templating
 
 #Region " Constructors "
   Public Sub New(ByVal TemplateRelPath As String)
-   Me.PrimaryResourceFile = TemplateRelPath
-   Me.ResourcesPath = TemplateRelPath.Substring(0, TemplateRelPath.LastIndexOf("/"))
+   PrimaryResourceFile = TemplateRelPath
+   ResourcesPath = TemplateRelPath.Substring(0, TemplateRelPath.LastIndexOf("/"))
    If Not PrimaryResourceFile.ToLower.EndsWith(".resx") Then
-    Me.PrimaryResourceFile = Me.PrimaryResourceFile & ".resx"
+    PrimaryResourceFile = PrimaryResourceFile & ".resx"
    End If
-   Me.SecondaryResourceFile = Me.ResourcesPath & "/resx/SharedResources.ascx.resx"
+   SecondaryResourceFile = ResourcesPath & "/resx/SharedResources.ascx.resx"
   End Sub
 
   Public Sub New()
-   Me.PrimaryResourceFile = Common.glbSharedResourceFileName
-   Me.SecondaryResourceFile = Common.glbSharedResourceFileName
+   PrimaryResourceFile = Common.glbSharedResourceFileName
+   SecondaryResourceFile = Common.glbSharedResourceFileName
   End Sub
 #End Region
 
 #Region " IPropertyAccess Implementation "
-  Public ReadOnly Property Cacheability() As DotNetNuke.Services.Tokens.CacheLevel Implements DotNetNuke.Services.Tokens.IPropertyAccess.Cacheability
+  Public ReadOnly Property Cacheability() As DotNetNuke.Services.Tokens.CacheLevel Implements IPropertyAccess.Cacheability
    Get
     Return CacheLevel.fullyCacheable
    End Get
   End Property
 
-  Public Function GetProperty(ByVal strPropertyName As String, ByVal strFormat As String, ByVal formatProvider As System.Globalization.CultureInfo, ByVal AccessingUser As DotNetNuke.Entities.Users.UserInfo, ByVal AccessLevel As DotNetNuke.Services.Tokens.Scope, ByRef PropertyNotFound As Boolean) As String Implements DotNetNuke.Services.Tokens.IPropertyAccess.GetProperty
+  Public Function GetProperty(ByVal strPropertyName As String, ByVal strFormat As String, ByVal formatProvider As Globalization.CultureInfo, ByVal AccessingUser As DotNetNuke.Entities.Users.UserInfo, ByVal AccessLevel As DotNetNuke.Services.Tokens.Scope, ByRef PropertyNotFound As Boolean) As String Implements IPropertyAccess.GetProperty
    Dim OutputFormat As String = String.Empty
    If strFormat = String.Empty Then
     OutputFormat = "D"

@@ -24,7 +24,7 @@ Imports System.Linq
 <Serializable()> _
 Public Class ImageCollection
 
- <System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1002:DoNotExposeGenericLists"), XmlElement("image")> _
+ <CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1002:DoNotExposeGenericLists"), XmlElement("image")>
  Public Property Images As New List(Of Image)
 
  Private _albumFile As String = ""
@@ -34,11 +34,11 @@ Public Class ImageCollection
   MyBase.New()
   _albumFile = imagesMapPath & "album.xml"
   _imagesMapPath = imagesMapPath
-  Dim x As New System.Xml.Serialization.XmlSerializer(GetType(ImageCollection))
+  Dim x As New XmlSerializer(GetType(ImageCollection))
   If IO.File.Exists(_albumFile) Then
    Using rdr As New IO.StreamReader(_albumFile)
     Dim a As ImageCollection = CType(x.Deserialize(rdr), ImageCollection)
-    Me.Images = a.Images
+    Images = a.Images
    End Using
   End If
  End Sub
@@ -47,7 +47,7 @@ Public Class ImageCollection
 
  Public Sub Save()
   'WriteOrder()
-  Dim x As New System.Xml.Serialization.XmlSerializer(GetType(ImageCollection))
+  Dim x As New XmlSerializer(GetType(ImageCollection))
   Using w As New IO.StreamWriter(_albumFile, False, System.Text.Encoding.UTF8)
    x.Serialize(w, Me)
   End Using

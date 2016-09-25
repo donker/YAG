@@ -26,18 +26,18 @@ Namespace Templating
  <XmlRoot("templateSettings")> _
  Public Class TemplateSettings
 
-  <System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1002:DoNotExposeGenericLists"), XmlElement("templateSetting")> _
+  <CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1002:DoNotExposeGenericLists"), XmlElement("templateSetting")> _
   Public Property Settings() As New List(Of TemplateSetting)
 
   Private _settingsFile As String = ""
   Public Sub New(templateMapPath As String)
    MyBase.New()
    _settingsFile = templateMapPath & "settings.xml"
-   Dim x As New System.Xml.Serialization.XmlSerializer(GetType(TemplateSettings))
+   Dim x As New XmlSerializer(GetType(TemplateSettings))
    If IO.File.Exists(_settingsFile) Then
     Using rdr As New IO.StreamReader(_settingsFile)
      Dim a As TemplateSettings = CType(x.Deserialize(rdr), TemplateSettings)
-     Me.Settings = a.Settings
+     Settings = a.Settings
     End Using
    End If
   End Sub

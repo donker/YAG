@@ -30,8 +30,8 @@ Public Class EditGallery
   RegisterStyleSheet("editgallery.css")
   RegisterScript("editgallery.js", 10)
 
-  If Not Me.IsPostBack Then
-   Me.DataBind()
+  If Not IsPostBack Then
+   DataBind()
   End If
 
  End Sub

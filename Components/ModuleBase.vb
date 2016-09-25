@@ -41,11 +41,11 @@ Public Class ModuleBase
  End Function
 
  Public Sub RegisterStyleSheet(styleSheet As String)
-  DotNetNuke.Web.Client.ClientResourceManagement.ClientResourceManager.RegisterStyleSheet(Me.Page, ResolveUrl("~/DesktopModules/Bring2mind/Yag/css/" & styleSheet & "?_=" & Settings.Version))
+  DotNetNuke.Web.Client.ClientResourceManagement.ClientResourceManager.RegisterStyleSheet(Page, ResolveUrl("~/DesktopModules/Bring2mind/Yag/css/" & styleSheet & "?_=" & Settings.Version))
  End Sub
 
  Public Sub RegisterScript(scriptFile As String, priority As Integer)
-  DotNetNuke.Web.Client.ClientResourceManagement.ClientResourceManager.RegisterScript(Me.Page, ResolveUrl("~/DesktopModules/Bring2mind/Yag/js/" & scriptFile & "?_=" & Settings.Version), priority)
+  DotNetNuke.Web.Client.ClientResourceManagement.ClientResourceManager.RegisterScript(Page, ResolveUrl("~/DesktopModules/Bring2mind/Yag/js/" & scriptFile & "?_=" & Settings.Version), priority)
  End Sub
 
  Public Sub AddYagService()

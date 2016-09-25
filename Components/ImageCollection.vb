@@ -139,4 +139,12 @@ Public Class ImageCollection
   End Try
  End Sub
 
+ Public Sub UpdateUrl(file As String, url As String)
+  Try
+   Dim i As Image = (From x In Images Select x Where x.File = file)(0)
+   i.Url = url
+  Catch ex As Exception
+  End Try
+ End Sub
+
 End Class

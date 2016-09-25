@@ -116,6 +116,9 @@ Public Class GalleryController
   If control.StartsWith("title") Then
    album.UpdateTitle(control.Substring(6), value)
    album.Save()
+  ElseIf control.StartsWith("url") Then
+   album.UpdateUrl(control.Substring(4), value)
+   album.Save()
   ElseIf control.StartsWith("remarks") Then
    album.UpdateRemarks(control.Substring(8), value)
    album.Save()

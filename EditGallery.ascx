@@ -12,6 +12,7 @@
    <img src="<%=Settings.ImagePath%><%#Eval("file")%>_tn<%#Eval("extension")%>" alt="<%#Eval("title")%>" />
   </div>
   <input type="text" class="textbox" placeholder="Title" value="<%#Eval("title")%>" id="title-<%#Eval("file")%>" />
+  <input type="text" class="textbox" placeholder="Url" value="<%#Eval("url")%>" id="url-<%#Eval("file")%>" />
   <textarea class="textbox" rows="3" id="remarks-<%#Eval("file")%>"><%#Eval("remarks")%></textarea>
  </li>
  </ItemTemplate>

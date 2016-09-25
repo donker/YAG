@@ -1,1 +1,1 @@
-Bring2mind.YAG.vbproj;02.01.07
+Bring2mind.YAG.vbproj;02.02.00
